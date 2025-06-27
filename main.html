@@ -1,0 +1,678 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Ajinkya Swami QA Engineer Portfolio" />
+  <title>Ajinkya Swami | QA Engineer</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Poppins', sans-serif;
+      background: linear-gradient(135deg, #1a1a2e, #2b1f47, #1a1a2e, #1f1a3e);
+      background-size: 400% 400%;
+      animation: gradientFlow 15s ease infinite;
+      color: #e0e0e0;
+      overflow-x: hidden;
+    }
+
+    @keyframes gradientFlow {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+
+    .header-gradient {
+      background: linear-gradient(90deg, #3f0f4a 0%, #1a1a2e 100%);
+    }
+
+    .hero-gradient-bg {
+      background: linear-gradient(135deg, #2b1f47 0%, #1a1a2e 50%, #1a1a2e 70%, #1f1a3e 100%);
+      position: relative;
+      overflow: hidden;
+    }
+    .hero-gradient-bg::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: radial-gradient(circle at 10% 10%, rgba(135, 206, 235, 0.1) 0%, transparent 50%),
+                          radial-gradient(circle at 90% 90%, rgba(100, 50, 200, 0.1) 0%, transparent 50%);
+      z-index: 0;
+    }
+
+    .card-bg {
+        background-color: #2b2b40;
+    }
+
+    .skill-bar-fill {
+        background-color: #87CEEB;
+    }
+
+    .bracket {
+        color: #87CEEB;
+    }
+
+    /* Custom dots pattern for hero section */
+    .dots-pattern-bottom-left::before {
+        content: '';
+        position: absolute;
+        bottom: 20px;
+        left: 20px;
+        width: 50px;
+        height: 50px;
+        background: radial-gradient(circle at 50% 50%, #87CEEB 2px, transparent 3px);
+        background-size: 10px 10px;
+        opacity: 0.1;
+        z-index: 1;
+    }
+
+    .dots-pattern-top-right::after {
+        content: '';
+        position: absolute;
+        top: 20px;
+        right: 20px;
+        width: 50px;
+        height: 50px;
+        background: radial-gradient(circle at 50% 50%, #87CEEB 2px, transparent 3px);
+        background-size: 10px 10px;
+        opacity: 0.1;
+        z-index: 1;
+    }
+    .hero-content {
+        position: relative;
+        z-index: 2;
+    }
+
+    /* Sidebar specific styles */
+    .sidebar {
+        width: 280px;
+        background-color: rgba(43, 43, 64, 0.9); /* Increased opacity for better readability */
+        backdrop-filter: blur(10px);
+        -webkit-backdrop-filter: blur(10px);
+        border-right: 1px solid rgba(255, 255, 255, 0.1);
+        position: fixed;
+        top: 0;
+        left: -280px;
+        height: 100%;
+        z-index: 100;
+        transition: left 0.3s ease-in-out;
+        box-shadow: 2px 0 20px rgba(0, 0, 0, 0.5); /* Stronger shadow */
+        padding: 2rem 0;
+    }
+
+    .sidebar.open {
+        left: 0;
+    }
+
+    .overlay {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.7);
+        z-index: 90;
+        opacity: 0;
+        visibility: hidden;
+        transition: opacity 0.3s ease-in-out, visibility 0.3s ease-in-out;
+    }
+
+    .overlay.active {
+        opacity: 1;
+        visibility: visible;
+    }
+
+    .sidebar-header {
+      padding: 1.5rem 2rem;
+      border-bottom: 1px solid rgba(255,255,255,0.1);
+      margin-bottom: 1.5rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .sidebar-nav a {
+      display: block;
+      padding: 1rem 2rem;
+      color: #e0e0e0;
+      font-size: 1.125rem;
+      transition: background-color 0.2s ease, color 0.2s ease;
+    }
+
+    .sidebar-nav a:hover {
+      background-color: rgba(63, 63, 90, 0.5);
+      color: #87CEEB;
+    }
+
+    /* Header Social Menu */
+    .header-social-menu {
+      display: flex;
+      gap: 0.5rem; /* Space between links */
+    }
+
+    .header-social-link {
+        display: inline-flex;
+        justify-content: flex-start;
+        align-items: center;
+        width: 40px; /* Smaller initial width for mobile */
+        height: 40px;
+        border-radius: 8px;
+        position: relative;
+        z-index: 1;
+        overflow: hidden;
+        transition: width 0.2s ease-in, background-color 0.2s ease-in; /* Added background-color to transition */
+        text-decoration: none;
+        color: inherit;
+        background-color: rgba(135, 206, 235, 0.1); /* Subtle background for visibility */
+    }
+
+    .header-social-link:hover,
+    .header-social-link:focus {
+        outline: 0;
+        width: 120px;
+        background-color: rgba(135, 206, 235, 0.3); /* Slightly stronger on hover */
+    }
+
+    .header-social-link-icon {
+        width: 24px;
+        height: 24px;
+        display: flex; /* Use flex to center icon */
+        justify-content: center;
+        align-items: center;
+        position: absolute;
+        left: 8px; /* Adjusted left position */
+        color: #e0e0e0;
+    }
+
+    .header-social-link-icon i {
+        font-size: 1.25rem; /* Slightly larger icon */
+    }
+
+    .header-social-link-title {
+        transform: translateX(100%);
+        transition: transform 0.2s ease-in, opacity 0.2s ease-in;
+        transform-origin: center right;
+        display: block;
+        text-align: left; /* Align text to left */
+        text-indent: 40px; /* Space for the icon */
+        width: 100%;
+        font-size: 0.9rem;
+        opacity: 0;
+        white-space: nowrap;
+        color: #87CEEB;
+    }
+
+    .header-social-link:hover .header-social-link-title,
+    .header-social-link:focus .header-social-link-title {
+        transform: translateX(0);
+        opacity: 1;
+    }
+
+    /* Hide social links on small screens and use hamburger menu */
+    @media (max-width: 767px) {
+        .header-social-menu {
+            display: none; /* Hide social links on mobile */
+        }
+    }
+
+    /* Styles for the success message pop-up */
+    .success-popup {
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      background-color: #2b2b40; /* Same as card background */
+      color: #e0e0e0;
+      padding: 2.5rem;
+      border-radius: 12px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+      z-index: 1000;
+      opacity: 0;
+      visibility: hidden;
+      transition: opacity 0.3s ease-in-out, visibility 0.3s ease-in-out, transform 0.3s ease-in-out;
+      text-align: center;
+      max-width: 90%;
+    }
+
+    .success-popup.show {
+      opacity: 1;
+      visibility: visible;
+      transform: translate(-50%, -50%) scale(1);
+    }
+
+    .success-popup i {
+      color: #87CEEB; /* Accent color for the checkmark */
+      font-size: 3rem;
+      margin-bottom: 1rem;
+    }
+
+    .success-popup h3 {
+      font-size: 1.8rem;
+      font-weight: bold;
+      margin-bottom: 0.75rem;
+    }
+
+    .success-popup p {
+      font-size: 1.1rem;
+      margin-bottom: 1.5rem;
+      color: #ccc;
+    }
+
+    .success-popup button {
+      background-color: #blue-600; /* Matching button color */
+      color: white;
+      padding: 0.8rem 1.5rem;
+      border-radius: 8px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: background-color 0.2s ease;
+    }
+
+    .success-popup button:hover {
+      background-color: #blue-700;
+    }
+  </style>
+</head>
+<body class="selection:bg-blue-300 selection:text-blue-900">
+
+  <div id="sidebar" class="sidebar">
+    <div class="sidebar-header">
+      <h2 class="text-2xl font-bold text-white">Ajinkya S.</h2>
+      <button id="close-sidebar" class="text-gray-400 hover:text-white transition-colors duration-200">
+        <i class="fas fa-times text-2xl"></i>
+      </button>
+    </div>
+    <nav class="sidebar-nav space-y-2">
+      <a href="#home" data-section-link="home">Home</a> <a href="#about-me-section" data-section-link="about-me-section">About Me</a> <a href="#experience" data-section-link="experience">Work Experience</a>
+      <a href="#projects" data-section-link="projects">Projects</a>
+      <a href="#education" data-section-link="education">Education</a>
+      <a href="#skills" data-section-link="skills">Skills</a>
+      <a href="#contact" data-section-link="contact">Contact</a> <a href="Ajinkya_swami_resume.pdf" download class="font-bold text-blue-400 hover:text-blue-300">My Resume <i class="fas fa-download ml-2"></i></a>
+    </nav>
+  </div>
+
+  <div id="overlay" class="overlay"></div>
+
+  <div id="success-popup" class="success-popup">
+    <i class="fas fa-check-circle"></i>
+    <h3>Message Sent Successfully!</h3>
+    <p>Thank you for reaching out. I'll get back to you soon.</p>
+    <button id="close-success-popup">Okay</button>
+  </div>
+
+  <header class="p-6 text-white sticky top-0 z-50 header-gradient">
+    <div class="container mx-auto flex justify-between items-center">
+      <h1 id="open-sidebar" class="text-3xl font-bold tracking-wider cursor-pointer hover:text-blue-300 transition-colors duration-200">Ajinkya S.</h1>
+      <nav class="hidden md:flex items-center header-social-menu"> <a href="https://github.com/ajinkyaswami1999" target="_blank" class="header-social-link">
+            <span class="header-social-link-icon"><i class="fab fa-github"></i></span>
+            <span class="header-social-link-title">GitHub</span>
+        </a>
+        <a href="https://www.linkedin.com/in/ajinkya-swami-82751b191/" target="_blank" class="header-social-link">
+            <span class="header-social-link-icon"><i class="fab fa-linkedin"></i></span>
+            <span class="header-social-link-title">LinkedIn</span>
+        </a>
+      </nav>
+      <button id="mobile-menu-button" class="md:hidden text-white text-2xl">
+        <i class="fas fa-bars"></i>
+      </button>
+    </div>
+  </header>
+
+  <main class="container mx-auto px-4 md:px-12 py-10 space-y-24">
+
+    <section id="home" class="relative hero-gradient-bg min-h-[calc(100vh-120px)] flex flex-col justify-center items-center text-center rounded-xl overflow-hidden p-8 md:p-16 mb-20">
+        <div class="dots-pattern-bottom-left absolute bottom-0 left: 20px; w-1/4 h-1/4"></div>
+        <div class="dots-pattern-top-right absolute top-0 right: 20px; w-1/4 h-1/4"></div>
+
+        <div class="hero-content relative z-10 max-w-4xl mx-auto">
+            <p class="text-blue-300 text-lg md:text-xl mb-4">Hi, I'm Ajinkya Swami!</p>
+            <div class="w-16 h-1 bg-blue-400 mx-auto mb-8"></div>
+            <h2 class="text-4xl md:text-6xl font-extrabold leading-tight mb-8">
+                Precision Testing with Python, Postman,<br> MySQL, and Proven QA <span class="bracket">{Practices}</span>
+            </h2>
+            <p class="text-lg md:text-xl text-gray-400 mb-10 max-w-2xl mx-auto leading-relaxed">
+                As a dynamic QA Engineer with 2+ years of experience, I ensure the quality and reliability of web and mobile platforms. I am passionate about delivering seamless user experiences through robust testing methodologies and collaborative efforts.
+            </p>
+            <div class="flex flex-col sm:flex-row justify-center gap-6">
+                <a href="#about-me-section" class="bg-blue-500 hover:bg-blue-600 text-white font-semibold py-3 px-8 rounded-full transition-colors duration-300 shadow-lg">About me</a>
+                <a href="#contact" class="bg-gray-700 hover:bg-gray-600 text-white font-semibold py-3 px-8 rounded-full flex items-center space-x-2 transition-colors duration-300 shadow-lg">
+                    <span>Let's talk</span>
+                    <i class="fas fa-arrow-right text-sm"></i>
+                </a>
+            </div>
+        </div>
+
+        <div class="absolute right-4 top-1/2 -translate-y-1/2 flex flex-col items-center space-y-4 text-white text-xl z-20 hidden md:flex">
+            <span class="text-xs rotate-90 whitespace-nowrap mb-6 text-gray-400">Follow me</span>
+            <div class="w-px h-16 bg-gray-600"></div>
+            <a href="https://github.com/ajinkyaswami1999" target="_blank" class="hover:text-blue-300 transition-colors duration-200"><i class="fab fa-github"></i></a>
+            <a href="https://www.linkedin.com/in/ajinkya-swami-82751b191/" target="_blank" class="hover:text-blue-300 transition-colors duration-200"><i class="fab fa-linkedin"></i></a>
+            <a href="https://twitter.com/your_twitter" target="_blank" class="hover:text-blue-300 transition-colors duration-200"><i class="fab fa-twitter"></i></a>
+            <a href="https://instagram.com/2ajinkya6" target="_blank" class="hover:text-blue-300 transition-colors duration-200"><i class="fab fa-instagram"></i></a>
+        </div>
+    </section>
+
+    <section id="about-me-section" class="py-16 px-6 md:px-0 hidden" data-section>
+      <h2 class="text-4xl font-bold mb-10 border-b-2 border-blue-500 pb-2 inline-block">About Me</h2>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-10 items-center">
+        <div>
+          <p class="text-xl text-gray-300 mb-6 leading-relaxed">
+            I'm Ajinkya Swami, a QA Engineer. I excel in ensuring the quality and reliability of complex web and mobile applications. My expertise spans across various testing phases, from detailed test case design to leading successful deployments.
+          </p>
+          <p class="text-xl text-gray-300 leading-relaxed">
+            With a strong foundation in both manual and API testing, I am committed to delivering robust and seamless user experiences. I thrive in collaborative environments, leveraging Agile methodologies to integrate QA effectively throughout the SDLC.
+          </p>
+        </div>
+        <div class="grid grid-cols-1 sm:grid-cols-3 gap-6">
+            <div class="card-bg p-6 rounded-lg text-center shadow-xl">
+                <p class="text-4xl font-bold text-accent mb-2">2+</p>
+                <p class="text-gray-300">Years of experience</p>
+            </div>
+            <div class="card-bg p-6 rounded-lg text-center shadow-xl">
+                <p class="text-4xl font-bold text-accent mb-2">10+</p>
+                <p class="text-gray-300">Completed projects</p>
+            </div>
+            <div class="card-bg p-6 rounded-lg text-center shadow-xl">
+                <p class="text-4xl font-bold text-accent mb-2">99%</p>
+                <p class="text-gray-300">Client satisfaction</p>
+            </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="experience" class="py-16 px-6 md:px-0 hidden" data-section>
+      <h2 class="text-4xl font-semibold mb-10 border-b-2 border-blue-500 pb-2 inline-block">Work Experience</h2>
+      <div class="space-y-6">
+        <div class="card-bg shadow-lg rounded-lg p-6">
+          <h3 class="text-xl font-bold text-accent">Payworld India (2022 - Present)</h3>
+          <ul class="list-disc list-inside mt-2 space-y-1 text-gray-300">
+            <li>Led testing for UPI App – 150+ test cases, 95% success rate under load</li>
+            <li>Designed full test cycle for EKYC – 98% DB accuracy, device compatibility</li>
+            <li>Dynamic Rate Plan QA – covered all functionality, reliability & documentation</li>
+            <li>Involved in GST-Invoice, Payment Gateway, and Target Creation modules</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section id="services" class="py-16 px-6 md:px-0 hidden" data-section>
+        <h2 class="text-4xl font-bold mb-10 border-b-2 border-blue-500 pb-2 inline-block">My Services</h2>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <div class="card-bg p-8 rounded-lg shadow-xl flex flex-col items-start text-left">
+                <i class="fas fa-code text-accent text-4xl mb-4"></i>
+                <h3 class="text-xl font-semibold text-white mb-2">Manual Testing</h3>
+                <p class="text-gray-400 text-sm leading-relaxed">
+                    Comprehensive functional, regression, and usability testing to ensure all features meet specifications and provide a flawless user experience.
+                </p>
+            </div>
+            <div class="card-bg p-8 rounded-lg shadow-xl flex flex-col items-start text-left">
+                <i class="fas fa-cogs text-accent text-4xl mb-4"></i>
+                <h3 class="text-xl font-semibold text-white mb-2">API Testing</h3>
+                <p class="text-gray-400 text-sm leading-relaxed">
+                    Thorough validation of APIs using tools like Postman to ensure data integrity, security, and performance of back-end services.
+                </p>
+            </div>
+            <div class="card-bg p-8 rounded-lg shadow-xl flex flex-col items-start text-left">
+                <i class="fas fa-file-alt text-accent text-4xl mb-4"></i>
+                <h3 class="text-xl font-semibold text-white mb-2">Test Documentation</h3>
+                <p class="text-gray-400 text-sm leading-relaxed">
+                    Creating detailed test plans, test cases, and bug reports (Jira) to maintain clear communication and traceability throughout the testing lifecycle.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <section id="skills" class="py-16 px-6 md:px-0 hidden" data-section>
+        <h2 class="text-4xl font-bold mb-10 border-b-2 border-blue-500 pb-2 inline-block">My Skills</h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-8">
+            <div>
+                <p class="text-lg font-medium mb-2">Python</p>
+                <div class="w-full bg-gray-700 rounded-full h-2.5">
+                    <div class="skill-bar-fill h-2.5 rounded-full" style="width: 85%;"></div>
+                </div>
+            </div>
+            <div>
+                <p class="text-lg font-medium mb-2">Manual Testing</p>
+                <div class="w-full bg-gray-700 rounded-full h-2.5">
+                    <div class="skill-bar-fill h-2.5 rounded-full" style="width: 95%;"></div>
+                </div>
+            </div>
+            <div>
+                <p class="text-lg font-medium mb-2">API Testing (Postman)</p>
+                <div class="w-full bg-gray-700 rounded-full h-2.5">
+                    <div class="skill-bar-fill h-2.5 rounded-full" style="width: 90%;"></div>
+                </div>
+            </div>
+            <div>
+                <p class="text-lg font-medium mb-2">Bug Tracking (Jira)</p>
+                <div class="w-full bg-gray-700 rounded-full h-2.5">
+                    <div class="skill-bar-fill h-2.5 rounded-full" style="width: 90%;"></div>
+                </div>
+            </div>
+            <div>
+                <p class="text-lg font-medium mb-2">MySQL</p>
+                <div class="w-full bg-gray-700 rounded-full h-2.5">
+                    <div class="skill-bar-fill h-2.5 rounded-full" style="width: 80%;"></div>
+                </div>
+            </div>
+            <div>
+                <p class="text-lg font-medium mb-2">Agile QA</p>
+                <div class="w-full bg-gray-700 rounded-full h-2.5">
+                    <div class="skill-bar-fill h-2.5 rounded-full" style="width: 95%;"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="projects" class="py-16 px-6 md:px-0 hidden" data-section>
+        <h2 class="text-4xl font-bold mb-10 border-b-2 border-blue-500 pb-2 inline-block">Projects</h2>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <div class="card-bg p-6 rounded-xl shadow-xl">
+                <h3 class="text-xl font-semibold text-accent mb-2">UPI App Testing</h3>
+                <p class="mt-2 text-sm text-gray-300 leading-relaxed">Handled API, Load, UI/UX, and Regression testing end-to-end, ensuring robust and reliable payment transactions.</p>
+            </div>
+            <div class="card-bg p-6 rounded-xl shadow-xl">
+                <h3 class="text-xl font-semibold text-accent mb-2">EKYC Process Automation</h3>
+                <p class="mt-2 text-sm text-gray-300 leading-relaxed">Designed and executed comprehensive test cycles including device validation, scenario coverage, and data accuracy assurance for seamless customer onboarding.</p>
+            </div>
+            <div class="card-bg p-6 rounded-xl shadow-xl">
+                <h3 class="text-xl font-semibold text-accent mb-2">Dynamic Rate Plan QA</h3>
+                <p class="mt-2 text-sm text-gray-300 leading-relaxed">Provided full test coverage for complex dynamic pricing models, including functionality, reliability, and detailed Agile documentation and QA insights.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="education" class="py-16 px-6 md:px-0 hidden" data-section>
+      <h2 class="text-4xl font-bold mb-10 border-b-2 border-blue-500 pb-2 inline-block">Education</h2>
+      <div class="card-bg p-8 rounded-lg shadow-xl">
+        <p class="text-2xl text-white font-semibold">B.Tech, Metallurgical & Materials Engineering</p>
+        <p class="text-xl text-gray-300 mt-2">Malaviya National Institute of Technology (MNIT), Jaipur</p>
+        <p class="text-lg text-gray-400 mt-1">2018–2022</p>
+      </div>
+    </section>
+
+
+    <section id="contact" class="py-16 px-6 md:px-0 hidden" data-section>
+      <h2 class="text-4xl font-bold mb-10 border-b-2 border-blue-500 pb-2 inline-block">Contact Me</h2>
+      <form id="contact-form" action="https://formspree.io/f/mwkgygjo" method="POST" class="bg-gray-800 p-8 rounded-lg shadow-xl space-y-6 max-w-2xl mx-auto">
+        <input type="text" name="name" placeholder="Your Name" required class="w-full p-4 border border-gray-700 bg-gray-900 text-white rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 transition-colors duration-200" />
+        <input type="email" name="email" placeholder="Your Email" required class="w-full p-4 border border-gray-700 bg-gray-900 text-white rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 transition-colors duration-200" />
+        <textarea name="message" placeholder="Your Message" required rows="6" class="w-full p-4 border border-gray-700 bg-gray-900 text-white rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 transition-colors duration-200"></textarea>
+        <button type="submit" class="w-full bg-blue-600 text-white font-semibold py-3 rounded-md hover:bg-blue-700 transition-colors duration-300 shadow-md">Send Message</button>
+      </form>
+    </section>
+
+    <section class="text-center mt-10 hidden" id="download-resume-section" data-section>
+        <a href="Ajinkya_swami_resume.pdf" download class="inline-block bg-blue-500 text-white px-8 py-3 rounded-full font-semibold shadow-lg hover:bg-blue-600 transition-colors duration-300">Download Resume</a>
+    </section>
+
+  </main>
+
+  <footer class="bg-gray-900 text-center py-8 mt-20 text-sm text-gray-500">
+    <p>&copy; 2025 Ajinkya Swami | <a href="mailto:ajinkyaswami1999@gmail.com" class="underline hover:text-blue-300 transition-colors duration-200">ajinkyaswami1999@gmail.com</a> | +91 8875043720</p>
+  </footer>
+
+  <script>
+    const sidebar = document.getElementById('sidebar');
+    const overlay = document.getElementById('overlay');
+    const openSidebarBtn = document.getElementById('open-sidebar');
+    const closeSidebarBtn = document.getElementById('close-sidebar');
+    const sidebarLinks = document.querySelectorAll('.sidebar-nav a');
+    const mainSections = document.querySelectorAll('main section[data-section]');
+    const mobileMenuButton = document.getElementById('mobile-menu-button');
+
+    // Get elements for the contact form and success pop-up
+    const contactForm = document.getElementById('contact-form');
+    const successPopup = document.getElementById('success-popup');
+    const closeSuccessPopupBtn = document.getElementById('close-success-popup');
+
+    // Function to open the sidebar
+    function openSidebar() {
+        sidebar.classList.add('open');
+        overlay.classList.add('active');
+        document.body.style.overflow = 'hidden'; // Prevent scrolling when sidebar is open
+    }
+
+    // Function to close the sidebar
+    function closeSidebar() {
+        sidebar.classList.remove('open');
+        overlay.classList.remove('active');
+        document.body.style.overflow = ''; // Restore scrolling
+    }
+
+    // Function to show the success pop-up
+    function showSuccessPopup() {
+        successPopup.classList.add('show');
+        overlay.classList.add('active'); // Activate overlay behind popup
+        document.body.style.overflow = 'hidden'; // Prevent scrolling
+    }
+
+    // Function to hide the success pop-up
+    function hideSuccessPopup() {
+        successPopup.classList.remove('show');
+        overlay.classList.remove('active'); // Deactivate overlay
+        document.body.style.overflow = ''; // Restore scrolling
+    }
+
+    // Event listeners for opening and closing sidebar
+    openSidebarBtn.addEventListener('click', openSidebar);
+    closeSidebarBtn.addEventListener('click', closeSidebar);
+    overlay.addEventListener('click', () => {
+        closeSidebar();
+        hideSuccessPopup(); // Close success popup if overlay is clicked
+    });
+    mobileMenuButton.addEventListener('click', openSidebar);
+
+    // Event listener for closing the success pop-up
+    closeSuccessPopupBtn.addEventListener('click', hideSuccessPopup);
+
+    // Function to show a specific section and hide others
+    function showSection(targetId) {
+        mainSections.forEach(sec => {
+            sec.classList.add('hidden');
+        });
+        const targetSection = document.getElementById(targetId);
+        if (targetSection) {
+            targetSection.classList.remove('hidden');
+            targetSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+    }
+
+    // Handle clicks on sidebar menu items
+    sidebarLinks.forEach(link => {
+        link.addEventListener('click', function (e) {
+            if (this.hasAttribute('download')) {
+                closeSidebar();
+                return;
+            }
+            e.preventDefault();
+            const targetId = this.getAttribute('href').substring(1);
+            showSection(targetId);
+            closeSidebar();
+        });
+    });
+
+    // Handle clicks for "About me" and "Let's talk" buttons in the Hero section
+    document.querySelector('.hero-content a[href="#about-me-section"]').addEventListener('click', function(e) {
+        e.preventDefault();
+        const targetId = this.getAttribute('href').substring(1);
+        showSection(targetId);
+    });
+
+    document.querySelector('.hero-content a[href="#contact"]').addEventListener('click', function(e) {
+        e.preventDefault();
+        const targetId = this.getAttribute('href').substring(1);
+        showSection(targetId);
+    });
+
+    // Handle contact form submission
+    contactForm.addEventListener('submit', async function(e) {
+        e.preventDefault(); // Prevent default form submission (which causes a page reload)
+
+        const form = e.target;
+        const formData = new FormData(form);
+        const url = form.action;
+
+        try {
+            const response = await fetch(url, {
+                method: 'POST',
+                body: formData,
+                headers: {
+                    'Accept': 'application/json' // Crucial for Formspree to return JSON for success/failure
+                }
+            });
+
+            if (response.ok) {
+                // Formspree returns a 200 OK for successful submissions
+                showSuccessPopup();
+                form.reset(); // Clear the form fields
+            } else {
+                // Handle errors (e.g., Formspree validation error)
+                const errorData = await response.json();
+                console.error('Form submission error:', errorData);
+                alert('There was an error sending your message. Please try again.');
+            }
+        } catch (error) {
+            console.error('Network or fetch error:', error);
+            alert('Could not connect to the server. Please check your internet connection and try again.');
+        }
+    });
+
+
+    // Initial state: ensure #home is visible on load
+    document.addEventListener('DOMContentLoaded', () => {
+        document.getElementById('home').classList.remove('hidden');
+        if (window.innerWidth >= 768) {
+            document.querySelector('.header-social-menu').classList.remove('hidden');
+        }
+    });
+
+    // Handle initial display based on screen size for social links in header
+    window.addEventListener('resize', () => {
+        if (window.innerWidth >= 768) {
+            document.querySelector('.header-social-menu').classList.remove('hidden');
+            document.getElementById('mobile-menu-button').classList.add('hidden');
+        } else {
+            document.querySelector('.header-social-menu').classList.add('hidden');
+            document.getElementById('mobile-menu-button').classList.remove('hidden');
+        }
+    });
+
+    // Initial check on load for mobile menu button visibility
+    document.addEventListener('DOMContentLoaded', () => {
+        if (window.innerWidth < 768) {
+            document.getElementById('mobile-menu-button').classList.remove('hidden');
+            document.querySelector('.header-social-menu').classList.add('hidden');
+        }
+    });
+  </script>
+</body>
+</html>

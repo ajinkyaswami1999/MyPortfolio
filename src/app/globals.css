@@ -1,0 +1,145 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: var(--font-poppins), system-ui, -apple-system, sans-serif;
+  --font-display: var(--font-outfit), system-ui, -apple-system, sans-serif;
+  
+  --color-brand-cyan: #00f2fe;
+  --color-brand-blue: #4facfe;
+  --color-brand-purple: #7f00ff;
+  --color-accent-sky: #87CEEB;
+  
+  --animate-float: float 6s ease-in-out infinite;
+  --animate-pulse-slow: pulseSlow 8s ease-in-out infinite;
+  --animate-gradient-flow: gradientFlow 20s ease infinite;
+  --animate-glow: glow 2s ease-in-out infinite alternate;
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-12px); }
+}
+
+@keyframes pulseSlow {
+  0%, 100% { opacity: 0.3; transform: scale(1); }
+  50% { opacity: 0.6; transform: scale(1.1); }
+}
+
+@keyframes gradientFlow {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+@keyframes glow {
+  from { box-shadow: 0 0 10px rgba(0, 242, 254, 0.2), 0 0 20px rgba(79, 172, 254, 0.2); }
+  to { box-shadow: 0 0 20px rgba(0, 242, 254, 0.4), 0 0 40px rgba(79, 172, 254, 0.4); }
+}
+
+/* Base styles and custom scrollbar */
+html {
+  scroll-behavior: smooth;
+  background-color: #03030d;
+}
+
+body {
+  background-color: #03030d;
+  color: #e2e8f0;
+  overflow-x: hidden;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #03030d;
+}
+::-webkit-scrollbar-thumb {
+  background: #1e1e38;
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #3b3b61;
+}
+
+/* Glassmorphism Utilities */
+.glass-panel {
+  background: rgba(10, 10, 25, 0.5);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.glass-panel-hover {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.glass-panel-hover:hover {
+  background: rgba(20, 20, 45, 0.65);
+  border-color: rgba(0, 242, 254, 0.3);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.5), 0 0 20px rgba(0, 242, 254, 0.1);
+  transform: translateY(-4px);
+}
+
+/* Glow card effects */
+.glow-card {
+  position: relative;
+  overflow: hidden;
+}
+
+.glow-card::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  padding: 1.5px;
+  background: linear-gradient(135deg, rgba(0, 242, 254, 0.3), rgba(79, 172, 254, 0.05), rgba(127, 0, 255, 0.3));
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  pointer-events: none;
+  opacity: 0.8;
+  transition: opacity 0.3s ease;
+}
+
+.glow-card:hover::after {
+  opacity: 1;
+  background: linear-gradient(135deg, #00f2fe, rgba(79, 172, 254, 0.2), #7f00ff);
+}
+
+/* Text glow */
+.text-glow-cyan {
+  text-shadow: 0 0 12px rgba(0, 242, 254, 0.4);
+}
+
+.text-glow-blue {
+  text-shadow: 0 0 12px rgba(79, 172, 254, 0.4);
+}
+
+/* Aurora Circles */
+.aurora-circle-1 {
+  background: radial-gradient(circle, rgba(127, 0, 255, 0.15) 0%, transparent 70%);
+}
+
+.aurora-circle-2 {
+  background: radial-gradient(circle, rgba(0, 242, 254, 0.12) 0%, transparent 70%);
+}
+
+.aurora-circle-3 {
+  background: radial-gradient(circle, rgba(79, 172, 254, 0.1) 0%, transparent 70%);
+}
+
+/* Timeline vertical line */
+.timeline-line {
+  background: linear-gradient(to bottom, #00f2fe, #7f00ff, transparent);
+}
+
+/* Hide scrollbars but keep functionality */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}

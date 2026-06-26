@@ -58,14 +58,20 @@ export default function Hero() {
           {/* Main Title */}
           <motion.h1
             variants={itemVariants}
-            className="text-4xl md:text-5xl lg:text-6xl font-extrabold font-display leading-tight tracking-tight text-white mb-6 max-w-2xl"
+            className="text-3xl md:text-4xl lg:text-5xl font-extrabold font-display leading-tight tracking-tight text-white mb-6 max-w-2xl flex flex-col space-y-2 md:space-y-3"
           >
-            Building{" "}
-            <span className="bg-clip-text text-transparent bg-gradient-to-r from-brand-cyan via-brand-blue to-brand-purple">
-              Reliable
-            </span>{" "}
-            Financial Software Through{" "}
-            <span className="text-glow-cyan text-brand-cyan">Precision</span> QA Engineering.
+            <span className="flex items-start">
+              <span className="text-brand-cyan mr-3 select-none">✓</span>
+              <span>FinTech QA Specialist</span>
+            </span>
+            <span className="flex items-start">
+              <span className="text-brand-blue mr-3 select-none">✓</span>
+              <span>UPI & Payment Systems</span>
+            </span>
+            <span className="flex items-start bg-clip-text text-transparent bg-gradient-to-r from-brand-cyan via-brand-blue to-brand-purple">
+              <span className="text-brand-purple mr-3 select-none">✓</span>
+              <span>API • SQL • Automation • Mobile Testing</span>
+            </span>
           </motion.h1>
 
           {/* Subtitle */}

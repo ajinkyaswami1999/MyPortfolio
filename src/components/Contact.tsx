@@ -17,8 +17,19 @@ export default function Contact() {
     e.preventDefault();
     setStatus("loading");
 
+    const formId = process.env.NEXT_PUBLIC_FORMSPREE_FORM_ID || "mwkgygjo";
+
+    // Simulate successful message submission if using placeholder Formspree ID on localhost or dev
+    if (formId === "mwkgygjo" && (process.env.NODE_ENV === "development" || (typeof window !== "undefined" && window.location.hostname === "localhost"))) {
+      console.warn("Using placeholder Formspree ID. Simulating successful message submission.");
+      await new Promise((resolve) => setTimeout(resolve, 1200));
+      setStatus("success");
+      setFormState({ name: "", email: "", message: "" });
+      return;
+    }
+
     try {
-      const response = await fetch("https://formspree.io/f/mwkgygjo", {
+      const response = await fetch(`https://formspree.io/f/${formId}`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

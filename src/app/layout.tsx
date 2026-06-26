@@ -1,17 +1,17 @@
 import type { Metadata } from "next";
-import { Poppins, Outfit } from "next/font/google";
+import { Inter, Space_Grotesk } from "next/font/google";
 import "./globals.css";
 
-const poppins = Poppins({
-  variable: "--font-poppins",
+const inter = Inter({
+  variable: "--font-inter",
   subsets: ["latin"],
   weight: ["300", "400", "500", "600", "700"],
 });
 
-const outfit = Outfit({
-  variable: "--font-outfit",
+const spaceGrotesk = Space_Grotesk({
+  variable: "--font-space-grotesk",
   subsets: ["latin"],
-  weight: ["300", "400", "500", "600", "700", "800"],
+  weight: ["300", "400", "500", "600", "700"],
 });
 
 export const metadata: Metadata = {
@@ -52,6 +52,8 @@ export const metadata: Metadata = {
     canonical: "https://ajinkyaswami1999.github.io/MyPortfolio",
   }
 };
+
+import BackgroundEffects from "@/components/BackgroundEffects";
 
 export default function RootLayout({
   children,
@@ -97,7 +99,7 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${poppins.variable} ${outfit.variable} h-full antialiased`}
+      className={`${inter.variable} ${spaceGrotesk.variable} h-full antialiased`}
     >
       <head>
         <script
@@ -105,7 +107,8 @@ export default function RootLayout({
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
       </head>
-      <body className="min-h-full flex flex-col bg-[#03030d] text-slate-100 font-sans">
+      <body className="min-h-full flex flex-col bg-[#03030d] text-slate-100 font-sans relative">
+        <BackgroundEffects />
         {children}
       </body>
     </html>

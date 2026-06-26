@@ -1,55 +1,66 @@
 import React from "react";
 import Navbar from "@/components/Navbar";
 import Hero from "@/components/Hero";
-import Metrics from "@/components/Metrics";
+import BentoGrid from "@/components/BentoGrid";
 import Experience from "@/components/Experience";
-import Skills from "@/components/Skills";
 import Projects from "@/components/Projects";
-import Entrepreneurship from "@/components/Entrepreneurship";
+import SideProjects from "@/components/SideProjects";
 import WhyHireMe from "@/components/WhyHireMe";
 import Certifications from "@/components/Certifications";
 import Blog from "@/components/Blog";
 import Contact from "@/components/Contact";
 import Footer from "@/components/Footer";
+import PageWrapper from "@/components/PageWrapper";
 
 export default function Home() {
   return (
     <div className="flex flex-col min-h-screen bg-[#03030d] text-slate-100 selection:bg-brand-cyan/20 selection:text-brand-cyan overflow-hidden">
-      {/* Dynamic Navbar */}
+      {/* Dynamic Floating Navbar */}
       <Navbar />
 
-      {/* Main Sections */}
-      <main className="flex-1">
-        {/* Hero Section */}
-        <Hero />
+      {/* Main Sections wrapped in PageWrapper for animations */}
+      <PageWrapper>
+        <main className="flex-1">
+          {/* Hero Section */}
+          <div id="home">
+            <Hero />
+          </div>
 
-        {/* Metrics Grid */}
-        <Metrics />
+          {/* Bento Grid (combines Metrics, Core Skills, and Highlights) */}
+          <div id="skills">
+            <BentoGrid />
+          </div>
 
-        {/* Work Experience Vertical Timeline */}
-        <Experience />
+          {/* Work Experience Vertical Timeline */}
+          <div id="experience">
+            <Experience />
+          </div>
 
-        {/* Technical Skills Cards */}
-        <Skills />
+          {/* Featured Projects & Case Studies Previews */}
+          <Projects />
 
-        {/* Featured Projects & Case Studies */}
-        <Projects />
+          {/* Digital Products & Side Projects */}
+          <SideProjects />
 
-        {/* Entrepreneurship (VOXELIQUE) */}
-        <Entrepreneurship />
+          {/* Why Hire Me Feature Cards */}
+          <div id="why-hire-me">
+            <WhyHireMe />
+          </div>
 
-        {/* Why Hire Me Feature Cards */}
-        <WhyHireMe />
+          {/* Certifications Deck */}
+          <div id="certifications">
+            <Certifications />
+          </div>
 
-        {/* Certifications Deck */}
-        <Certifications />
+          {/* QA Tech Blog Articles Previews */}
+          <Blog />
 
-        {/* QA Tech Blog Articles */}
-        <Blog />
-
-        {/* Contact Form & Widgets */}
-        <Contact />
-      </main>
+          {/* Contact Form & Widgets */}
+          <div id="contact">
+            <Contact />
+          </div>
+        </main>
+      </PageWrapper>
 
       {/* Footer */}
       <Footer />

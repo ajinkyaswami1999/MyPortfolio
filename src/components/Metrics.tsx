@@ -23,14 +23,14 @@ const metricsData: MetricItem[] = [
   },
   {
     id: 2,
-    value: 8,
+    value: 20,
     suffix: "+",
     label: "Projects Delivered",
     icon: <Briefcase className="text-brand-blue" size={24} />,
   },
   {
     id: 3,
-    value: 150,
+    value: 1000,
     suffix: "+",
     label: "Regression Test Cases",
     icon: <FileSpreadsheet className="text-brand-purple" size={24} />,
@@ -52,14 +52,14 @@ const metricsData: MetricItem[] = [
   },
   {
     id: 6,
-    value: 6,
+    value: 100,
     suffix: "+",
     label: "Production APIs Tested",
     icon: <Layers className="text-brand-blue" size={24} />,
   },
   {
     id: 7,
-    value: 10, // Representing "Millions" as a countdown and then showing "Millions" label
+    value: 10,
     suffix: "M+",
     label: "Financial Transactions Validated",
     icon: <Landmark className="text-brand-purple" size={24} />,

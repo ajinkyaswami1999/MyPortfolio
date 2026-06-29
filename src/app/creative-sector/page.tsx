@@ -355,6 +355,28 @@ export default function CreativeSectorPage() {
                             As the sole founder, I took on all responsibilities. I built the e-commerce storefront, calibrated multiple FDM/SLA 3D printers, set up merchant pipelines, managed social media advertising campaigns, and coordinated D2C logistics. This entrepreneurial journey gave me deep, cross-functional understanding of how tech platforms support business outcomes.
                           </p>
                         </div>
+
+                        {/* Storefront and Instagram links */}
+                        <div className="flex flex-wrap gap-3 mt-6 pt-6 border-t border-white/5 font-mono text-[9px] font-bold">
+                          <a
+                            href="https://www.voxelique.com/"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="flex items-center space-x-1.5 px-4 py-2.5 bg-slate-950 border border-white/5 hover:border-brand-purple text-slate-200 hover:text-white rounded-lg transition-all cursor-pointer"
+                          >
+                            <span>Visit Storefront</span>
+                            <ArrowUpRight size={10} className="text-brand-purple" />
+                          </a>
+                          <a
+                            href="https://www.instagram.com/voxelique/"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="flex items-center space-x-1.5 px-4 py-2.5 bg-slate-950 border border-white/5 hover:border-brand-purple text-slate-200 hover:text-white rounded-lg transition-all cursor-pointer"
+                          >
+                            <span>Instagram @voxelique</span>
+                            <ArrowUpRight size={10} className="text-brand-purple" />
+                          </a>
+                        </div>
                       </div>
 
                       {/* Capabilities */}
@@ -478,7 +500,7 @@ export default function CreativeSectorPage() {
                       </div>
 
                       <a
-                        href="https://www.toolique.in"
+                        href="https://www.toolique.in/"
                         target="_blank"
                         rel="noopener noreferrer"
                         className="mt-6 w-full flex items-center justify-center space-x-1.5 py-2.5 bg-slate-950 hover:bg-slate-900 border border-white/5 hover:border-brand-amber/40 text-[10px] font-mono uppercase tracking-wider font-bold text-slate-200 hover:text-white rounded-xl transition-all"
@@ -509,7 +531,7 @@ export default function CreativeSectorPage() {
                       <Camera size={18} className="text-brand-orange" />
                       <h3 className="text-xs font-bold font-display text-slate-200 font-sans">WORKSHOP EXIF / CAMERA SPEC SHEET</h3>
                     </div>
-                    <div className="grid grid-cols-1 md:grid-cols-3 gap-6 font-mono text-xs text-slate-400">
+                    <div className="grid grid-cols-1 md:grid-cols-4 gap-6 font-mono text-xs text-slate-400">
                       <div className="p-3 bg-slate-950 border border-white/5 rounded-lg">
                         <span className="text-brand-cyan block text-[9px] uppercase tracking-wider mb-1 font-bold">Primary Body</span>
                         <span className="text-slate-200 font-semibold">Nikon Z 30</span>
@@ -524,6 +546,22 @@ export default function CreativeSectorPage() {
                         <span className="text-brand-cyan block text-[9px] uppercase tracking-wider mb-1 font-bold">Aesthetics Focus</span>
                         <span className="text-slate-200 font-semibold">Mechanical Macro & Contrast</span>
                         <span className="text-slate-500 block mt-0.5 text-[9px]">Industrial, high-contrast silhouette</span>
+                      </div>
+                      <div className="p-3 bg-slate-950 border border-white/5 rounded-lg flex flex-col justify-between items-start">
+                        <div>
+                          <span className="text-brand-orange block text-[9px] uppercase tracking-wider mb-1 font-bold">Expedition Feed</span>
+                          <span className="text-slate-200 font-semibold">@theasterlens</span>
+                          <span className="text-slate-500 block mt-0.5 text-[9px]">Wildlife & motorcycle photography logs</span>
+                        </div>
+                        <a
+                          href="https://www.instagram.com/theasterlens/"
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="mt-3 flex items-center space-x-1 text-[8.5px] font-mono font-bold text-brand-orange hover:text-white transition-colors cursor-pointer"
+                        >
+                          <span>Open Feed</span>
+                          <ArrowUpRight size={8} />
+                        </a>
                       </div>
                     </div>
                   </motion.div>

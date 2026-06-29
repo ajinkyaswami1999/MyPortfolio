@@ -137,16 +137,16 @@ export default function PhotographyPage() {
           <div className="container mx-auto px-4 md:px-8">
             {/* Header Block */}
             <div className="flex flex-col mb-16 text-left max-w-3xl">
-              <span className="text-xs font-mono tracking-widest text-brand-orange uppercase mb-2 block">
-                Visual Journal
+              <span className="text-xs font-mono tracking-widest text-brand-amber uppercase mb-2 block">
+                Wildlife & Field Records
               </span>
               <h1 className="text-3xl md:text-5xl font-extrabold font-display text-white">
-                Photography & Shutter Logs
+                Field Documentation
               </h1>
-              <p className="text-slate-400 mt-4 text-sm md:text-base leading-relaxed">
-                Framing raw mechanical details, highway light loops, and close-up macro geometries. I view photography as the validation of light, capturing precision details in the physical world.
+              <p className="text-slate-400 mt-4 text-xs md:text-sm leading-relaxed">
+                Framing macro structures, expedition logs, and high-contrast shapes. These field records catalog physical adaptations of light, details, and forms.
               </p>
-              <div className="h-1 w-20 bg-gradient-to-r from-brand-orange via-brand-cyan to-brand-blue mt-4" />
+              <div className="h-1 w-20 bg-gradient-to-r from-brand-amber via-brand-orange to-jungle-green mt-4" />
             </div>
 
             {/* Tech Gear Spec Board */}

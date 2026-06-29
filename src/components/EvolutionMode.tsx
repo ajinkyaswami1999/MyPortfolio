@@ -2,7 +2,7 @@
 
 import React, { useEffect, useState, useRef } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Sparkles, CloudRain, ShieldAlert } from "lucide-react";
+import { ShieldAlert, AlertOctagon, Terminal } from "lucide-react";
 
 export default function EvolutionMode() {
   const [isActive, setIsActive] = useState(false);
@@ -11,17 +11,16 @@ export default function EvolutionMode() {
   const typedBuffer = useRef("");
   const canvasRef = useRef<HTMLCanvasElement | null>(null);
 
-  // Keyboard listener for evolve / raptor
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
       typedBuffer.current += e.key.toLowerCase();
       
-      // Limit buffer length
       if (typedBuffer.current.length > 20) {
         typedBuffer.current = typedBuffer.current.slice(-20);
       }
 
-      if (typedBuffer.current.endsWith("evolve") || typedBuffer.current.endsWith("raptor")) {
+      // Secret code triggers: raptor or evolve
+      if (typedBuffer.current.endsWith("raptor") || typedBuffer.current.endsWith("evolve")) {
         setIsActive((prev) => !prev);
         setShowBadge(true);
         typedBuffer.current = "";
@@ -37,29 +36,25 @@ export default function EvolutionMode() {
     if (!isActive) return;
 
     const triggerLightning = () => {
-      // Rapid double flash
-      setLightningIntensity(0.85);
+      setLightningIntensity(0.9);
       setTimeout(() => setLightningIntensity(0), 100);
       setTimeout(() => {
         setLightningIntensity(0.95);
-        setTimeout(() => setLightningIntensity(0), 150);
-      }, 250);
+        setTimeout(() => setLightningIntensity(0), 120);
+      }, 200);
     };
 
-    // Random lightning every 8 to 15 seconds
     const interval = setInterval(() => {
-      if (Math.random() > 0.4) {
+      if (Math.random() > 0.45) {
         triggerLightning();
       }
-    }, 6000);
+    }, 5500);
 
-    // Initial trigger
     triggerLightning();
-
     return () => clearInterval(interval);
   }, [isActive]);
 
-  // Seismic Rumbling (footsteps)
+  // Seismic Footstep Rumbles
   useEffect(() => {
     if (!isActive) {
       document.body.classList.remove("screen-rumble");
@@ -70,12 +65,11 @@ export default function EvolutionMode() {
       document.body.classList.add("screen-rumble");
       setTimeout(() => {
         document.body.classList.remove("screen-rumble");
-      }, 350);
+      }, 300);
     };
 
-    // Seismic footstep every 5 seconds
-    const interval = setInterval(triggerFootstep, 5000);
-    triggerFootstep(); // Initial step
+    const interval = setInterval(triggerFootstep, 4500);
+    triggerFootstep();
 
     return () => {
       clearInterval(interval);
@@ -83,7 +77,7 @@ export default function EvolutionMode() {
     };
   }, [isActive]);
 
-  // Canvas Rain Animation
+  // Canvas Rain overlay
   useEffect(() => {
     if (!isActive || !canvasRef.current) return;
     const canvas = canvasRef.current;
@@ -100,33 +94,33 @@ export default function EvolutionMode() {
     };
     window.addEventListener("resize", handleResize);
 
-    const rainCount = 120;
+    const rainCount = 140;
     const rainDrops: { x: number; y: number; length: number; speed: number }[] = [];
 
     for (let i = 0; i < rainCount; i++) {
       rainDrops.push({
         x: Math.random() * width,
         y: Math.random() * height - height,
-        length: Math.random() * 20 + 10,
-        speed: Math.random() * 12 + 10,
+        length: Math.random() * 20 + 8,
+        speed: Math.random() * 14 + 10,
       });
     }
 
     const draw = () => {
       ctx.clearRect(0, 0, width, height);
-      ctx.strokeStyle = "rgba(197, 143, 44, 0.18)"; // Faint amber rain lines
-      ctx.lineWidth = 1;
+      ctx.strokeStyle = "rgba(239, 68, 68, 0.15)"; // Red-tinted warning rain
+      ctx.lineWidth = 1.2;
       ctx.lineCap = "round";
 
       for (let i = 0; i < rainCount; i++) {
         const drop = rainDrops[i];
         ctx.beginPath();
         ctx.moveTo(drop.x, drop.y);
-        ctx.lineTo(drop.x + 1.5, drop.y + drop.length);
+        ctx.lineTo(drop.x + 1.2, drop.y + drop.length);
         ctx.stroke();
 
         drop.y += drop.speed;
-        drop.x += 1; // Slanted rain
+        drop.x += 0.8;
 
         if (drop.y > height) {
           drop.y = -drop.length;
@@ -152,45 +146,50 @@ export default function EvolutionMode() {
         className="lightning-flash" 
         style={{ 
           opacity: lightningIntensity,
-          transition: "opacity 0.05s ease-out" 
+          transition: "opacity 0.04s ease-out" 
         }} 
       />
+
+      {/* Red Alert warning beacon border flash */}
+      {isActive && <div className="lockdown-flash" />}
 
       <AnimatePresence>
         {isActive && (
           <>
-            {/* Rain Canvas overlay */}
+            {/* Rain canvas */}
             <canvas
               ref={canvasRef}
               className="fixed inset-0 z-20 pointer-events-none mix-blend-screen"
             />
 
-            {/* Ambient dark amber sky vignette */}
+            {/* Emergency UI banners */}
             <motion.div
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 0.4 }}
-              exit={{ opacity: 0 }}
-              className="fixed inset-0 bg-[radial-gradient(circle_at_center,transparent_40%,#C58F2C/10_100%)] z-10 pointer-events-none"
-            />
+              initial={{ y: -50, opacity: 0 }}
+              animate={{ y: 0, opacity: 1 }}
+              exit={{ y: -30, opacity: 0 }}
+              className="fixed top-24 left-1/2 -translate-x-1/2 z-40 bg-red-alert/90 border border-red-alert text-slate-950 font-mono text-[9px] font-bold px-4 py-2 rounded-xl flex items-center space-x-2.5 shadow-2xl shadow-red-alert/15"
+            >
+              <AlertOctagon size={12} className="animate-spin" />
+              <span>WARNING: SECURITY PROTOCOL DEVIATION // FACILITY LOCKDOWN ACTIVE</span>
+            </motion.div>
 
-            {/* T-Rex silhouette running across the background */}
+            {/* Prehistoric raptor shadow stalking across the screen */}
             <motion.div
-              initial={{ x: "-100%", opacity: 0 }}
+              initial={{ x: "110%", opacity: 0 }}
               animate={{ 
-                x: "100%", 
-                opacity: [0, 0.25, 0.25, 0],
+                x: "-110%", 
+                opacity: [0, 0.3, 0.3, 0],
               }}
               exit={{ opacity: 0 }}
               transition={{ 
-                duration: 9, 
+                duration: 8, 
                 ease: "linear",
                 repeat: Infinity,
-                repeatDelay: 12
+                repeatDelay: 10
               }}
-              className="fixed bottom-0 left-0 w-[500px] h-[350px] pointer-events-none z-5 select-none opacity-20 filter blur-[4px]"
+              className="fixed bottom-4 left-0 w-[420px] h-[280px] pointer-events-none z-5 select-none opacity-20 filter blur-[4.5px]"
             >
-              {/* Custom T-Rex SVG Shadow outline */}
-              <svg viewBox="0 0 512 512" className="w-full h-full fill-brand-amber">
+              <svg viewBox="0 0 512 512" className="w-full h-full fill-red-alert">
                 <path d="M496 160c-25 0-54 10-69 22-8-36-39-62-75-62h-40v-24h-16v24h-32c-35 0-64 29-64 64v16h-48c-18 0-32 14-32 32v16h-16v16h-16v32h-16v32h-16v64h16c18 0 32-14 32-32v-16h16v-16h16v-16h48v32h16c35 0 64-29 64-64v-16h40c36 0 67-26 75-62 15 12 44 22 69 22h16v-16h-16zM240 240c0-13 11-24 24-24s24 11 24 24-11 24-24 24-24-11-24-24z" />
               </svg>
             </motion.div>
@@ -198,26 +197,26 @@ export default function EvolutionMode() {
         )}
       </AnimatePresence>
 
-      {/* Evolution Mode Unlocked Badge */}
+      {/* Explorer Achievement Badge */}
       <AnimatePresence>
         {showBadge && (
           <motion.div
             initial={{ opacity: 0, y: 50, scale: 0.9 }}
             animate={{ opacity: 1, y: 0, scale: 1 }}
             exit={{ opacity: 0, y: 20 }}
-            className="fixed bottom-6 left-6 z-50 glass-panel p-4.5 rounded-2xl border border-brand-amber/30 max-w-sm flex items-start space-x-3.5 shadow-2xl shadow-brand-amber/5 cursor-pointer"
+            className="fixed bottom-6 left-6 z-50 glass-panel p-4.5 rounded-2xl border border-red-alert/30 max-w-sm flex items-start space-x-3.5 shadow-2xl shadow-red-alert/5 cursor-pointer"
             onClick={() => setShowBadge(false)}
           >
-            <div className="p-2.5 bg-brand-amber/10 border border-brand-amber/20 rounded-xl text-brand-amber">
-              <Sparkles size={16} />
+            <div className="p-2.5 bg-red-alert/10 border border-red-alert/20 rounded-xl text-red-alert">
+              <ShieldAlert size={16} />
             </div>
-            <div>
-              <span className="text-[9px] font-mono tracking-widest text-slate-500 uppercase block">Secret Unlocked</span>
-              <h4 className="text-xs font-bold font-display text-white mt-0.5">EVOLUTION MODE ACTIVE</h4>
-              <p className="text-[10px] text-slate-400 mt-1 leading-normal">
+            <div className="text-left">
+              <span className="text-[9px] font-mono tracking-widest text-slate-500 uppercase block">Achievement Unlocked</span>
+              <h4 className="text-xs font-bold font-display text-white mt-0.5">EXPLORER BADGE</h4>
+              <p className="text-[10px] text-slate-400 mt-1 leading-normal font-mono">
                 {isActive 
-                  ? "Amber rain, seismograph footstep rumbles, and prehistoric shadows have awakened."
-                  : "Prehistoric atmosphere returned to hibernation. Type 'evolve' again to awaken."}
+                  ? "Raptor Protocol decrypted. Facility alarm systems, emergency rain controls, and distant heavy footsteps are online."
+                  : "Facility systems returned to standby mode. Type 'raptor' again to initiate override."}
               </p>
             </div>
           </motion.div>

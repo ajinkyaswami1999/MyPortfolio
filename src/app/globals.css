@@ -4,13 +4,15 @@
   --font-sans: var(--font-inter), system-ui, -apple-system, sans-serif;
   --font-display: var(--font-space-grotesk), system-ui, -apple-system, sans-serif;
   
-  --color-brand-cyan: #38BDF8; /* Electric Blue */
+  --color-brand-cyan: #38BDF8; /* Electric Cyan */
   --color-brand-blue: #0ea5e9;
   --color-brand-orange: #F97316; /* Jawa Orange */
   --color-brand-amber: #C58F2C; /* Amber Fossil */
   --color-brand-purple: #8B5CF6; /* Voxelique purple */
   --color-bone-white: #F3F0E8;
-  --color-success-green: #22C55E;
+  --color-jungle-green: #22C55E;
+  --color-volcanic-orange: #EA580C;
+  --color-red-alert: #EF4444;
   
   --animate-float: float 6s ease-in-out infinite;
   --animate-pulse-slow: pulseSlow 8s ease-in-out infinite;
@@ -124,6 +126,14 @@ body {
   text-shadow: 0 0 12px rgba(197, 143, 44, 0.4);
 }
 
+.text-glow-green {
+  text-shadow: 0 0 12px rgba(34, 197, 94, 0.4);
+}
+
+.text-glow-red {
+  text-shadow: 0 0 12px rgba(239, 68, 68, 0.5);
+}
+
 /* Aurora Circles */
 .aurora-circle-1 {
   background: radial-gradient(circle, rgba(197, 143, 44, 0.08) 0%, transparent 70%);
@@ -137,9 +147,13 @@ body {
   background: radial-gradient(circle, rgba(249, 115, 22, 0.08) 0%, transparent 70%);
 }
 
+.aurora-circle-jungle {
+  background: radial-gradient(circle, rgba(34, 197, 94, 0.06) 0%, transparent 75%);
+}
+
 /* Timeline vertical line */
 .timeline-line {
-  background: linear-gradient(to bottom, #C58F2C, #38BDF8, transparent);
+  background: linear-gradient(to bottom, #C58F2C, #22C55E, transparent);
 }
 
 /* Hide scrollbars but keep functionality */
@@ -178,6 +192,22 @@ body {
   z-index: 100;
   pointer-events: none;
   opacity: 0;
+}
+
+/* Red alert warning screen flash */
+.lockdown-flash {
+  position: fixed;
+  inset: 0;
+  background: rgba(239, 68, 68, 0.05);
+  border: 4px solid rgba(239, 68, 68, 0.2);
+  z-index: 99;
+  pointer-events: none;
+  animation: pulseRed 2s infinite;
+}
+
+@keyframes pulseRed {
+  0%, 100% { opacity: 0.3; }
+  50% { opacity: 0.8; }
 }
 
 /* Screen rumble animation */

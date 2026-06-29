@@ -63,14 +63,14 @@ export default function Contact() {
       <div className="container mx-auto px-4 md:px-8">
         {/* Section Header */}
         <div className="flex flex-col mb-16 text-left max-w-3xl">
-          <span className="text-xs font-mono tracking-widest text-brand-amber uppercase mb-2">Transmission Deck</span>
+          <span className="text-xs font-mono tracking-widest text-brand-amber uppercase mb-2">Satellite Link & Transmission</span>
           <h2 className="text-3xl md:text-4xl font-extrabold font-display text-white">
-            Transmit Signal
+            Transmission Center
           </h2>
           <p className="text-slate-400 mt-3 text-xs md:text-sm leading-relaxed">
-            Send a transmission packet to the Evolution Lab. All signals are queued, reconciled, and audited for quality.
+            Establish satellite radio link with the main station command console. Packets are audited and logged for return contact.
           </p>
-          <div className="h-1 w-20 bg-gradient-to-r from-brand-amber via-brand-orange to-brand-cyan mt-4" />
+          <div className="h-1 w-20 bg-gradient-to-r from-brand-amber via-brand-orange to-jungle-green mt-4" />
         </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-stretch">

@@ -2,10 +2,10 @@
 
 import React from "react";
 import { motion } from "framer-motion";
-import { Cpu, Layers, RefreshCw, CreditCard, Calendar, ShieldCheck } from "lucide-react";
+import { Cpu, Layers, RefreshCw, CreditCard, Calendar, Award } from "lucide-react";
 
 interface TimelineEntry {
-  chamber: string;
+  stage: string;
   company: string;
   role: string;
   duration: string;
@@ -19,15 +19,15 @@ interface TimelineEntry {
 
 const experienceTimeline: TimelineEntry[] = [
   {
-    chamber: "CHAMBER_01_UPI",
+    stage: "EVOLVE_STAGE_04",
     company: "Payworld India",
     role: "Lead QA Engineer (UPI Systems)",
     duration: "Mar 2023 – Present",
-    title: "UPI Application & Payments Testing",
+    title: "UPI Payments Integration & Auditing",
     icon: <Cpu className="text-brand-amber" size={20} />,
     isCurrent: true,
     responsibilities: [
-      "End-to-end flow validation across multiple banking interfaces and payment endpoints.",
+      "End-to-end user flow testing across multiple banking interfaces and payment endpoints.",
       "API validation using Postman to verify request-response structures and boundary edge cases.",
       "Load and performance testing using JMeter simulating high concurrency transaction scenarios.",
       "Database transactional checks confirming ledger integrity and double-debit prevention."
@@ -40,7 +40,7 @@ const experienceTimeline: TimelineEntry[] = [
     ]
   },
   {
-    chamber: "CHAMBER_02_EKYC",
+    stage: "EVOLVE_STAGE_03",
     company: "Payworld India",
     role: "QA Engineer (Identity & eKYC)",
     duration: "Nov 2022 – Mar 2023",
@@ -59,7 +59,7 @@ const experienceTimeline: TimelineEntry[] = [
     ]
   },
   {
-    chamber: "CHAMBER_03_BILLING",
+    stage: "EVOLVE_STAGE_02",
     company: "Payworld India",
     role: "Quality Analyst (Pricing & Commission)",
     duration: "Jul 2022 – Nov 2022",
@@ -78,11 +78,11 @@ const experienceTimeline: TimelineEntry[] = [
     ]
   },
   {
-    chamber: "CHAMBER_04_GATEWAY",
+    stage: "EVOLVE_STAGE_01",
     company: "Payworld India",
     role: "Associate QA Engineer",
     duration: "Mar 2022 – Jul 2022",
-    title: "Core Payment Gateway & Financial Reporting",
+    title: "Core Payment Gateway & Settlement loop",
     icon: <CreditCard className="text-brand-purple" size={20} />,
     responsibilities: [
       "Verifying settlement loops, transaction state transitions, and automated refunds.",
@@ -109,27 +109,27 @@ export default function Experience() {
 
   return (
     <section id="experience" className="py-24 relative bg-[#0A0A0A] overflow-hidden border-t border-white/5">
-      {/* Background Radial Glow */}
-      <div className="absolute top-1/2 left-10 w-[450px] h-[450px] rounded-full bg-brand-amber/5 filter blur-[130px] pointer-events-none" />
+      {/* Background spotlights */}
+      <div className="absolute top-1/2 left-10 w-[450px] h-[450px] rounded-full bg-jungle-green/5 filter blur-[130px] pointer-events-none" />
 
       <div className="container mx-auto px-4 md:px-8">
         {/* Section Header */}
         <div className="flex flex-col mb-20 text-left max-w-3xl">
           <span className="text-xs font-mono tracking-widest text-brand-amber uppercase mb-2 block">
-            Evolution Timeline
+            Evolutionary Log
           </span>
           <h2 className="text-3xl md:text-4xl font-extrabold font-display text-white">
-            Evolution Timeline
+            Evolution Log
           </h2>
-          <p className="text-slate-400 mt-4 text-sm md:text-base leading-relaxed">
-            A chronological trace of quality excavations, payment reliability calibrations, and API testing deployments.
+          <p className="text-slate-400 mt-4 text-xs md:text-sm leading-relaxed">
+            A chronological timeline of my specimen adaptation stages across payment automation, gateway ledger validation, and encryption testing.
           </p>
-          <div className="h-1 w-20 bg-gradient-to-r from-brand-amber via-brand-orange to-brand-cyan mt-4" />
+          <div className="h-1 w-20 bg-gradient-to-r from-brand-amber via-brand-orange to-jungle-green mt-4" />
         </div>
 
-        {/* Futuristic Timeline Container */}
+        {/* Evolution Tree Timeline Container */}
         <div className="relative max-w-5xl mx-auto">
-          {/* Animated spinal progress line */}
+          {/* Central progress line representing fossilized spine */}
           <div className="absolute top-0 bottom-0 left-4 md:left-1/2 w-0.5 bg-slate-900 -translate-x-1/2 pointer-events-none z-0">
             <motion.div
               variants={lineVariants}
@@ -151,13 +151,18 @@ export default function Experience() {
                     isEven ? "md:flex-row-reverse" : ""
                   }`}
                 >
-                  {/* Spine vertebra node on the progress line */}
+                  {/* Glowing Node that expands/grows on scroll */}
                   <div className="absolute top-6 left-4 md:left-1/2 -translate-x-1/2 z-20">
-                    <div className={`w-4 h-4 rounded-sm border-2 border-[#0A0A0A] flex items-center justify-center rotate-45 transition-all ${
-                      item.isCurrent 
-                        ? "bg-brand-amber shadow-[0_0_12px_#C58F2C] animate-pulse" 
-                        : "bg-brand-cyan shadow-[0_0_10px_rgba(56,189,248,0.5)]"
-                    }`} />
+                    <motion.div 
+                      initial={{ scale: 0.8 }}
+                      whileInView={{ scale: 1.25 }}
+                      viewport={{ once: true }}
+                      className={`w-4 h-4 rounded-full border-2 border-[#0A0A0A] flex items-center justify-center transition-all ${
+                        item.isCurrent 
+                          ? "bg-brand-amber shadow-[0_0_12px_#C58F2C] animate-pulse" 
+                          : "bg-jungle-green shadow-[0_0_10px_#22C55E]"
+                      }`} 
+                    />
                   </div>
 
                   {/* Empty Spacer Column for Desktop */}
@@ -171,8 +176,8 @@ export default function Experience() {
                     transition={{ duration: 0.5, delay: index * 0.1 }}
                     className="w-full md:w-[45%] pl-10 md:pl-0"
                   >
-                    <div className="glass-panel p-6 md:p-8 rounded-2xl border border-white/5 bg-[#111111]/75 hover:border-brand-amber/30 transition-all duration-300 relative group flex flex-col justify-between h-full shadow-xl">
-                      {/* Metallic border accent */}
+                    <div className="glass-panel p-6 md:p-8 rounded-2xl border border-white/5 bg-[#111]/75 hover:border-brand-amber/35 transition-all duration-300 relative group flex flex-col justify-between h-full shadow-xl">
+                      {/* Top outline indicator */}
                       <div className="absolute top-0 left-0 w-full h-[1px] bg-gradient-to-r from-transparent via-white/5 to-transparent" />
 
                       {/* Header block */}
@@ -180,7 +185,7 @@ export default function Experience() {
                         <div className="flex flex-wrap justify-between items-start gap-2 mb-4">
                           <div>
                             <span className="text-[9px] font-mono font-bold tracking-widest text-slate-500 uppercase block">
-                              {item.chamber} // {item.company}
+                              LOG_STAGE: {item.stage} // {item.company}
                             </span>
                             <h3 className="text-lg md:text-xl font-bold font-display text-white mt-1">
                               {item.title}
@@ -195,10 +200,10 @@ export default function Experience() {
                           </span>
                         </div>
 
-                        {/* Key responsibilities list */}
+                        {/* Testing Scope List */}
                         <div className="mb-6">
-                          <span className="text-[9px] font-mono tracking-widest text-slate-400 uppercase block mb-2">
-                            Excavation Diagnostics
+                          <span className="text-[9px] font-mono tracking-widest text-slate-450 uppercase block mb-2">
+                            Adaptation Log Details
                           </span>
                           <ul className="space-y-2">
                             {item.responsibilities.map((resp, i) => (
@@ -211,13 +216,13 @@ export default function Experience() {
                         </div>
                       </div>
 
-                      {/* Technologies list */}
+                      {/* Technologies used list */}
                       <div>
                         <div className="flex flex-wrap gap-1.5 pt-4 border-t border-white/5">
                           {item.technologies.map((tech) => (
                             <span
                               key={tech}
-                              className="text-[9px] font-mono px-2 py-0.5 bg-slate-950 border border-slate-900 text-slate-400 rounded-md"
+                              className="text-[9px] font-mono px-2 py-0.5 bg-slate-950 border border-slate-900 text-slate-450 rounded-md"
                             >
                               {tech}
                             </span>

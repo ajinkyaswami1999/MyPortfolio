@@ -5,7 +5,7 @@ import { motion } from "framer-motion";
 
 export default function ScrollSpine() {
   const [scrollProgress, setScrollProgress] = useState(0);
-  const totalSegments = 14; // Number of vertebrae in the spine
+  const totalNodes = 12;
 
   useEffect(() => {
     const handleScroll = () => {
@@ -16,55 +16,65 @@ export default function ScrollSpine() {
     };
 
     window.addEventListener("scroll", handleScroll);
-    handleScroll(); // Initial call
+    handleScroll();
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
   return (
-    <div className="fixed right-6 top-1/2 -translate-y-1/2 z-40 hidden md:flex flex-col items-center space-y-1 pointer-events-none select-none">
-      {/* Top Spine Tip */}
-      <div className="w-1.5 h-1.5 rounded-full bg-slate-900 border border-white/5 mb-1" />
+    <div className="fixed right-6 top-1/2 -translate-y-1/2 z-40 hidden md:flex flex-col items-center space-y-2.5 pointer-events-none select-none">
+      {/* Helix Top Cap */}
+      <span className="text-[7px] font-mono text-slate-650 uppercase tracking-widest origin-center -rotate-90 mb-2">
+        DNA_SEQ
+      </span>
 
-      {/* Spinal Segments */}
-      {Array.from({ length: totalSegments }).map((_, index) => {
-        const threshold = index / totalSegments;
-        const isActive = scrollProgress >= threshold;
+      {/* Rotating DNA Double Helix Chain */}
+      <div className="relative flex flex-col items-center space-y-3">
+        {Array.from({ length: totalNodes }).map((_, index) => {
+          const threshold = index / totalNodes;
+          const isActive = scrollProgress >= threshold;
+          
+          // Apply a progressive rotational phase shift per node based on scroll
+          const baseRotation = (index * 30) + (scrollProgress * 270);
 
-        return (
-          <div key={index} className="relative flex items-center justify-center group">
-            {/* Vertebra Core Disc */}
+          return (
             <motion.div
-              className={`w-3.5 h-2 rounded-sm transition-all duration-300 ${
-                isActive
-                  ? "bg-brand-amber shadow-[0_0_10px_#C58F2C] border-brand-amber"
-                  : "bg-slate-950 border-white/5"
-              } border`}
-              animate={{
-                scale: isActive ? 1.15 : 1,
-              }}
-            />
-
-            {/* Vertebra Transverse Processes (lateral wing bones) */}
-            <div className="absolute flex justify-between w-6 pointer-events-none">
+              key={index}
+              className="relative w-7 h-3 flex items-center justify-between"
+              style={{ rotate: baseRotation }}
+            >
+              {/* Left Strand Nucleotide */}
               <motion.div
-                className={`w-1 h-0.5 rounded-full transition-colors duration-300 ${
-                  isActive ? "bg-brand-amber/80" : "bg-slate-900/60"
+                className={`w-2 h-2 rounded-full border transition-all duration-300 ${
+                  isActive
+                    ? "bg-brand-amber border-brand-amber shadow-[0_0_8px_#C58F2C]"
+                    : "bg-slate-950 border-white/5"
                 }`}
               />
+
+              {/* Connecting Base Pair Hydrogen Bond */}
               <motion.div
-                className={`w-1 h-0.5 rounded-full transition-colors duration-300 ${
-                  isActive ? "bg-brand-amber/80" : "bg-slate-900/60"
+                className={`flex-1 h-[1px] transition-colors duration-300 ${
+                  isActive ? "bg-brand-amber/30" : "bg-white/5"
                 }`}
               />
-            </div>
-          </div>
-        );
-      })}
 
-      {/* Bottom Spine Tip (Tail Bone) */}
-      <div className="w-1.5 h-3 rounded-b-full bg-slate-900 border border-white/5 mt-1" />
-      <span className="text-[7px] font-mono text-slate-600 uppercase tracking-widest mt-2 origin-center rotate-90 whitespace-nowrap">
-        SPINE_POS: {Math.round(scrollProgress * 100)}%
+              {/* Right Strand Nucleotide */}
+              <motion.div
+                className={`w-2 h-2 rounded-full border transition-all duration-300 ${
+                  isActive
+                    ? "bg-brand-cyan border-brand-cyan shadow-[0_0_8px_#38BDF8]"
+                    : "bg-slate-950 border-white/5"
+                }`}
+              />
+            </motion.div>
+          );
+        })}
+      </div>
+
+      {/* Helix Bottom Cap */}
+      <div className="w-1.5 h-1.5 rounded-full bg-slate-900 border border-white/5 mt-3" />
+      <span className="text-[7.5px] font-mono text-slate-500 font-bold mt-2">
+        {Math.round(scrollProgress * 100)}%
       </span>
     </div>
   );

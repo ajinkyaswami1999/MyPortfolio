@@ -97,13 +97,13 @@ export default function TooliquePage() {
           {/* Header Block */}
           <div className="max-w-4xl mb-16 text-left">
             <span className="text-xs font-mono tracking-widest text-brand-amber uppercase mb-2 block">
-              Engineering Toolkit
+              Scientific Instruments & Modules
             </span>
             <h1 className="text-4xl md:text-5xl font-extrabold font-display text-white">
-              Toolique: Developer & QA Utilities
+              Engineering Toolkit: TOOLIQUE
             </h1>
-            <p className="text-slate-400 mt-4 text-sm md:text-base leading-relaxed">
-              Toolique is a tools-based web platform where I compile useful online calculators, productivity scripts, quality validation checklists, and SEO audit tools. Crafted for automated developer utility and search indexing.
+            <p className="text-slate-400 mt-4 text-xs md:text-sm leading-relaxed">
+              Welcome to the Engineering Toolkit. Here, scientific measuring instruments, JSON ledger decoders, automated edge-case generators, and indexing scripts are displayed as interactive modules.
             </p>
             <div className="h-1 w-24 bg-gradient-to-r from-brand-amber to-brand-cyan mt-6" />
           </div>

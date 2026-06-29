@@ -110,16 +110,16 @@ export default function VoxeliquePage() {
         <main className="flex-1 container mx-auto px-4 md:px-8 pt-32 pb-24 relative z-10">
           {/* Header */}
           <div className="max-w-4xl mb-16 text-left">
-            <span className="text-xs font-mono tracking-widest text-brand-purple uppercase mb-2 block">
-              Founder Profile & Operations
+            <span className="text-xs font-mono tracking-widest text-brand-amber uppercase mb-2 block">
+              Manufacturing Station
             </span>
             <h1 className="text-4xl md:text-5xl font-extrabold font-display text-white">
-              Beyond QA: Building VOXELIQUE
+              Digital Fabrication Lab: VOXELIQUE
             </h1>
-            <p className="text-slate-400 mt-4 text-sm md:text-base leading-relaxed">
-              VOXELIQUE is a modern 3D printing brand where I work on product design, 3D printing, customer experience, pricing, branding, content creation, website development, and digital marketing. Here is how I apply engineering and quality frameworks to run a business.
+            <p className="text-slate-400 mt-4 text-xs md:text-sm leading-relaxed">
+              Welcome to the Digital Fabrication Lab. Here, additive manufacturing, industrial CAD parameters, and FDM 3D printer slicing tolerances are calibrated and audited.
             </p>
-            <div className="h-1 w-24 bg-gradient-to-r from-brand-purple to-brand-cyan mt-6" />
+            <div className="h-1 w-24 bg-gradient-to-r from-brand-amber to-brand-cyan mt-6" />
           </div>
 
           {/* Grid Layout - Brand Story & Quality Process */}

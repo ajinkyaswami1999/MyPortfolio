@@ -71,14 +71,14 @@ export default function ProjectsPage() {
         <main className="flex-1 container mx-auto px-4 md:px-8 pt-32 pb-24 relative z-10">
           {/* Header */}
           <div className="max-w-3xl mb-16 text-left">
-            <span className="text-xs font-mono tracking-widest text-brand-cyan uppercase mb-2 block">Case Studies</span>
+            <span className="text-xs font-mono tracking-widest text-brand-amber uppercase mb-2 block">Case Studies</span>
             <h1 className="text-4xl md:text-5xl font-extrabold font-display text-white">
-              FinTech Quality Assurance Projects
+              Research Projects
             </h1>
-            <p className="text-slate-400 mt-4 text-sm md:text-base leading-relaxed">
-              Exhaustive quality engineering case studies covering payment gateways, UPI switches, Aadhaar integrations, dynamic billing rules, automation setups, and performance optimizations.
+            <p className="text-slate-400 mt-4 text-xs md:text-sm leading-relaxed">
+              Every project is archived inside a secure containment chamber. Hovering decapsulates the unit, verifying case study details and QA validations.
             </p>
-            <div className="h-1 w-24 bg-gradient-to-r from-brand-cyan to-brand-blue mt-6" />
+            <div className="h-1 w-24 bg-gradient-to-r from-brand-amber to-brand-cyan mt-6" />
           </div>
 
           {/* Filters & Search Controls */}

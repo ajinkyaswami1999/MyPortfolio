@@ -74,8 +74,37 @@ export default function VoxeliquePage() {
   };
 
   return (
-    <div className="flex flex-col min-h-screen bg-[#03030d] text-slate-100 selection:bg-brand-cyan/20 selection:text-brand-cyan overflow-hidden">
+    <div className="flex flex-col min-h-screen bg-[#0A0A0A] text-slate-100 selection:bg-brand-purple/20 selection:text-brand-purple overflow-hidden relative">
       <Navbar />
+
+      {/* 3D Printing Bed Background Grid */}
+      <div className="absolute inset-0 bg-[#0A0A0A] overflow-hidden pointer-events-none z-0">
+        {/* Subtle grid mimicking a build plate grid */}
+        <div className="absolute inset-0 bg-[linear-gradient(to_right,#151515_1px,transparent_1px),linear-gradient(to_bottom,#151515_1px,transparent_1px)] bg-[size:2.5rem_2.5rem] opacity-35" />
+        
+        {/* Build Plate Major Coordinate Axis Lines */}
+        <div className="absolute top-1/2 left-0 w-full h-px bg-brand-purple/15 shadow-[0_0_10px_rgba(127,0,255,0.3)]" />
+        <div className="absolute left-1/2 top-0 h-full w-px bg-brand-purple/15 shadow-[0_0_10px_rgba(127,0,255,0.3)]" />
+        
+        {/* Build Plate HUD info overlay */}
+        <div className="absolute top-28 left-8 font-mono text-[9px] text-slate-600 uppercase tracking-widest space-y-1 opacity-70">
+          <div>BUILD PLATE: TEI_TEXTURED</div>
+          <div>VOLUME: 220 x 220 x 250 mm</div>
+          <div>X-AXIS: CALIBRATED (OK)</div>
+          <div>Y-AXIS: CALIBRATED (OK)</div>
+        </div>
+        
+        <div className="absolute bottom-12 right-8 font-mono text-[9px] text-slate-600 uppercase tracking-widest space-y-1 opacity-70 text-right">
+          <div>EXTRUDER: 0.4mm HARDENED_STEEL</div>
+          <div>TEMP: 220°C / BED: 60°C</div>
+          <div>SLICER PROFILE: 0.12mm_FINE</div>
+          <div>INFILL: 20% GYROID</div>
+        </div>
+
+        {/* Moving background glow spots */}
+        <div className="absolute top-1/3 left-1/4 w-[300px] h-[300px] rounded-full bg-brand-purple/5 filter blur-[90px] animate-pulse-slow" />
+        <div className="absolute bottom-1/3 right-1/4 w-[250px] h-[250px] rounded-full bg-brand-cyan/5 filter blur-[80px] animate-pulse-slow" style={{ animationDelay: "3s" }} />
+      </div>
 
       <PageWrapper>
         <main className="flex-1 container mx-auto px-4 md:px-8 pt-32 pb-24 relative z-10">

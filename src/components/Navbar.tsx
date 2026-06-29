@@ -14,13 +14,13 @@ interface NavItem {
 
 const navItems: NavItem[] = [
   { label: "Home", href: "/" },
-  { label: "About", href: "/#about", isAnchor: true },
-  { label: "Experience", href: "/#experience", isAnchor: true },
-  { label: "Projects", href: "/projects" },
-  { label: "Voxelique", href: "/voxelique" },
-  { label: "Toolique", href: "/toolique" },
-  { label: "Photography", href: "/photography" },
-  { label: "Contact", href: "/contact" },
+  { label: "DNA Profile", href: "/#about", isAnchor: true },
+  { label: "Evolution Log", href: "/#experience", isAnchor: true },
+  { label: "Research Projects", href: "/projects" },
+  { label: "Digital Fabrication Lab", href: "/voxelique" },
+  { label: "Engineering Toolkit", href: "/toolique" },
+  { label: "Field Documentation", href: "/photography" },
+  { label: "Transmission Center", href: "/contact" },
 ];
 
 export default function Navbar() {
@@ -132,7 +132,7 @@ export default function Navbar() {
           </Link>
 
           {/* Desktop Control Switch Panel */}
-          <nav className="hidden xl:flex items-center space-x-5">
+          <nav className="hidden xl:flex items-center space-x-3">
             {navItems.map((item) => {
               const itemKey = item.isAnchor ? item.href.split("#")[1] : item.href === "/" ? "home" : item.href.substring(1);
               const isActive = activeSection === itemKey;
@@ -142,12 +142,12 @@ export default function Navbar() {
                   key={item.href}
                   href={item.href}
                   onClick={(e) => handleNavClick(e, item)}
-                  className={`text-[9.5px] font-mono tracking-widest uppercase font-bold transition-all flex items-center space-x-1.5 py-1 hover:text-white ${
+                  className={`text-[8px] font-mono tracking-wider font-bold transition-all flex items-center space-x-1 py-1 hover:text-white ${
                     isActive ? "text-brand-amber text-glow-amber" : "text-slate-450"
                   }`}
                 >
                   {/* Status Indicator LED */}
-                  <span className={`w-1.5 h-1.5 rounded-full transition-all duration-300 ${
+                  <span className={`w-1 h-1 rounded-full transition-all duration-300 ${
                     isActive 
                       ? "bg-brand-amber shadow-[0_0_8px_#C58F2C]" 
                       : "bg-slate-900 border border-white/10"

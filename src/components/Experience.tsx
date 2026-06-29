@@ -2,9 +2,10 @@
 
 import React from "react";
 import { motion } from "framer-motion";
-import { CheckCircle2, Cpu, Layers, RefreshCw, CreditCard, Calendar } from "lucide-react";
+import { Cpu, Layers, RefreshCw, CreditCard, Calendar, ShieldCheck } from "lucide-react";
 
 interface TimelineEntry {
+  chamber: string;
   company: string;
   role: string;
   duration: string;
@@ -18,11 +19,12 @@ interface TimelineEntry {
 
 const experienceTimeline: TimelineEntry[] = [
   {
+    chamber: "CHAMBER_01_UPI",
     company: "Payworld India",
     role: "Lead QA Engineer (UPI Systems)",
     duration: "Mar 2023 – Present",
     title: "UPI Application & Payments Testing",
-    icon: <Cpu className="text-brand-orange" size={20} />,
+    icon: <Cpu className="text-brand-amber" size={20} />,
     isCurrent: true,
     responsibilities: [
       "End-to-end flow validation across multiple banking interfaces and payment endpoints.",
@@ -38,6 +40,7 @@ const experienceTimeline: TimelineEntry[] = [
     ]
   },
   {
+    chamber: "CHAMBER_02_EKYC",
     company: "Payworld India",
     role: "QA Engineer (Identity & eKYC)",
     duration: "Nov 2022 – Mar 2023",
@@ -56,11 +59,12 @@ const experienceTimeline: TimelineEntry[] = [
     ]
   },
   {
+    chamber: "CHAMBER_03_BILLING",
     company: "Payworld India",
     role: "Quality Analyst (Pricing & Commission)",
     duration: "Jul 2022 – Nov 2022",
     title: "Dynamic Rate & Settlement Engine",
-    icon: <RefreshCw className="text-brand-blue" size={20} />,
+    icon: <RefreshCw className="text-brand-orange" size={20} />,
     responsibilities: [
       "Validation of complex dynamic pricing tables, commission brackets, and merchant settlements.",
       "Tax invoice check logic verification (GST brackets, merchant commission ledgers).",
@@ -74,6 +78,7 @@ const experienceTimeline: TimelineEntry[] = [
     ]
   },
   {
+    chamber: "CHAMBER_04_GATEWAY",
     company: "Payworld India",
     role: "Associate QA Engineer",
     duration: "Mar 2022 – Jul 2022",
@@ -105,26 +110,26 @@ export default function Experience() {
   return (
     <section id="experience" className="py-24 relative bg-[#0A0A0A] overflow-hidden border-t border-white/5">
       {/* Background Radial Glow */}
-      <div className="absolute top-1/2 left-10 w-[450px] h-[450px] rounded-full bg-brand-orange/5 filter blur-[130px] pointer-events-none" />
+      <div className="absolute top-1/2 left-10 w-[450px] h-[450px] rounded-full bg-brand-amber/5 filter blur-[130px] pointer-events-none" />
 
       <div className="container mx-auto px-4 md:px-8">
         {/* Section Header */}
         <div className="flex flex-col mb-20 text-left max-w-3xl">
-          <span className="text-xs font-mono tracking-widest text-brand-orange uppercase mb-2 block">
-            Professional Journey
+          <span className="text-xs font-mono tracking-widest text-brand-amber uppercase mb-2 block">
+            Evolution Timeline
           </span>
           <h2 className="text-3xl md:text-4xl font-extrabold font-display text-white">
-            Work Experience
+            Evolution Timeline
           </h2>
           <p className="text-slate-400 mt-4 text-sm md:text-base leading-relaxed">
-            A vertical breakdown of my engineering milestones, project responsibilities, and technical validation stacks.
+            A chronological trace of quality excavations, payment reliability calibrations, and API testing deployments.
           </p>
-          <div className="h-1 w-20 bg-gradient-to-r from-brand-orange via-brand-cyan to-brand-blue mt-4" />
+          <div className="h-1 w-20 bg-gradient-to-r from-brand-amber via-brand-orange to-brand-cyan mt-4" />
         </div>
 
         {/* Futuristic Timeline Container */}
         <div className="relative max-w-5xl mx-auto">
-          {/* Animated Progress Line */}
+          {/* Animated spinal progress line */}
           <div className="absolute top-0 bottom-0 left-4 md:left-1/2 w-0.5 bg-slate-900 -translate-x-1/2 pointer-events-none z-0">
             <motion.div
               variants={lineVariants}
@@ -146,12 +151,12 @@ export default function Experience() {
                     isEven ? "md:flex-row-reverse" : ""
                   }`}
                 >
-                  {/* Timeline Dot */}
+                  {/* Spine vertebra node on the progress line */}
                   <div className="absolute top-6 left-4 md:left-1/2 -translate-x-1/2 z-20">
-                    <div className={`w-3.5 h-3.5 rounded-full border-4 border-[#0A0A0A] bg-slate-950 flex items-center justify-center ${
+                    <div className={`w-4 h-4 rounded-sm border-2 border-[#0A0A0A] flex items-center justify-center rotate-45 transition-all ${
                       item.isCurrent 
-                        ? "bg-brand-orange shadow-[0_0_12px_rgba(226,88,34,0.8)] animate-pulse" 
-                        : "bg-brand-cyan shadow-[0_0_10px_rgba(0,229,255,0.6)]"
+                        ? "bg-brand-amber shadow-[0_0_12px_#C58F2C] animate-pulse" 
+                        : "bg-brand-cyan shadow-[0_0_10px_rgba(56,189,248,0.5)]"
                     }`} />
                   </div>
 
@@ -160,13 +165,13 @@ export default function Experience() {
 
                   {/* Timeline Card */}
                   <motion.div
-                    initial={{ opacity: 0, y: 30, scale: 0.98 }}
+                    initial={{ opacity: 0, y: 35, scale: 0.97 }}
                     whileInView={{ opacity: 1, y: 0, scale: 1 }}
                     viewport={{ once: true, margin: "-100px" }}
                     transition={{ duration: 0.5, delay: index * 0.1 }}
                     className="w-full md:w-[45%] pl-10 md:pl-0"
                   >
-                    <div className="glass-panel p-6 md:p-8 rounded-2xl border border-white/5 bg-[#0F0F0F]/65 hover:border-brand-orange/30 transition-all duration-300 relative group flex flex-col justify-between h-full shadow-lg shadow-black/40">
+                    <div className="glass-panel p-6 md:p-8 rounded-2xl border border-white/5 bg-[#111111]/75 hover:border-brand-amber/30 transition-all duration-300 relative group flex flex-col justify-between h-full shadow-xl">
                       {/* Metallic border accent */}
                       <div className="absolute top-0 left-0 w-full h-[1px] bg-gradient-to-r from-transparent via-white/5 to-transparent" />
 
@@ -174,31 +179,31 @@ export default function Experience() {
                       <div>
                         <div className="flex flex-wrap justify-between items-start gap-2 mb-4">
                           <div>
-                            <span className="text-[10px] font-mono font-bold tracking-wider text-slate-500 uppercase">
-                              {item.company}
+                            <span className="text-[9px] font-mono font-bold tracking-widest text-slate-500 uppercase block">
+                              {item.chamber} // {item.company}
                             </span>
-                            <h3 className="text-lg md:text-xl font-bold font-display text-white mt-0.5">
+                            <h3 className="text-lg md:text-xl font-bold font-display text-white mt-1">
                               {item.title}
                             </h3>
-                            <p className="text-xs font-semibold text-brand-orange mt-0.5 font-mono">
+                            <p className="text-xs font-semibold text-brand-amber mt-1 font-mono">
                               {item.role}
                             </p>
                           </div>
-                          <span className="flex items-center space-x-1.5 text-[10px] font-mono text-slate-400 bg-slate-950 border border-slate-900 px-2.5 py-1 rounded-md">
+                          <span className="flex items-center space-x-1.5 text-[9px] font-mono text-slate-400 bg-slate-950 border border-slate-900 px-2.5 py-1 rounded-md">
                             <Calendar size={10} />
                             <span>{item.duration}</span>
                           </span>
                         </div>
 
-                        {/* Testing Scope List */}
+                        {/* Key responsibilities list */}
                         <div className="mb-6">
                           <span className="text-[9px] font-mono tracking-widest text-slate-400 uppercase block mb-2">
-                            Key Responsibilities
+                            Excavation Diagnostics
                           </span>
                           <ul className="space-y-2">
                             {item.responsibilities.map((resp, i) => (
-                              <li key={i} className="flex items-start text-xs text-slate-400 leading-relaxed">
-                                <span className="text-brand-cyan mr-2 shrink-0 select-none">•</span>
+                              <li key={i} className="flex items-start text-xs text-slate-450 leading-relaxed">
+                                <span className="text-brand-amber mr-2 shrink-0 select-none">•</span>
                                 <span>{resp}</span>
                               </li>
                             ))}
@@ -206,7 +211,7 @@ export default function Experience() {
                         </div>
                       </div>
 
-                      {/* Technologies used list */}
+                      {/* Technologies list */}
                       <div>
                         <div className="flex flex-wrap gap-1.5 pt-4 border-t border-white/5">
                           {item.technologies.map((tech) => (

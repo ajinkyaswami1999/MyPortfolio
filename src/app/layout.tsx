@@ -54,6 +54,9 @@ export const metadata: Metadata = {
 };
 
 import BackgroundEffects from "@/components/BackgroundEffects";
+import CustomCursor from "@/components/CustomCursor";
+import ScrollSpine from "@/components/ScrollSpine";
+import EvolutionMode from "@/components/EvolutionMode";
 
 export default function RootLayout({
   children,
@@ -107,8 +110,11 @@ export default function RootLayout({
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
       </head>
-      <body className="min-h-full flex flex-col bg-[#03030d] text-slate-100 font-sans relative">
+      <body className="min-h-full flex flex-col bg-[#0A0A0A] text-slate-100 font-sans relative">
         <BackgroundEffects />
+        <CustomCursor />
+        <ScrollSpine />
+        <EvolutionMode />
         {children}
       </body>
     </html>

@@ -8,7 +8,7 @@ import Contact from "@/components/Contact";
 
 export default function ContactPage() {
   return (
-    <div className="flex flex-col min-h-screen bg-[#03030d] text-slate-100 selection:bg-brand-cyan/20 selection:text-brand-cyan overflow-hidden">
+    <div className="flex flex-col min-h-screen bg-[#0A0A0A] text-slate-100 selection:bg-brand-cyan/20 selection:text-brand-cyan overflow-hidden">
       <Navbar />
 
       <PageWrapper>

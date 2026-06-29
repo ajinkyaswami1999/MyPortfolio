@@ -2,7 +2,7 @@
 
 import React, { useState } from "react";
 import { motion } from "framer-motion";
-import { Mail, Phone, MapPin, Send, Download, CheckCircle2 } from "lucide-react";
+import { Mail, Phone, MapPin, Send, Download, CheckCircle2, Radio } from "lucide-react";
 import { GithubIcon, LinkedinIcon } from "./BrandIcons";
 
 export default function Contact() {
@@ -19,9 +19,7 @@ export default function Contact() {
 
     const formId = process.env.NEXT_PUBLIC_FORMSPREE_FORM_ID || "mwkgygjo";
 
-    // Simulate successful message submission if using placeholder Formspree ID on localhost or dev
     if (formId === "mwkgygjo" && (process.env.NODE_ENV === "development" || (typeof window !== "undefined" && window.location.hostname === "localhost"))) {
-      console.warn("Using placeholder Formspree ID. Simulating successful message submission.");
       await new Promise((resolve) => setTimeout(resolve, 1200));
       setStatus("success");
       setFormState({ name: "", email: "", message: "" });
@@ -58,45 +56,48 @@ export default function Contact() {
   };
 
   return (
-    <section id="contact" className="py-24 relative bg-[#03030d] overflow-hidden">
+    <section id="contact" className="py-24 relative bg-[#0A0A0A] overflow-hidden border-t border-white/5">
       {/* Background aurora */}
-      <div className="absolute top-1/2 right-0 w-[400px] h-[400px] rounded-full aurora-circle-3 filter blur-[100px] opacity-10 pointer-events-none" />
+      <div className="absolute top-1/2 right-0 w-[400px] h-[400px] rounded-full bg-brand-amber/5 filter blur-[100px] pointer-events-none" />
 
       <div className="container mx-auto px-4 md:px-8">
         {/* Section Header */}
         <div className="flex flex-col mb-16 text-left max-w-3xl">
-          <span className="text-xs font-mono tracking-widest text-brand-cyan uppercase mb-2">Get In Touch</span>
+          <span className="text-xs font-mono tracking-widest text-brand-amber uppercase mb-2">Transmission Deck</span>
           <h2 className="text-3xl md:text-4xl font-extrabold font-display text-white">
-            Contact Me
+            Transmit Signal
           </h2>
-          <div className="h-1 w-20 bg-gradient-to-r from-brand-cyan to-brand-blue mt-4" />
+          <p className="text-slate-400 mt-3 text-xs md:text-sm leading-relaxed">
+            Send a transmission packet to the Evolution Lab. All signals are queued, reconciled, and audited for quality.
+          </p>
+          <div className="h-1 w-20 bg-gradient-to-r from-brand-amber via-brand-orange to-brand-cyan mt-4" />
         </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-stretch">
           {/* Left Block - Contact Cards */}
           <div className="lg:col-span-5 flex flex-col justify-between space-y-6">
             {/* Location card */}
-            <div className="glass-panel p-6 rounded-2xl border border-slate-900 flex items-center space-x-4">
-              <div className="p-3 bg-brand-cyan/10 border border-brand-cyan/30 rounded-xl">
-                <MapPin className="text-brand-cyan" size={20} />
+            <div className="glass-panel p-6 rounded-2xl border border-white/5 flex items-center space-x-4">
+              <div className="p-3 bg-brand-amber/10 border border-brand-amber/30 rounded-xl">
+                <MapPin className="text-brand-amber" size={18} />
               </div>
               <div>
-                <span className="text-xs text-slate-500 font-mono block">Location</span>
-                <span className="text-sm md:text-base font-semibold text-white">Gurugram, Haryana, India</span>
+                <span className="text-xs text-slate-500 font-mono block">Station Coordinates</span>
+                <span className="text-xs md:text-sm font-semibold text-white">Gurugram, Haryana, India</span>
               </div>
             </div>
 
             {/* Email card */}
             <a
               href="mailto:ajinkyaswami1999@gmail.com"
-              className="glass-panel p-6 rounded-2xl border border-slate-900 flex items-center space-x-4 hover:border-brand-blue/30 transition-all group"
+              className="glass-panel p-6 rounded-2xl border border-white/5 flex items-center space-x-4 hover:border-brand-amber/35 transition-all group"
             >
-              <div className="p-3 bg-brand-blue/10 border border-brand-blue/30 rounded-xl">
-                <Mail className="text-brand-blue" size={20} />
+              <div className="p-3 bg-brand-cyan/10 border border-brand-cyan/30 rounded-xl">
+                <Mail className="text-brand-cyan" size={18} />
               </div>
               <div>
-                <span className="text-xs text-slate-500 font-mono block">Email Me</span>
-                <span className="text-sm md:text-base font-semibold text-white group-hover:text-brand-cyan transition-colors">
+                <span className="text-xs text-slate-500 font-mono block">Email Link</span>
+                <span className="text-xs md:text-sm font-semibold text-white group-hover:text-brand-amber transition-colors">
                   ajinkyaswami1999@gmail.com
                 </span>
               </div>
@@ -105,49 +106,49 @@ export default function Contact() {
             {/* Phone card */}
             <a
               href="tel:+918875043720"
-              className="glass-panel p-6 rounded-2xl border border-slate-900 flex items-center space-x-4 hover:border-brand-purple/30 transition-all group"
+              className="glass-panel p-6 rounded-2xl border border-white/5 flex items-center space-x-4 hover:border-brand-orange/35 transition-all group"
             >
-              <div className="p-3 bg-brand-purple/10 border border-brand-purple/30 rounded-xl">
-                <Phone className="text-brand-purple" size={20} />
+              <div className="p-3 bg-brand-orange/10 border border-brand-orange/30 rounded-xl">
+                <Phone className="text-brand-orange" size={18} />
               </div>
               <div>
-                <span className="text-xs text-slate-500 font-mono block">Call Me</span>
-                <span className="text-sm md:text-base font-semibold text-white group-hover:text-brand-cyan transition-colors">
+                <span className="text-xs text-slate-500 font-mono block">Hotline Frequency</span>
+                <span className="text-xs md:text-sm font-semibold text-white group-hover:text-brand-amber transition-colors">
                   +91 8875043720
                 </span>
               </div>
             </a>
 
-            {/* Socials Box */}
-            <div className="glass-panel p-6 rounded-2xl border border-slate-900 flex flex-col justify-center space-y-4">
+            {/* Connect & Download */}
+            <div className="glass-panel p-6 rounded-2xl border border-white/5 flex flex-col justify-center space-y-4">
               <span className="text-xs font-mono text-slate-500 text-center uppercase tracking-widest block">
-                Download & Connect
+                Connect Diagnostics
               </span>
               <div className="flex justify-center items-center space-x-4">
                 <a
                   href="https://github.com/ajinkyaswami1999"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="p-3 bg-slate-900 border border-slate-800 rounded-xl text-slate-400 hover:text-white transition-colors"
+                  className="p-3 bg-slate-950 border border-white/5 rounded-xl text-slate-400 hover:text-white transition-colors"
                   aria-label="GitHub"
                 >
-                  <GithubIcon size={20} />
+                  <GithubIcon size={16} />
                 </a>
                 <a
                   href="https://www.linkedin.com/in/ajinkya-swami-82751b191/"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="p-3 bg-slate-900 border border-slate-800 rounded-xl text-slate-400 hover:text-white transition-colors"
+                  className="p-3 bg-slate-950 border border-white/5 rounded-xl text-slate-400 hover:text-white transition-colors"
                   aria-label="LinkedIn"
                 >
-                  <LinkedinIcon size={20} />
+                  <LinkedinIcon size={16} />
                 </a>
                 <a
                   href="/Ajinkya_swami_resume.pdf"
                   download="Ajinkya_Swami_Resume.pdf"
-                  className="flex items-center space-x-2 px-4 py-3 bg-slate-900 border border-slate-800 hover:border-brand-purple/40 text-slate-200 rounded-xl text-sm font-semibold transition-all"
+                  className="flex items-center space-x-1.5 px-4 py-2.5 bg-slate-950 border border-brand-amber/30 hover:border-brand-amber text-slate-200 hover:text-white rounded-xl text-xs font-mono font-bold transition-all"
                 >
-                  <Download size={16} />
+                  <Download size={13} className="text-brand-amber" />
                   <span>Resume</span>
                 </a>
               </div>
@@ -155,34 +156,40 @@ export default function Contact() {
           </div>
 
           {/* Right Block - Contact Form */}
-          <div className="lg:col-span-7 glass-panel p-8 md:p-10 rounded-3xl border border-slate-900 flex flex-col justify-center">
+          <div className="lg:col-span-7 glass-panel p-8 md:p-10 rounded-3xl border border-white/5 flex flex-col justify-center relative overflow-hidden bg-[#111111]/80">
+            {/* Top warning light */}
+            <div className="absolute top-2 right-4 flex items-center space-x-1.5 font-mono text-[8px] text-slate-500 select-none">
+              <Radio size={10} className="text-brand-amber animate-pulse" />
+              <span>FREQ: 144.800 MHz // LINK: SECURE</span>
+            </div>
+
             {status === "success" ? (
               <motion.div
                 initial={{ opacity: 0, scale: 0.95 }}
                 animate={{ opacity: 1, scale: 1 }}
                 className="text-center py-10 flex flex-col items-center justify-center space-y-4"
               >
-                <div className="p-4 bg-brand-cyan/15 rounded-full border border-brand-cyan/30 text-brand-cyan animate-pulse">
-                  <CheckCircle2 size={48} />
+                <div className="p-4 bg-brand-amber/15 rounded-full border border-brand-amber/30 text-brand-amber animate-pulse">
+                  <CheckCircle2 size={40} />
                 </div>
-                <h3 className="text-xl md:text-2xl font-bold font-display text-white">
-                  Message Sent Successfully!
+                <h3 className="text-lg md:text-xl font-bold font-display text-white">
+                  TRANSMISSION RECONCILED
                 </h3>
-                <p className="text-slate-400 text-sm max-w-sm mx-auto leading-relaxed">
-                  Thank you for reaching out. I have received your message and will get back to you shortly.
+                <p className="text-slate-400 text-xs max-w-sm mx-auto leading-relaxed">
+                  Your signal has been integrated into the lab queue queue. Expect audit confirmation shortly.
                 </p>
                 <button
                   onClick={() => setStatus("idle")}
-                  className="text-xs font-semibold px-5 py-2.5 bg-slate-900 border border-slate-800 hover:border-slate-700 text-slate-300 rounded-lg transition-all cursor-pointer"
+                  className="text-xs font-mono uppercase tracking-wider font-bold px-5 py-2.5 bg-slate-950 border border-white/5 hover:border-brand-amber text-slate-350 rounded-xl transition-all cursor-pointer"
                 >
-                  Send Another Message
+                  New Transmission
                 </button>
               </motion.div>
             ) : (
-              <form onSubmit={handleSubmit} className="space-y-6">
+              <form onSubmit={handleSubmit} className="space-y-5 text-left">
                 <div>
-                  <label htmlFor="name" className="block text-xs font-mono text-slate-400 uppercase tracking-wider mb-2">
-                    Your Name
+                  <label htmlFor="name" className="block text-[9px] font-mono text-slate-450 uppercase tracking-widest mb-1.5">
+                    Packet Sender Name
                   </label>
                   <input
                     type="text"
@@ -191,14 +198,14 @@ export default function Contact() {
                     value={formState.name}
                     onChange={handleChange}
                     required
-                    placeholder="Enter your name"
-                    className="w-full px-4 py-3.5 bg-slate-950 border border-slate-900 hover:border-slate-800 focus:border-brand-cyan rounded-xl text-white outline-none transition-colors text-sm"
+                    placeholder="E.g. Lead Recruiter"
+                    className="w-full px-4 py-3 bg-slate-950 border border-white/5 focus:border-brand-amber rounded-xl text-white outline-none transition-colors text-xs font-mono"
                   />
                 </div>
 
                 <div>
-                  <label htmlFor="email" className="block text-xs font-mono text-slate-400 uppercase tracking-wider mb-2">
-                    Your Email Address
+                  <label htmlFor="email" className="block text-[9px] font-mono text-slate-450 uppercase tracking-widest mb-1.5">
+                    Sender Return Route (Email)
                   </label>
                   <input
                     type="email"
@@ -208,13 +215,13 @@ export default function Contact() {
                     onChange={handleChange}
                     required
                     placeholder="name@company.com"
-                    className="w-full px-4 py-3.5 bg-slate-950 border border-slate-900 hover:border-slate-800 focus:border-brand-cyan rounded-xl text-white outline-none transition-colors text-sm"
+                    className="w-full px-4 py-3 bg-slate-950 border border-white/5 focus:border-brand-amber rounded-xl text-white outline-none transition-colors text-xs font-mono"
                   />
                 </div>
 
                 <div>
-                  <label htmlFor="message" className="block text-xs font-mono text-slate-400 uppercase tracking-wider mb-2">
-                    Your Message
+                  <label htmlFor="message" className="block text-[9px] font-mono text-slate-450 uppercase tracking-widest mb-1.5">
+                    Payload Message
                   </label>
                   <textarea
                     id="message"
@@ -223,31 +230,31 @@ export default function Contact() {
                     onChange={handleChange}
                     required
                     rows={5}
-                    placeholder="Describe your project, role, or proposal..."
-                    className="w-full px-4 py-3.5 bg-slate-950 border border-slate-900 hover:border-slate-800 focus:border-brand-cyan rounded-xl text-white outline-none transition-colors text-sm resize-none"
+                    placeholder="Describe your project, role scope, or pipeline calibrations..."
+                    className="w-full px-4 py-3 bg-slate-950 border border-white/5 focus:border-brand-amber rounded-xl text-white outline-none transition-colors text-xs font-mono resize-none"
                   />
                 </div>
 
                 {status === "error" && (
-                  <p className="text-xs text-rose-500 font-medium">
-                    Oops! There was a problem sending your message. Please try again.
+                  <p className="text-[10px] text-rose-500 font-mono">
+                    [ERROR] Packet drop occurred. Re-check network link and resubmit.
                   </p>
                 )}
 
                 <button
                   type="submit"
                   disabled={status === "loading"}
-                  className="w-full flex items-center justify-center space-x-2 text-sm font-semibold py-3.5 bg-gradient-to-r from-brand-cyan to-brand-blue text-slate-950 rounded-xl transition-all cursor-pointer shadow-lg shadow-brand-cyan/10 active:scale-95 disabled:opacity-50 disabled:cursor-not-allowed"
+                  className="w-full flex items-center justify-center space-x-2 text-xs font-mono uppercase tracking-wider font-bold py-3.5 bg-gradient-to-r from-brand-amber to-brand-orange text-slate-950 rounded-xl transition-all cursor-pointer shadow-lg active:scale-95 disabled:opacity-50 disabled:cursor-not-allowed"
                 >
                   {status === "loading" ? (
                     <span className="flex items-center space-x-2">
-                      <span className="w-4 h-4 border-2 border-slate-950 border-t-transparent rounded-full animate-spin" />
-                      <span>Sending Message...</span>
+                      <span className="w-3.5 h-3.5 border-2 border-slate-950 border-t-transparent rounded-full animate-spin" />
+                      <span>Transmitting Packet...</span>
                     </span>
                   ) : (
                     <>
-                      <span>Send Message</span>
-                      <Send size={16} />
+                      <span>Transmit Packet</span>
+                      <Send size={12} />
                     </>
                   )}
                 </button>

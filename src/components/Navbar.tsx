@@ -18,6 +18,7 @@ const navItems: NavItem[] = [
   { label: "Experience", href: "/#experience", isAnchor: true },
   { label: "Projects", href: "/projects" },
   { label: "Voxelique", href: "/voxelique" },
+  { label: "Toolique", href: "/toolique" },
   { label: "Photography", href: "/photography" },
   { label: "Contact", href: "/contact" },
 ];
@@ -56,10 +57,10 @@ export default function Navbar() {
       } else {
         if (pathname.startsWith("/projects")) {
           setActiveSection("projects");
-        } else if (pathname.startsWith("/blog")) {
-          setActiveSection("blog");
         } else if (pathname.startsWith("/voxelique")) {
           setActiveSection("voxelique");
+        } else if (pathname.startsWith("/toolique")) {
+          setActiveSection("toolique");
         } else if (pathname.startsWith("/photography")) {
           setActiveSection("photography");
         } else if (pathname.startsWith("/contact")) {

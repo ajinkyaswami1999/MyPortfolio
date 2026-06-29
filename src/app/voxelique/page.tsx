@@ -193,23 +193,48 @@ export default function VoxeliquePage() {
                 </div>
               </div>
 
-              {/* What I Learned Highlights */}
-              <div className="glass-panel p-6 border border-slate-900 rounded-3xl">
-                <h2 className="text-sm font-mono uppercase tracking-widest text-slate-500 mb-4">
-                  What I Learned
+              {/* Digital Lab Materials Spec Sheet */}
+              <div className="glass-panel p-6 border border-brand-purple/20 bg-slate-950/40 rounded-3xl">
+                <h2 className="text-sm font-mono uppercase tracking-widest text-slate-400 mb-4">
+                  Lab Material Spec Sheet
                 </h2>
-                <ul className="space-y-2.5 text-xs text-slate-400">
+                <div className="space-y-3 font-mono text-[10px] text-slate-400">
+                  <div className="flex justify-between border-b border-white/5 pb-2">
+                    <span>PLA (Decorative / Low-Warp):</span>
+                    <span className="text-[#F3F0E8] font-bold">205°C Extrusion / 60°C Bed</span>
+                  </div>
+                  <div className="flex justify-between border-b border-white/5 pb-2">
+                    <span>PETG (Mechanical / Chemical):</span>
+                    <span className="text-[#F3F0E8] font-bold">240°C Extrusion / 80°C Bed</span>
+                  </div>
+                  <div className="flex justify-between border-b border-white/5 pb-2">
+                    <span>TPU (Flexible / Vibration):</span>
+                    <span className="text-[#F3F0E8] font-bold">220°C Extrusion / 50°C Bed</span>
+                  </div>
+                  <div className="flex justify-between">
+                    <span>Carbon Fiber Nylon (Functional):</span>
+                    <span className="text-[#F3F0E8] font-bold">270°C Extrusion / 95°C Bed</span>
+                  </div>
+                </div>
+              </div>
+
+              {/* Future Shop Launch Pipeline */}
+              <div className="glass-panel p-6 border border-white/5 bg-slate-950/20 rounded-3xl">
+                <h2 className="text-sm font-mono uppercase tracking-widest text-slate-400 mb-4">
+                  Future Shop Launch Pipeline
+                </h2>
+                <ul className="space-y-2.5 text-xs text-slate-450">
                   <li className="flex items-start">
                     <span className="text-brand-purple mr-2 font-bold">•</span>
-                    <span><strong>Customer-centric QA:</strong> Test flows are only as good as the customer experience they support.</span>
+                    <span><strong>Carbon Fiber Bobber Plugs:</strong> Mechanical vibration-damping plugs for Jawa Bobber chassis joints.</span>
                   </li>
                   <li className="flex items-start">
                     <span className="text-brand-purple mr-2 font-bold">•</span>
-                    <span><strong>Data-driven optimization:</strong> Analyzing advertising conversion rates, cart drop-offs, and shipping logs.</span>
+                    <span><strong>Modular Desk Dividers V2:</strong> Dynamic grid dividers utilizing snap-fit tolerance locks (0.1mm accuracy).</span>
                   </li>
                   <li className="flex items-start">
                     <span className="text-brand-purple mr-2 font-bold">•</span>
-                    <span><strong>System scalability:</strong> Ensuring e-commerce databases scale smoothly during discount runs.</span>
+                    <span><strong>Low-Poly Fossil Sculpture:</strong> Dual-extrusion models showcasing geometric dinosaur fossil aesthetics.</span>
                   </li>
                 </ul>
               </div>

@@ -64,7 +64,7 @@ export default function ProjectsPage() {
   };
 
   return (
-    <div className="flex flex-col min-h-screen bg-[#03030d] text-slate-100 selection:bg-brand-cyan/20 selection:text-brand-cyan overflow-hidden">
+    <div className="flex flex-col min-h-screen bg-[#0A0A0A] text-slate-100 selection:bg-brand-cyan/20 selection:text-brand-cyan overflow-hidden">
       <Navbar />
 
       <PageWrapper>
@@ -124,24 +124,33 @@ export default function ProjectsPage() {
               initial="hidden"
               animate="visible"
             >
-              {filteredProjects.map((project) => (
+              {filteredProjects.map((project, index) => (
                 <motion.div
                   key={project.id}
                   variants={cardVariants}
-                  className="glass-panel glow-card p-6 md:p-8 rounded-3xl border border-slate-900 flex flex-col justify-between hover:border-brand-cyan/25 transition-all group"
+                  whileHover={{ scale: 1.015, y: -4 }}
+                  className="glass-panel p-6 md:p-8 rounded-3xl border border-slate-900 bg-[#111111]/75 flex flex-col justify-between hover:border-brand-cyan/40 transition-all duration-300 group relative overflow-hidden shadow-2xl shadow-black/80"
                 >
+                  {/* Top containment glow light */}
+                  <div className="absolute top-0 left-0 w-full h-[1.5px] bg-gradient-to-r from-transparent via-brand-cyan/20 to-transparent group-hover:via-brand-cyan transition-all duration-500" />
+                  
+                  {/* Chamber Technical Tag */}
+                  <div className="absolute top-3 right-6 font-mono text-[7px] text-slate-600 uppercase tracking-widest pointer-events-none select-none">
+                    UNIT_CHAMBER_0{index + 1} // SECURE
+                  </div>
+
                   <div>
                     {/* Header */}
                     <div className="flex justify-between items-start mb-6">
-                      <div className="flex items-center space-x-3">
-                        <div className="p-2.5 bg-slate-900/80 border border-slate-800 rounded-xl">
+                      <div className="flex items-center space-x-3.5">
+                        <div className="p-2.5 bg-slate-950 border border-white/5 rounded-xl text-brand-cyan group-hover:border-brand-cyan/35 transition-colors">
                           {getIcon(project.id)}
                         </div>
                         <div>
-                          <h2 className="text-xl md:text-2xl font-bold font-display text-white group-hover:text-brand-cyan transition-colors">
+                          <h2 className="text-lg md:text-xl font-extrabold font-display text-white group-hover:text-brand-cyan transition-colors">
                             {project.title}
                           </h2>
-                          <span className="text-[11px] font-mono text-slate-500 uppercase tracking-wider block mt-0.5">
+                          <span className="text-[10px] font-mono text-slate-500 uppercase tracking-wider block mt-0.5">
                             {project.category}
                           </span>
                         </div>
@@ -149,9 +158,9 @@ export default function ProjectsPage() {
                     </div>
 
                     {/* Testing Type */}
-                    <div className="mb-4">
-                      <span className="text-[10px] font-mono uppercase tracking-widest text-slate-500 block mb-1">
-                        Testing Scope
+                    <div className="mb-4 bg-slate-950/40 px-3 py-1.5 border border-white/5 rounded-lg inline-block">
+                      <span className="text-[9px] font-mono uppercase tracking-widest text-slate-500 block mb-0.5">
+                        Calibration Scope
                       </span>
                       <span className="text-xs font-semibold text-brand-cyan">
                         {project.testingType}
@@ -159,20 +168,20 @@ export default function ProjectsPage() {
                     </div>
 
                     {/* Summary */}
-                    <p className="text-slate-400 text-xs md:text-sm leading-relaxed mb-6">
+                    <p className="text-slate-400 text-xs leading-relaxed mb-6">
                       {project.summary}
                     </p>
 
                     {/* Tools Badges */}
                     <div className="mb-6">
-                      <span className="text-[10px] font-mono uppercase tracking-widest text-slate-500 block mb-2.5">
-                        Tools Leveraged
+                      <span className="text-[9px] font-mono uppercase tracking-widest text-slate-500 block mb-2">
+                        Containment Utilities
                       </span>
                       <div className="flex flex-wrap gap-1.5">
                         {project.tools.map((tool) => (
                           <span
                             key={tool}
-                            className="text-[10px] px-2.5 py-1 bg-slate-950/80 border border-slate-900 text-slate-300 rounded-md"
+                            className="text-[9px] font-mono px-2 py-0.5 bg-slate-950 border border-slate-900 text-slate-400 rounded-md"
                           >
                             {tool}
                           </span>
@@ -181,18 +190,18 @@ export default function ProjectsPage() {
                     </div>
 
                     {/* Key Metrics Highlight Grid */}
-                    <div className="border-t border-slate-900/60 pt-6 mt-4">
-                      <span className="text-[10px] font-mono uppercase tracking-widest text-slate-500 block mb-3">
-                        QA Results & Metrics
+                    <div className="border-t border-white/5 pt-5 mt-4">
+                      <span className="text-[9px] font-mono uppercase tracking-widest text-slate-500 block mb-3">
+                        Excavation QA Results
                       </span>
-                      <div className="grid grid-cols-2 gap-3">
+                      <div className="grid grid-cols-2 gap-2.5">
                         {project.metrics.map((metric, i) => (
                           <div
                             key={i}
-                            className="flex items-center space-x-2 bg-slate-950/40 border border-slate-900/50 p-2.5 rounded-xl"
+                            className="flex items-center space-x-2 bg-slate-950/60 border border-slate-900/60 p-2.5 rounded-xl group-hover:border-brand-cyan/20 transition-colors"
                           >
-                            <Award size={14} className="text-brand-cyan shrink-0" />
-                            <span className="text-xs font-medium text-slate-350">{metric}</span>
+                            <Award size={13} className="text-brand-cyan shrink-0" />
+                            <span className="text-[11px] font-medium text-slate-350">{metric}</span>
                           </div>
                         ))}
                       </div>
@@ -200,13 +209,13 @@ export default function ProjectsPage() {
                   </div>
 
                   {/* View Case Study CTA */}
-                  <div className="mt-8 pt-6 border-t border-slate-900/80 flex justify-end">
+                  <div className="mt-8 pt-5 border-t border-white/5 flex justify-end">
                     <Link
                       href={`/projects/${project.id}`}
-                      className="flex items-center space-x-2 text-xs font-bold text-brand-cyan hover:underline group-hover:text-white transition-colors"
+                      className="flex items-center space-x-1.5 text-xs font-mono uppercase tracking-wider font-bold text-brand-cyan hover:text-white transition-colors"
                     >
-                      <span>Explore Full Case Study</span>
-                      <ChevronRight size={14} className="group-hover:translate-x-1 transition-transform" />
+                      <span>Decapsulate Unit</span>
+                      <ChevronRight size={13} className="group-hover:translate-x-1 transition-transform" />
                     </Link>
                   </div>
                 </motion.div>

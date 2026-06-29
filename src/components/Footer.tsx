@@ -6,7 +6,7 @@ export default function Footer() {
   const currentYear = new Date().getFullYear();
 
   return (
-    <footer className="bg-slate-950 border-t border-slate-900 py-12 relative overflow-hidden">
+    <footer className="bg-[#0A0A0A] border-t border-white/5 py-12 relative overflow-hidden">
       {/* Subtle border blur */}
       <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-white/5 to-transparent" />
       
@@ -27,7 +27,7 @@ export default function Footer() {
             href="https://www.linkedin.com/in/ajinkya-swami-82751b191/"
             target="_blank"
             rel="noopener noreferrer"
-            className="p-2 bg-slate-900 border border-white/5 rounded-xl text-slate-400 hover:text-brand-cyan hover:border-brand-cyan/35 transition-all duration-300"
+            className="p-2.5 bg-slate-950 border border-white/5 rounded-xl text-slate-400 hover:text-brand-amber hover:border-brand-amber/35 transition-all duration-300"
             aria-label="LinkedIn"
           >
             <LinkedinIcon size={18} />
@@ -36,7 +36,7 @@ export default function Footer() {
             href="https://github.com/ajinkyaswami1999"
             target="_blank"
             rel="noopener noreferrer"
-            className="p-2 bg-slate-900 border border-white/5 rounded-xl text-slate-400 hover:text-brand-cyan hover:border-brand-cyan/35 transition-all duration-300"
+            className="p-2.5 bg-slate-950 border border-white/5 rounded-xl text-slate-400 hover:text-brand-amber hover:border-brand-amber/35 transition-all duration-300"
             aria-label="GitHub"
           >
             <GithubIcon size={18} />
@@ -45,7 +45,7 @@ export default function Footer() {
             href="https://www.instagram.com/2ajinkya6/"
             target="_blank"
             rel="noopener noreferrer"
-            className="p-2 bg-slate-900 border border-white/5 rounded-xl text-slate-400 hover:text-brand-cyan hover:border-brand-cyan/35 transition-all duration-300"
+            className="p-2.5 bg-slate-950 border border-white/5 rounded-xl text-slate-400 hover:text-brand-amber hover:border-brand-amber/35 transition-all duration-300"
             aria-label="Personal Instagram"
           >
             <InstagramIcon size={18} />
@@ -57,7 +57,7 @@ export default function Footer() {
           <p>&copy; {currentYear} Ajinkya Swami. All rights reserved.</p>
           <p>
             Email:{" "}
-            <a href="mailto:ajinkyaswami1999@gmail.com" className="hover:text-brand-cyan transition-colors underline">
+            <a href="mailto:ajinkyaswami1999@gmail.com" className="hover:text-brand-amber transition-colors underline">
               ajinkyaswami1999@gmail.com
             </a>{" "}
             | Phone: +91 8875043720

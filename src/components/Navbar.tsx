@@ -14,13 +14,11 @@ interface NavItem {
 
 const navItems: NavItem[] = [
   { label: "Home", href: "/" },
+  { label: "About", href: "/#about", isAnchor: true },
   { label: "Experience", href: "/#experience", isAnchor: true },
-  { label: "Skills", href: "/#skills", isAnchor: true },
   { label: "Projects", href: "/projects" },
   { label: "Voxelique", href: "/voxelique" },
-  { label: "Why Hire Me", href: "/#why-hire-me", isAnchor: true },
-  { label: "Certifications", href: "/#certifications", isAnchor: true },
-  { label: "Blog", href: "/blog" },
+  { label: "Photography", href: "/photography" },
   { label: "Contact", href: "/contact" },
 ];
 
@@ -62,6 +60,8 @@ export default function Navbar() {
           setActiveSection("blog");
         } else if (pathname.startsWith("/voxelique")) {
           setActiveSection("voxelique");
+        } else if (pathname.startsWith("/photography")) {
+          setActiveSection("photography");
         } else if (pathname.startsWith("/contact")) {
           setActiveSection("contact");
         } else {
@@ -120,11 +120,11 @@ export default function Navbar() {
         >
           {/* Logo */}
           <Link href="/" className="flex flex-col group cursor-pointer">
-            <span className="text-base md:text-lg font-extrabold font-display tracking-tight text-white group-hover:text-brand-cyan transition-colors">
+            <span className="text-base md:text-lg font-extrabold font-display tracking-tight text-white group-hover:text-brand-orange transition-colors">
               AJINKYA SWAMI
             </span>
             <span className="text-[9px] tracking-widest text-slate-400 font-mono uppercase group-hover:text-white transition-colors">
-              FinTech QA Engineer
+              QA Engineer • Creator
             </span>
           </Link>
 
@@ -140,12 +140,12 @@ export default function Navbar() {
                   href={item.href}
                   onClick={(e) => handleNavClick(e, item)}
                   className={`text-xs font-semibold tracking-wide transition-colors relative py-1 hover:text-white ${
-                    isActive ? "text-brand-cyan font-bold" : "text-slate-400"
+                    isActive ? "text-brand-orange font-bold text-glow-orange" : "text-slate-400"
                   }`}
                 >
                   {item.label}
                   {isActive && (
-                    <span className="absolute bottom-0 left-0 w-full h-0.5 bg-gradient-to-r from-brand-cyan to-brand-blue" />
+                    <span className="absolute bottom-0 left-0 w-full h-0.5 bg-gradient-to-r from-brand-orange to-brand-cyan" />
                   )}
                 </Link>
               );
@@ -210,7 +210,7 @@ export default function Navbar() {
           <div className="flex justify-between items-center mb-8 pb-4 border-b border-slate-900">
             <div className="flex flex-col">
               <span className="text-lg font-bold font-display text-white">Ajinkya S.</span>
-              <span className="text-[10px] text-brand-cyan font-mono uppercase">FinTech QA</span>
+              <span className="text-[10px] text-brand-orange font-mono uppercase">QA Engineer • Creator</span>
             </div>
             <button onClick={() => setIsOpen(false)} className="text-slate-400 hover:text-white">
               <X size={20} />
@@ -229,7 +229,7 @@ export default function Navbar() {
                   onClick={(e) => handleNavClick(e, item)}
                   className={`text-sm font-semibold py-1.5 transition-colors border-l-2 pl-3 ${
                     isActive
-                      ? "text-brand-cyan border-brand-cyan font-bold"
+                      ? "text-brand-orange border-brand-orange font-bold"
                       : "text-slate-400 border-transparent hover:text-white"
                   }`}
                 >

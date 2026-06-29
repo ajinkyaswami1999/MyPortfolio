@@ -112,24 +112,24 @@ export default function Navbar() {
       {/* Floating Apple-inspired Sticky Navbar */}
       <div className="fixed top-4 left-0 w-full z-50 px-4 md:px-8 flex justify-center pointer-events-none">
         <header
-          className={`w-full max-w-6xl rounded-2xl border transition-all duration-500 pointer-events-auto flex items-center justify-between px-6 py-3.5 ${
+          className={`w-full max-w-5xl rounded-2xl border transition-all duration-300 pointer-events-auto flex items-center justify-between px-6 py-3 ${
             scrolled
-              ? "bg-slate-950/70 backdrop-blur-xl border-white/5 shadow-2xl shadow-black/40"
-              : "bg-slate-950/20 backdrop-blur-md border-white/5 md:border-transparent py-4"
+              ? "bg-[#0A0A0A]/85 backdrop-blur-xl border-white/10 shadow-2xl shadow-black/80"
+              : "bg-[#0A0A0A]/40 backdrop-blur-md border-white/5 py-4.5"
           }`}
         >
           {/* Logo */}
           <Link href="/" className="flex flex-col group cursor-pointer">
-            <span className="text-base md:text-lg font-extrabold font-display tracking-tight text-white group-hover:text-brand-orange transition-colors">
+            <span className="text-sm md:text-base font-extrabold font-display tracking-tight text-white group-hover:text-brand-orange transition-colors">
               AJINKYA SWAMI
             </span>
-            <span className="text-[9px] tracking-widest text-slate-400 font-mono uppercase group-hover:text-white transition-colors">
+            <span className="text-[8px] tracking-widest text-slate-450 font-mono uppercase group-hover:text-white transition-colors mt-0.5">
               QA Engineer • Creator
             </span>
           </Link>
 
           {/* Desktop Navigation */}
-          <nav className="hidden xl:flex items-center space-x-6">
+          <nav className="hidden xl:flex items-center space-x-7">
             {navItems.map((item) => {
               const itemKey = item.isAnchor ? item.href.split("#")[1] : item.href === "/" ? "home" : item.href.substring(1);
               const isActive = activeSection === itemKey;
@@ -139,13 +139,13 @@ export default function Navbar() {
                   key={item.href}
                   href={item.href}
                   onClick={(e) => handleNavClick(e, item)}
-                  className={`text-xs font-semibold tracking-wide transition-colors relative py-1 hover:text-white ${
+                  className={`text-[11px] font-semibold tracking-wider transition-colors relative py-1 hover:text-white ${
                     isActive ? "text-brand-orange font-bold text-glow-orange" : "text-slate-400"
                   }`}
                 >
                   {item.label}
                   {isActive && (
-                    <span className="absolute bottom-0 left-0 w-full h-0.5 bg-gradient-to-r from-brand-orange to-brand-cyan" />
+                    <span className="absolute -bottom-1.5 left-1/2 -translate-x-1/2 w-1.5 h-1.5 rounded-full bg-brand-orange shadow-[0_0_8px_#e25822]" />
                   )}
                 </Link>
               );
@@ -153,31 +153,31 @@ export default function Navbar() {
           </nav>
 
           {/* Action / Social Buttons */}
-          <div className="hidden lg:flex items-center space-x-3.5">
+          <div className="hidden lg:flex items-center space-x-3">
             <a
               href="https://github.com/ajinkyaswami1999"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-slate-400 hover:text-white transition-colors p-2 bg-slate-900/50 border border-white/5 rounded-xl hover:bg-slate-900"
+              className="text-slate-400 hover:text-white transition-colors p-2 bg-[#121212]/80 border border-white/5 rounded-xl hover:bg-slate-900"
               aria-label="GitHub Profile"
             >
-              <GithubIcon size={16} />
+              <GithubIcon size={14} />
             </a>
             <a
               href="https://www.linkedin.com/in/ajinkya-swami-82751b191/"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-slate-400 hover:text-white transition-colors p-2 bg-slate-900/50 border border-white/5 rounded-xl hover:bg-slate-900"
+              className="text-slate-400 hover:text-white transition-colors p-2 bg-[#121212]/80 border border-white/5 rounded-xl hover:bg-slate-900"
               aria-label="LinkedIn Profile"
             >
-              <LinkedinIcon size={16} />
+              <LinkedinIcon size={14} />
             </a>
             <a
               href="/Ajinkya_swami_resume.pdf"
               download="Ajinkya_Swami_Resume.pdf"
-              className="flex items-center space-x-1.5 text-[11px] font-bold px-4 py-2 bg-white text-slate-950 hover:bg-brand-cyan hover:text-slate-950 rounded-xl transition-all shadow-lg active:scale-95"
+              className="flex items-center space-x-1.5 text-[10px] font-mono tracking-wider uppercase font-bold px-4 py-2 bg-slate-900/80 border border-brand-orange/30 hover:border-brand-orange text-slate-200 hover:text-white hover:bg-brand-orange/15 rounded-xl transition-all shadow-lg active:scale-95"
             >
-              <Download size={12} />
+              <Download size={11} />
               <span>Resume</span>
             </a>
           </div>

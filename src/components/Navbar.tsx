@@ -132,7 +132,7 @@ export default function Navbar() {
           </Link>
 
           {/* Desktop Control Switch Panel */}
-          <nav className="hidden xl:flex items-center space-x-2.5">
+          <nav className="hidden xl:flex items-center space-x-5">
             {navItems.map((item) => {
               const itemKey = item.isAnchor ? item.href.split("#")[1] : item.href === "/" ? "home" : item.href.substring(1);
               const isActive = activeSection === itemKey;
@@ -142,10 +142,8 @@ export default function Navbar() {
                   key={item.href}
                   href={item.href}
                   onClick={(e) => handleNavClick(e, item)}
-                  className={`text-[9.5px] font-mono tracking-wider uppercase font-bold px-3.5 py-2.5 bg-slate-950 border transition-all flex items-center space-x-2 rounded-lg cursor-pointer ${
-                    isActive 
-                      ? "border-brand-amber/40 text-brand-amber bg-slate-900" 
-                      : "border-white/5 text-slate-400 hover:text-white hover:border-slate-800"
+                  className={`text-[9.5px] font-mono tracking-widest uppercase font-bold transition-all flex items-center space-x-1.5 py-1 hover:text-white ${
+                    isActive ? "text-brand-amber text-glow-amber" : "text-slate-450"
                   }`}
                 >
                   {/* Status Indicator LED */}

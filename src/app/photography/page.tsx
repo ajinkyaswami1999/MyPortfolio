@@ -119,8 +119,8 @@ export default function PhotographyPage() {
               <div className="grid grid-cols-1 md:grid-cols-3 gap-6 font-mono text-xs text-slate-400">
                 <div className="p-3 bg-slate-950 border border-slate-900 rounded-lg">
                   <span className="text-brand-cyan block text-[9px] uppercase tracking-wider mb-1 font-bold">Primary Body</span>
-                  <span className="text-slate-200 font-semibold">Sony Alpha 7 IV</span>
-                  <span className="text-slate-500 block mt-0.5 text-[10px]">Full-Frame mirrorless sensor</span>
+                  <span className="text-slate-200 font-semibold">Nikon Z 30</span>
+                  <span className="text-slate-500 block mt-0.5 text-[10px]">APS-C DX-format mirrorless sensor</span>
                 </div>
                 <div className="p-3 bg-slate-950 border border-slate-900 rounded-lg">
                   <span className="text-brand-cyan block text-[9px] uppercase tracking-wider mb-1 font-bold">Lenses</span>

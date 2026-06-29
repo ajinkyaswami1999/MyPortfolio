@@ -86,11 +86,54 @@ export default function PhotographyPage() {
   };
 
   return (
-    <div className="flex flex-col min-h-screen bg-[#0A0A0A] text-slate-100 selection:bg-brand-orange/20 selection:text-brand-orange overflow-hidden">
+    <div className="flex flex-col min-h-screen bg-[#0A0A0A] text-slate-100 selection:bg-brand-orange/20 selection:text-brand-orange overflow-hidden relative">
       <Navbar />
 
+      {/* Photography Viewfinder Background Grid */}
+      <div className="absolute inset-0 bg-[#0A0A0A] overflow-hidden pointer-events-none z-0">
+        {/* Rule of Thirds view lines */}
+        <div className="absolute top-1/3 left-0 w-full h-px bg-white/3 opacity-20" />
+        <div className="absolute top-2/3 left-0 w-full h-px bg-white/3 opacity-20" />
+        <div className="absolute left-1/3 top-0 h-full w-px bg-white/3 opacity-20" />
+        <div className="absolute left-2/3 top-0 h-full w-px bg-white/3 opacity-20" />
+
+        {/* Center Autofocus Brackets */}
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-48 h-48 border border-white/5 opacity-30 rounded flex items-center justify-center">
+          {/* AF Dot */}
+          <div className="w-1.5 h-1.5 bg-brand-cyan rounded-full animate-pulse" />
+          
+          {/* Corners */}
+          <div className="absolute top-0 left-0 w-4 h-4 border-t-2 border-l-2 border-brand-cyan/40" />
+          <div className="absolute top-0 right-0 w-4 h-4 border-t-2 border-r-2 border-brand-cyan/40" />
+          <div className="absolute bottom-0 left-0 w-4 h-4 border-b-2 border-l-2 border-brand-cyan/40" />
+          <div className="absolute bottom-0 right-0 w-4 h-4 border-b-2 border-r-2 border-brand-cyan/40" />
+        </div>
+
+        {/* Viewfinder HUD Indicators */}
+        <div className="absolute top-28 left-8 font-mono text-[9px] text-slate-600 uppercase tracking-widest space-y-1 opacity-70">
+          <div className="flex items-center gap-1.5"><span className="w-1.5 h-1.5 bg-rose-500 rounded-full animate-pulse" /> RAW 14BIT</div>
+          <div>AF-C [MULTI-POINT]</div>
+          <div>METERING: MATRIX</div>
+        </div>
+
+        <div className="absolute top-28 right-8 font-mono text-[9px] text-slate-600 uppercase tracking-widest space-y-1 opacity-70 text-right">
+          <div>BATT: 85% [||||]</div>
+          <div>SD_A: 420 RAW REMAIN</div>
+          <div>SYNC: 1/250s</div>
+        </div>
+
+        <div className="absolute bottom-12 left-8 font-mono text-[9px] text-slate-600 uppercase tracking-widest space-y-1 opacity-70">
+          <div>f/2.8 <span className="text-brand-orange">•</span> ISO 100 <span className="text-brand-orange">•</span> 50mm</div>
+          <div>EXPOSURE: [ -2 .. 1 .. 0 .. +1 .. +2 ]</div>
+        </div>
+
+        {/* Soft background glows */}
+        <div className="absolute top-1/4 right-1/4 w-[350px] h-[350px] rounded-full bg-brand-blue/5 filter blur-[90px] animate-pulse-slow" />
+        <div className="absolute bottom-1/4 left-1/4 w-[300px] h-[300px] rounded-full bg-brand-orange/5 filter blur-[80px] animate-pulse-slow" style={{ animationDelay: "2s" }} />
+      </div>
+
       <PageWrapper>
-        <main className="flex-1 pt-32 pb-24">
+        <main className="flex-1 pt-32 pb-24 relative z-10">
           <div className="container mx-auto px-4 md:px-8">
             {/* Header Block */}
             <div className="flex flex-col mb-16 text-left max-w-3xl">

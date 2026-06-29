@@ -112,7 +112,7 @@ export default function Navbar() {
       {/* Floating Sticky Control Panel Navbar */}
       <div className="fixed top-4 left-0 w-full z-50 px-4 md:px-8 flex justify-center pointer-events-none">
         <header
-          className={`w-full max-w-5xl rounded-2xl border transition-all duration-300 pointer-events-auto flex items-center justify-between px-6 py-3 ${
+          className={`w-full max-w-5xl xl:max-w-[95%] rounded-2xl border transition-all duration-300 pointer-events-auto flex items-center justify-between px-6 py-3 ${
             scrolled
               ? "bg-[#111111]/90 backdrop-blur-xl border-white/10 shadow-2xl shadow-black/90"
               : "bg-[#111111]/50 backdrop-blur-md border-white/5 py-4"
@@ -132,7 +132,7 @@ export default function Navbar() {
           </Link>
 
           {/* Desktop Control Switch Panel */}
-          <nav className="hidden xl:flex items-center space-x-3">
+          <nav className="hidden xl:flex items-center space-x-2">
             {navItems.map((item) => {
               const itemKey = item.isAnchor ? item.href.split("#")[1] : item.href === "/" ? "home" : item.href.substring(1);
               const isActive = activeSection === itemKey;
@@ -142,12 +142,14 @@ export default function Navbar() {
                   key={item.href}
                   href={item.href}
                   onClick={(e) => handleNavClick(e, item)}
-                  className={`text-[8px] font-mono tracking-wider font-bold transition-all flex items-center space-x-1 py-1 hover:text-white ${
-                    isActive ? "text-brand-amber text-glow-amber" : "text-slate-450"
+                  className={`text-[8.5px] font-mono tracking-wider uppercase font-bold px-2.5 py-1.5 bg-slate-950/80 border transition-all flex items-center space-x-1.5 rounded-lg cursor-pointer whitespace-nowrap ${
+                    isActive 
+                      ? "border-brand-amber/40 text-brand-amber bg-slate-900" 
+                      : "border-white/5 text-slate-400 hover:text-white hover:border-slate-800"
                   }`}
                 >
                   {/* Status Indicator LED */}
-                  <span className={`w-1 h-1 rounded-full transition-all duration-300 ${
+                  <span className={`w-1.5 h-1.5 rounded-full transition-all duration-300 ${
                     isActive 
                       ? "bg-brand-amber shadow-[0_0_8px_#C58F2C]" 
                       : "bg-slate-900 border border-white/10"

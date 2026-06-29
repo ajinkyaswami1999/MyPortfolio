@@ -17,9 +17,7 @@ const navItems: NavItem[] = [
   { label: "DNA Profile", href: "/#about", isAnchor: true },
   { label: "Evolution Log", href: "/#experience", isAnchor: true },
   { label: "Research Projects", href: "/projects" },
-  { label: "Digital Fabrication Lab", href: "/voxelique" },
-  { label: "Engineering Toolkit", href: "/toolique" },
-  { label: "Field Documentation", href: "/photography" },
+  { label: "Creative Sector", href: "/creative-sector" },
   { label: "Transmission Center", href: "/contact" },
 ];
 
@@ -56,12 +54,8 @@ export default function Navbar() {
       } else {
         if (pathname.startsWith("/projects")) {
           setActiveSection("projects");
-        } else if (pathname.startsWith("/voxelique")) {
-          setActiveSection("voxelique");
-        } else if (pathname.startsWith("/toolique")) {
-          setActiveSection("toolique");
-        } else if (pathname.startsWith("/photography")) {
-          setActiveSection("photography");
+        } else if (pathname.startsWith("/creative-sector")) {
+          setActiveSection("creative-sector");
         } else if (pathname.startsWith("/contact")) {
           setActiveSection("contact");
         } else {

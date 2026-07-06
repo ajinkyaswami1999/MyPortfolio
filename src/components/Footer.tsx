@@ -1,6 +1,6 @@
 import React from "react";
 import { Mail } from "lucide-react";
-import { GithubIcon, LinkedinIcon, InstagramIcon } from "./BrandIcons";
+import { GithubIcon, LinkedinIcon, InstagramIcon, SnapchatIcon } from "./BrandIcons";
 
 export default function Footer() {
   const currentYear = new Date().getFullYear();
@@ -49,6 +49,15 @@ export default function Footer() {
             aria-label="Personal Instagram"
           >
             <InstagramIcon size={18} />
+          </a>
+          <a
+            href="https://snapchat.com/t/wgcxkncY"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="p-2.5 bg-slate-950 border border-white/5 rounded-xl text-slate-400 hover:text-brand-amber hover:border-brand-amber/35 transition-all duration-300"
+            aria-label="Personal Snapchat"
+          >
+            <SnapchatIcon size={18} />
           </a>
         </div>
 

@@ -4,7 +4,7 @@ import React, { useState, useEffect } from "react";
 import Link from "next/link";
 import { usePathname, useRouter } from "next/navigation";
 import { Menu, X, Download, Terminal } from "lucide-react";
-import { GithubIcon, LinkedinIcon } from "./BrandIcons";
+import { GithubIcon, LinkedinIcon, InstagramIcon, SnapchatIcon } from "./BrandIcons";
 
 interface NavItem {
   label: string;
@@ -250,7 +250,7 @@ export default function Navbar() {
         </div>
 
         <div className="pt-6 border-t border-white/5 space-y-4">
-          <div className="flex items-center space-x-4 justify-center">
+          <div className="flex items-center space-x-2.5 justify-center">
             <a
               href="https://github.com/ajinkyaswami1999"
               target="_blank"
@@ -268,6 +268,24 @@ export default function Navbar() {
               aria-label="LinkedIn Profile"
             >
               <LinkedinIcon size={16} />
+            </a>
+            <a
+              href="https://www.instagram.com/2ajinkya6/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-slate-400 hover:text-white transition-colors p-2.5 bg-slate-950 border border-white/5 rounded-lg w-full flex justify-center"
+              aria-label="Instagram Profile"
+            >
+              <InstagramIcon size={16} />
+            </a>
+            <a
+              href="https://snapchat.com/t/wgcxkncY"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-slate-400 hover:text-white transition-colors p-2.5 bg-slate-950 border border-white/5 rounded-lg w-full flex justify-center"
+              aria-label="Snapchat Profile"
+            >
+              <SnapchatIcon size={16} />
             </a>
           </div>
 

@@ -3,7 +3,7 @@
 import React, { useState } from "react";
 import { motion } from "framer-motion";
 import { Mail, Phone, MapPin, Send, Download, CheckCircle2, Radio } from "lucide-react";
-import { GithubIcon, LinkedinIcon } from "./BrandIcons";
+import { GithubIcon, LinkedinIcon, InstagramIcon, SnapchatIcon } from "./BrandIcons";
 
 export default function Contact() {
   const [formState, setFormState] = useState({
@@ -142,6 +142,24 @@ export default function Contact() {
                   aria-label="LinkedIn"
                 >
                   <LinkedinIcon size={16} />
+                </a>
+                <a
+                  href="https://www.instagram.com/2ajinkya6/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="p-3 bg-slate-950 border border-white/5 rounded-xl text-slate-400 hover:text-white transition-colors"
+                  aria-label="Instagram"
+                >
+                  <InstagramIcon size={16} />
+                </a>
+                <a
+                  href="https://snapchat.com/t/wgcxkncY"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="p-3 bg-slate-950 border border-white/5 rounded-xl text-slate-400 hover:text-white transition-colors"
+                  aria-label="Snapchat"
+                >
+                  <SnapchatIcon size={16} />
                 </a>
                 <a
                   href="/Ajinkya_swami_resume.pdf"

@@ -9,12 +9,12 @@ export const metadata: Metadata = {
   title: "Transmission Center | Contact Ajinkya Swami",
   description: "Establish a secure satellite communication link with Ajinkya Swami, Senior FinTech Software QA Engineer. Submit inquiries for software QA audits, technical testing consultation, or contract collaborations.",
   alternates: {
-    canonical: "https://ajinkyaswami1999.github.io/MyPortfolio/contact",
+    canonical: "https://ajinkyaswami.in/contact",
   },
   openGraph: {
     title: "Transmission Center | Contact Ajinkya Swami",
     description: "Establish a secure satellite communication link with Ajinkya Swami, Senior FinTech Software QA Engineer.",
-    url: "https://ajinkyaswami1999.github.io/MyPortfolio/contact",
+    url: "https://ajinkyaswami.in/contact",
     type: "website",
   }
 };
@@ -25,7 +25,7 @@ export default function ContactPage() {
     "@type": "ContactPage",
     "name": "Transmission Center - Contact Ajinkya Swami",
     "description": "Establish a secure satellite communication link with Ajinkya Swami, Senior FinTech Software QA Engineer.",
-    "url": "https://ajinkyaswami1999.github.io/MyPortfolio/contact",
+    "url": "https://ajinkyaswami.in/contact",
     "mainEntity": {
       "@type": "Person",
       "name": "Ajinkya Swami",

@@ -6,12 +6,12 @@ export const metadata: Metadata = {
   title: "Creative Sector | 3D Design, Web Tools, Photography",
   description: "Explore the creative portfolio of Ajinkya Swami. Voxelique digital fabrication lab, Toolique developer calculators, and macro photography logs covering industrial and automotive expedition structures.",
   alternates: {
-    canonical: "https://ajinkyaswami1999.github.io/MyPortfolio/creative-sector",
+    canonical: "https://ajinkyaswami.in/creative-sector",
   },
   openGraph: {
     title: "Creative Sector | 3D Design, Web Tools, Photography",
     description: "Explore the creative portfolio of Ajinkya Swami, featuring 3D design fabrication, online tools, and expedition photography.",
-    url: "https://ajinkyaswami1999.github.io/MyPortfolio/creative-sector",
+    url: "https://ajinkyaswami.in/creative-sector",
     type: "website",
   }
 };
@@ -23,7 +23,7 @@ export default function CreativeSectorPage() {
     "@type": "WebPage",
     "name": "Creative Sector - 3D Design, Web Tools & Photography",
     "description": "Central data hub hosting 3D printing calibrations, developer utilities, and high-resolution macro photography logs.",
-    "url": "https://ajinkyaswami1999.github.io/MyPortfolio/creative-sector",
+    "url": "https://ajinkyaswami.in/creative-sector",
     "publisher": {
       "@type": "Person",
       "name": "Ajinkya Swami"

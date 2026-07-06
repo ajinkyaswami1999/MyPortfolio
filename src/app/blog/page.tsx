@@ -7,12 +7,12 @@ export const metadata: Metadata = {
   title: "QA Engineering Blog | Software Testing Guides",
   description: "Explore technical quality assurance and software testing articles by Ajinkya Swami. Deep dives into financial API testing, UPI checklist items, SQL checkpoints, and automation guides.",
   alternates: {
-    canonical: "https://ajinkyaswami1999.github.io/MyPortfolio/blog",
+    canonical: "https://ajinkyaswami.in/blog",
   },
   openGraph: {
     title: "QA Engineering Blog | Software Testing Guides",
     description: "Read technical quality assurance and software testing articles by Ajinkya Swami, Senior FinTech QA Engineer.",
-    url: "https://ajinkyaswami1999.github.io/MyPortfolio/blog",
+    url: "https://ajinkyaswami.in/blog",
     type: "website",
   }
 };
@@ -24,7 +24,7 @@ export default function BlogPage() {
     "@type": "CollectionPage",
     "name": "QA Engineering Blog - Software Testing Guides",
     "description": "Technical QA blog posts covering API test scripts, SQL validations, UPI app performance benchmarks, and automated frameworks.",
-    "url": "https://ajinkyaswami1999.github.io/MyPortfolio/blog",
+    "url": "https://ajinkyaswami.in/blog",
     "about": {
       "@type": "Person",
       "name": "Ajinkya Swami"
@@ -34,7 +34,7 @@ export default function BlogPage() {
       "name": post.title,
       "description": post.summary,
       "datePublished": new Date(post.date).toISOString().split('T')[0],
-      "url": `https://ajinkyaswami1999.github.io/MyPortfolio/blog/${post.id}`
+      "url": `https://ajinkyaswami.in/blog/${post.id}`
     }))
   };
 

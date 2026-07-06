@@ -26,12 +26,12 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
     title: `${project.title} | QA Case Study`,
     description: project.summary,
     alternates: {
-      canonical: `https://ajinkyaswami1999.github.io/MyPortfolio/projects/${project.id}`,
+      canonical: `https://ajinkyaswami.in/projects/${project.id}`,
     },
     openGraph: {
       title: `${project.title} | QA Case Study`,
       description: project.summary,
-      url: `https://ajinkyaswami1999.github.io/MyPortfolio/projects/${project.id}`,
+      url: `https://ajinkyaswami.in/projects/${project.id}`,
       type: "article",
     },
     twitter: {
@@ -131,7 +131,7 @@ export default async function ProjectDetailPage({ params }: PageProps) {
     "author": {
       "@type": "Person",
       "name": "Ajinkya Swami",
-      "url": "https://ajinkyaswami1999.github.io/MyPortfolio/"
+      "url": "https://ajinkyaswami.in/"
     },
     "publisher": {
       "@type": "Person",
@@ -139,7 +139,7 @@ export default async function ProjectDetailPage({ params }: PageProps) {
     },
     "mainEntityOfPage": {
       "@type": "WebPage",
-      "@id": `https://ajinkyaswami1999.github.io/MyPortfolio/projects/${project.id}`
+      "@id": `https://ajinkyaswami.in/projects/${project.id}`
     }
   };
 

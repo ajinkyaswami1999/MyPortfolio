@@ -26,12 +26,12 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
     title: `${post.title} | QA Engineering Blog`,
     description: post.summary,
     alternates: {
-      canonical: `https://ajinkyaswami1999.github.io/MyPortfolio/blog/${post.id}`,
+      canonical: `https://ajinkyaswami.in/blog/${post.id}`,
     },
     openGraph: {
       title: `${post.title} | QA Engineering Blog`,
       description: post.summary,
-      url: `https://ajinkyaswami1999.github.io/MyPortfolio/blog/${post.id}`,
+      url: `https://ajinkyaswami.in/blog/${post.id}`,
       type: "article",
       publishedTime: new Date(post.date).toISOString().split('T')[0],
       authors: ["Ajinkya Swami"],
@@ -165,7 +165,7 @@ export default async function BlogDetailPage({ params }: PageProps) {
     "author": {
       "@type": "Person",
       "name": "Ajinkya Swami",
-      "url": "https://ajinkyaswami1999.github.io/MyPortfolio/"
+      "url": "https://ajinkyaswami.in/"
     },
     "publisher": {
       "@type": "Person",
@@ -173,7 +173,7 @@ export default async function BlogDetailPage({ params }: PageProps) {
     },
     "mainEntityOfPage": {
       "@type": "WebPage",
-      "@id": `https://ajinkyaswami1999.github.io/MyPortfolio/blog/${post.id}`
+      "@id": `https://ajinkyaswami.in/blog/${post.id}`
     }
   };
 

@@ -2,31 +2,31 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <!-- Core Static Pages -->
   <url>
-    <loc>https://ajinkyaswami1999.github.io/MyPortfolio/</loc>
+    <loc>https://ajinkyaswami.in/</loc>
     <lastmod>2026-07-06</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
-    <loc>https://ajinkyaswami1999.github.io/MyPortfolio/creative-sector</loc>
+    <loc>https://ajinkyaswami.in/creative-sector</loc>
     <lastmod>2026-07-06</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://ajinkyaswami1999.github.io/MyPortfolio/projects</loc>
+    <loc>https://ajinkyaswami.in/projects</loc>
     <lastmod>2026-07-06</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://ajinkyaswami1999.github.io/MyPortfolio/blog</loc>
+    <loc>https://ajinkyaswami.in/blog</loc>
     <lastmod>2026-07-06</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://ajinkyaswami1999.github.io/MyPortfolio/contact</loc>
+    <loc>https://ajinkyaswami.in/contact</loc>
     <lastmod>2026-07-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
@@ -34,49 +34,49 @@
 
   <!-- Technical Blog Posts -->
   <url>
-    <loc>https://ajinkyaswami1999.github.io/MyPortfolio/blog/how-i-test-financial-apis</loc>
+    <loc>https://ajinkyaswami.in/blog/how-i-test-financial-apis</loc>
     <lastmod>2026-07-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://ajinkyaswami1999.github.io/MyPortfolio/blog/sql-queries-every-qa-should-know</loc>
+    <loc>https://ajinkyaswami.in/blog/sql-queries-every-qa-should-know</loc>
     <lastmod>2026-07-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://ajinkyaswami1999.github.io/MyPortfolio/blog/upi-app-testing-checklist</loc>
+    <loc>https://ajinkyaswami.in/blog/upi-app-testing-checklist</loc>
     <lastmod>2026-07-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://ajinkyaswami1999.github.io/MyPortfolio/blog/ekyc-testing-scenarios</loc>
+    <loc>https://ajinkyaswami.in/blog/ekyc-testing-scenarios</loc>
     <lastmod>2026-07-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://ajinkyaswami1999.github.io/MyPortfolio/blog/manual-testing-vs-automation</loc>
+    <loc>https://ajinkyaswami.in/blog/manual-testing-vs-automation</loc>
     <lastmod>2026-07-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://ajinkyaswami1999.github.io/MyPortfolio/blog/postman-api-testing-best-practices</loc>
+    <loc>https://ajinkyaswami.in/blog/postman-api-testing-best-practices</loc>
     <lastmod>2026-07-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://ajinkyaswami1999.github.io/MyPortfolio/blog/jmeter-load-testing-guide</loc>
+    <loc>https://ajinkyaswami.in/blog/jmeter-load-testing-guide</loc>
     <lastmod>2026-07-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://ajinkyaswami1999.github.io/MyPortfolio/blog/database-testing-in-fintech-projects</loc>
+    <loc>https://ajinkyaswami.in/blog/database-testing-in-fintech-projects</loc>
     <lastmod>2026-07-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
@@ -84,49 +84,49 @@
 
   <!-- Project Case Studies -->
   <url>
-    <loc>https://ajinkyaswami1999.github.io/MyPortfolio/projects/upi-app-testing</loc>
+    <loc>https://ajinkyaswami.in/projects/upi-app-testing</loc>
     <lastmod>2026-07-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://ajinkyaswami1999.github.io/MyPortfolio/projects/ekyc-process-testing</loc>
+    <loc>https://ajinkyaswami.in/projects/ekyc-process-testing</loc>
     <lastmod>2026-07-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://ajinkyaswami1999.github.io/MyPortfolio/projects/dynamic-rate-plan</loc>
+    <loc>https://ajinkyaswami.in/projects/dynamic-rate-plan</loc>
     <lastmod>2026-07-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://ajinkyaswami1999.github.io/MyPortfolio/projects/payment-gateway</loc>
+    <loc>https://ajinkyaswami.in/projects/payment-gateway</loc>
     <lastmod>2026-07-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://ajinkyaswami1999.github.io/MyPortfolio/projects/gst-invoice-claim</loc>
+    <loc>https://ajinkyaswami.in/projects/gst-invoice-claim</loc>
     <lastmod>2026-07-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://ajinkyaswami1999.github.io/MyPortfolio/projects/target-creation</loc>
+    <loc>https://ajinkyaswami.in/projects/target-creation</loc>
     <lastmod>2026-07-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://ajinkyaswami1999.github.io/MyPortfolio/projects/api-automation-framework</loc>
+    <loc>https://ajinkyaswami.in/projects/api-automation-framework</loc>
     <lastmod>2026-07-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://ajinkyaswami1999.github.io/MyPortfolio/projects/mobile-testing-framework</loc>
+    <loc>https://ajinkyaswami.in/projects/mobile-testing-framework</loc>
     <lastmod>2026-07-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>

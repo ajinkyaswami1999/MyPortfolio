@@ -38,7 +38,7 @@ export const metadata: Metadata = {
   openGraph: {
     type: "website",
     locale: "en_IN",
-    url: "https://ajinkyaswami1999.github.io/MyPortfolio", // Placeholder or custom domain
+    url: "https://ajinkyaswami.in",
     title: "Ajinkya Swami | FinTech Software QA Engineer",
     description: "Senior Software Quality Assurance Engineer with 4+ years of experience ensuring reliability across high-scale UPI platforms, eKYC systems, API integrations, and database architectures.",
     siteName: "Ajinkya Swami Portfolio",
@@ -49,7 +49,7 @@ export const metadata: Metadata = {
     description: "Senior Software Quality Assurance Engineer with 4+ years of experience ensuring reliability across high-scale UPI platforms, eKYC systems, API integrations, and database architectures.",
   },
   alternates: {
-    canonical: "https://ajinkyaswami1999.github.io/MyPortfolio/",
+    canonical: "https://ajinkyaswami.in/",
   }
 };
 
@@ -73,7 +73,7 @@ export default function RootLayout({
       "@type": "Organization",
       "name": "Payworld India"
     },
-    "url": "https://ajinkyaswami1999.github.io/MyPortfolio",
+    "url": "https://ajinkyaswami.in",
     "sameAs": [
       "https://github.com/ajinkyaswami1999",
       "https://www.linkedin.com/in/ajinkya-swami-82751b191/"

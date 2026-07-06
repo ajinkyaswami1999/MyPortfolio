@@ -7,12 +7,12 @@ export const metadata: Metadata = {
   title: "Research Projects | Software QA Case Studies",
   description: "Exhaustive software quality assurance case studies by Ajinkya Swami. Review testing calibrations, UPI payment ledger validation, eKYC compliance checks, and API automation frameworks.",
   alternates: {
-    canonical: "https://ajinkyaswami1999.github.io/MyPortfolio/projects",
+    canonical: "https://ajinkyaswami.in/projects",
   },
   openGraph: {
     title: "Research Projects | Software QA Case Studies",
     description: "Explore software testing and quality engineering case studies by Ajinkya Swami, Senior FinTech QA Engineer.",
-    url: "https://ajinkyaswami1999.github.io/MyPortfolio/projects",
+    url: "https://ajinkyaswami.in/projects",
     type: "website",
   }
 };
@@ -24,7 +24,7 @@ export default function ProjectsPage() {
     "@type": "CollectionPage",
     "name": "Research Projects - Software QA Case Studies",
     "description": "Exhaustive quality engineering case studies covering payment gateways, UPI switches, Aadhaar integrations, and automation frameworks.",
-    "url": "https://ajinkyaswami1999.github.io/MyPortfolio/projects",
+    "url": "https://ajinkyaswami.in/projects",
     "about": {
       "@type": "Person",
       "name": "Ajinkya Swami"
@@ -33,7 +33,7 @@ export default function ProjectsPage() {
       "@type": "CreativeWork",
       "name": project.title,
       "description": project.summary,
-      "url": `https://ajinkyaswami1999.github.io/MyPortfolio/projects/${project.id}`
+      "url": `https://ajinkyaswami.in/projects/${project.id}`
     }))
   };
 

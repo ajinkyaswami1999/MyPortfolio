@@ -49,7 +49,7 @@ export const metadata: Metadata = {
     description: "Senior Software Quality Assurance Engineer with 4+ years of experience ensuring reliability across high-scale UPI platforms, eKYC systems, API integrations, and database architectures.",
   },
   alternates: {
-    canonical: "https://ajinkyaswami1999.github.io/MyPortfolio",
+    canonical: "https://ajinkyaswami1999.github.io/MyPortfolio/",
   }
 };
 

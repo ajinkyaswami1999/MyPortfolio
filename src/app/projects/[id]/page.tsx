@@ -1,4 +1,5 @@
 import React from "react";
+import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { ChevronLeft, Cpu, Shield, Clock, Award, Target, ListCheck, BookOpen, Wrench, AlertTriangle, CheckCircle2 } from "lucide-react";
@@ -11,11 +12,104 @@ interface PageProps {
   params: Promise<{ id: string }>;
 }
 
+export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
+  const { id } = await params;
+  const project = projectsData.find((p) => p.id === id);
+
+  if (!project) {
+    return {
+      title: "Case Study Not Found",
+    };
+  }
+
+  return {
+    title: `${project.title} | QA Case Study`,
+    description: project.summary,
+    alternates: {
+      canonical: `https://ajinkyaswami1999.github.io/MyPortfolio/projects/${project.id}`,
+    },
+    openGraph: {
+      title: `${project.title} | QA Case Study`,
+      description: project.summary,
+      url: `https://ajinkyaswami1999.github.io/MyPortfolio/projects/${project.id}`,
+      type: "article",
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: `${project.title} | QA Case Study`,
+      description: project.summary,
+    }
+  };
+}
+
 // Generate static params for all project routes at compile time (SSG support)
 export async function generateStaticParams() {
   return projectsData.map((project) => ({
     id: project.id,
   }));
+}
+
+function getProjectDigest(id: string): { question: string; answer: string }[] {
+  switch (id) {
+    case "upi-app-testing":
+      return [
+        {
+          question: "What core issues did you validate in the UPI App Testing project?",
+          answer: "We tested SIM binding mechanics, dual-factor device locks, transaction limits, database ledger updates under rapid concurrent transactions, and fallback states when third-party bank gateways timeout."
+        }
+      ];
+    case "ekyc-process-testing":
+      return [
+        {
+          question: "How did you test user biometric face matching in eKYC?",
+          answer: "We audited biometric face matching by executing API testing with dynamic confidence threshold limits, validating Aadhaar OCR document scan extractions, and testing edge cases with blurry or incomplete document uploads."
+        }
+      ];
+    case "dynamic-rate-plan":
+      return [
+        {
+          question: "What was the QA focus on the Dynamic Rate Plan project?",
+          answer: "The focus was verifying the pricing engine algorithm. We audited commission splits, transaction taxation, chargeback rates, and ledger balance consistency across dynamic distributor slabs."
+        }
+      ];
+    case "payment-gateway":
+      return [
+        {
+          question: "How did you test transaction security and limits in the Payment Gateway project?",
+          answer: "We executed boundary value analysis on payment amounts, simulated double-debit attempts via double request clicks, validated idempotency keys, and verified compliance ledger audits."
+        }
+      ];
+    case "gst-invoice-claim":
+      return [
+        {
+          question: "What validation rules were tested for GST Invoice Claims?",
+          answer: "We validated tax invoice data calculations, checking document verification rules, GSTIN format validations, and automated refund ledger offsets to prevent tax claim leakages."
+        }
+      ];
+    case "target-creation":
+      return [
+        {
+          question: "What did you build for Target Creation and Commission testing?",
+          answer: "We calibrated business intelligence incentives, checking performance target milestones and database query procedures to calculate payout percentages accurately."
+        }
+      ];
+    case "api-automation-framework":
+      return [
+        {
+          question: "How is the API Automation Framework structured?",
+          answer: "Built using Postman, Newman, and Playwright, the framework executes automated test runner validation suites on daily builds, testing schema compliance, response codes, and data values."
+        }
+      ];
+    case "mobile-testing-framework":
+      return [
+        {
+          question: "What mobile platforms does your framework test?",
+          answer: "It executes automated regression testing across multiple Android and iOS device sizes, validating deep links, push notification behaviors, SIM binding, and payment screen UI layouts."
+        }
+      ];
+    default:
+      return [];
+  }
 }
 
 export default async function ProjectDetailPage({ params }: PageProps) {
@@ -26,8 +120,54 @@ export default async function ProjectDetailPage({ params }: PageProps) {
     notFound();
   }
 
+  const digest = getProjectDigest(project.id);
+
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@type": "TechArticle",
+    "headline": project.title,
+    "description": project.summary,
+    "dependencies": project.tools.join(", "),
+    "author": {
+      "@type": "Person",
+      "name": "Ajinkya Swami",
+      "url": "https://ajinkyaswami1999.github.io/MyPortfolio/"
+    },
+    "publisher": {
+      "@type": "Person",
+      "name": "Ajinkya Swami"
+    },
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": `https://ajinkyaswami1999.github.io/MyPortfolio/projects/${project.id}`
+    }
+  };
+
+  const faqJsonLd = digest.length > 0 ? {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": digest.map(item => ({
+      "@type": "Question",
+      "name": item.question,
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": item.answer
+      }
+    }))
+  } : null;
+
   return (
     <div className="flex flex-col min-h-screen bg-[#03030d] text-slate-100 selection:bg-brand-cyan/20 selection:text-brand-cyan overflow-hidden">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
+      {faqJsonLd && (
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }}
+        />
+      )}
       <Navbar />
 
       <PageWrapper>
@@ -42,7 +182,7 @@ export default async function ProjectDetailPage({ params }: PageProps) {
           </Link>
 
           {/* Project Title Block */}
-          <div className="max-w-4xl mb-12">
+          <div className="max-w-4xl mb-12 text-left">
             <span className="text-xs font-mono tracking-widest text-brand-cyan uppercase mb-2 block">
               {project.category} Case Study
             </span>
@@ -54,6 +194,33 @@ export default async function ProjectDetailPage({ params }: PageProps) {
             </p>
             <div className="h-1 w-24 bg-gradient-to-r from-brand-cyan to-brand-blue mt-6" />
           </div>
+
+          {/* Generative Engine Calibration Node (Q&A Digest) */}
+          {digest.length > 0 && (
+            <div className="mb-12 glass-panel p-6 md:p-8 rounded-3xl border border-brand-cyan/25 bg-[#111111]/70 max-w-4xl relative overflow-hidden">
+              <div className="absolute top-0 right-0 px-3 py-1 bg-brand-cyan/10 border-b border-l border-brand-cyan/20 rounded-bl-xl font-mono text-[7.5px] uppercase tracking-widest text-brand-cyan animate-pulse">
+                AI SEARCH CALIBRATION NODE
+              </div>
+              <h2 className="text-sm font-mono text-brand-cyan uppercase tracking-widest mb-4 flex items-center gap-2 text-left">
+                <Shield size={14} className="shrink-0" />
+                AI Overview Q&A Digest (AEO / GEO Cache)
+              </h2>
+              <div className="space-y-6">
+                {digest.map((item, idx) => (
+                  <div key={idx} className="space-y-2 border-b border-white/5 pb-4 last:border-b-0 last:pb-0 text-left">
+                    <h3 className="text-xs md:text-sm font-extrabold text-white flex items-start gap-2 leading-relaxed text-left">
+                      <span className="text-brand-cyan select-none font-mono font-bold shrink-0">Q:</span>
+                      <span>{item.question}</span>
+                    </h3>
+                    <p className="text-xs text-slate-400 pl-4 border-l border-brand-cyan/30 leading-relaxed text-left">
+                      <span className="text-slate-500 font-mono font-bold text-[10px] select-none block mb-1">AEO RESPONSE DATA:</span>
+                      {item.answer}
+                    </p>
+                  </div>
+                ))}
+              </div>
+            </div>
+          )}
 
           {/* Detail Cards Layout Grid */}
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">

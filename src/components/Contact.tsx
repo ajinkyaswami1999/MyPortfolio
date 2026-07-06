@@ -147,6 +147,7 @@ export default function Contact() {
                   href="/Ajinkya_swami_resume.pdf"
                   download="Ajinkya_Swami_Resume.pdf"
                   className="flex items-center space-x-1.5 px-4 py-2.5 bg-slate-950 border border-brand-amber/30 hover:border-brand-amber text-slate-200 hover:text-white rounded-xl text-xs font-mono font-bold transition-all"
+                  aria-label="Download Resume PDF"
                 >
                   <Download size={13} className="text-brand-amber" />
                   <span>Resume</span>

@@ -110,7 +110,7 @@ export default function Hero() {
         style={{ x: gateX, y: gateY }}
         className="absolute inset-0 flex items-center justify-center pointer-events-none z-0 opacity-[0.045] select-none"
       >
-        <svg viewBox="0 0 800 600" className="w-full max-w-[800px] fill-[#F3F0E8] stroke-[#F3F0E8] stroke-[2]">
+        <svg aria-hidden="true" viewBox="0 0 800 600" className="w-full max-w-[800px] fill-[#F3F0E8] stroke-[#F3F0E8] stroke-[2]">
           {/* Heavy double research doors */}
           <rect x="250" y="100" width="145" height="400" />
           <rect x="405" y="100" width="145" height="400" />

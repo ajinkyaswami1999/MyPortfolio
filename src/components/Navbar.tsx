@@ -218,7 +218,7 @@ export default function Navbar() {
                 <span className="text-[7.5px] tracking-widest text-slate-450 font-mono uppercase">Station Operator</span>
               </div>
             </div>
-            <button onClick={() => setIsOpen(false)} className="text-slate-400 hover:text-white p-1.5 bg-slate-950 border border-white/5 rounded-lg">
+            <button onClick={() => setIsOpen(false)} className="text-slate-400 hover:text-white p-1.5 bg-slate-950 border border-white/5 rounded-lg" aria-label="Close navigation menu">
               <X size={14} />
             </button>
           </div>
@@ -256,6 +256,7 @@ export default function Navbar() {
               target="_blank"
               rel="noopener noreferrer"
               className="text-slate-400 hover:text-white transition-colors p-2.5 bg-slate-950 border border-white/5 rounded-lg w-full flex justify-center"
+              aria-label="GitHub Profile"
             >
               <GithubIcon size={16} />
             </a>
@@ -264,6 +265,7 @@ export default function Navbar() {
               target="_blank"
               rel="noopener noreferrer"
               className="text-slate-400 hover:text-white transition-colors p-2.5 bg-slate-950 border border-white/5 rounded-lg w-full flex justify-center"
+              aria-label="LinkedIn Profile"
             >
               <LinkedinIcon size={16} />
             </a>

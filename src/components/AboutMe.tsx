@@ -11,8 +11,11 @@ import {
   Gamepad2, 
   User, 
   Target,
-  Maximize2
+  Maximize2,
+  ArrowUpRight,
+  Globe
 } from "lucide-react";
+import { GithubIcon, LinkedinIcon, InstagramIcon, SnapchatIcon } from "./BrandIcons";
 
 interface ProfileCard {
   icon: React.ReactNode;
@@ -116,7 +119,8 @@ export default function AboutMe() {
         {/* DNA Specimen Report details */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
           {/* Left Block - DNA Scan Outlines */}
-          <div className="lg:col-span-5 flex justify-center w-full">
+          <div className="lg:col-span-5 flex flex-col justify-start items-center space-y-6 w-full">
+            {/* DNA Scan card */}
             <motion.div
               initial={{ opacity: 0, scale: 0.95 }}
               whileInView={{ opacity: 1, scale: 1 }}
@@ -182,6 +186,54 @@ export default function AboutMe() {
                 <span className="text-brand-cyan font-bold flex items-center gap-1">
                   <Target size={8} /> SECURE
                 </span>
+              </div>
+            </motion.div>
+
+            {/* Genetic Index (Social links & Websites) */}
+            <motion.div
+              initial={{ opacity: 0, y: 15 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: 0.15 }}
+              className="w-full max-w-[360px] glass-panel border border-white/5 rounded-3xl p-5 bg-[#111111]/75 text-left font-mono relative overflow-hidden shadow-2xl"
+            >
+              {/* Top glow overlay */}
+              <div className="absolute top-0 left-0 w-full h-[1px] bg-gradient-to-r from-transparent via-brand-amber/20 to-transparent" />
+              
+              <div className="flex items-center space-x-2 mb-4 pb-2.5 border-b border-white/5">
+                <span className="w-1.5 h-1.5 rounded-full bg-brand-amber animate-pulse" />
+                <h4 className="text-[9.5px] tracking-widest text-slate-450 uppercase font-bold">GENETIC_LINKS_DECK</h4>
+              </div>
+
+              <div className="space-y-2.5">
+                {[
+                  { label: "LinkedIn", href: "https://www.linkedin.com/in/ajinkya-swami-82751b191/", icon: <LinkedinIcon size={12} className="text-brand-cyan" />, text: "in/ajinkya-swami-82751b191" },
+                  { label: "GitHub", href: "https://github.com/ajinkyaswami1999", icon: <GithubIcon size={12} className="text-brand-blue" />, text: "github/ajinkyaswami1999" },
+                  { label: "Voxelique Store", href: "https://voxelique.com", icon: <Printer size={12} className="text-brand-purple" />, text: "voxelique.com" },
+                  { label: "Toolique Web", href: "https://toolique.in", icon: <Wrench size={12} className="text-brand-amber" />, text: "toolique.in" },
+                  { label: "Instagram (Pers.)", href: "https://www.instagram.com/2ajinkya6/", icon: <InstagramIcon size={12} className="text-brand-orange" />, text: "@2ajinkya6" },
+                  { label: "Instagram (Photo)", href: "https://www.instagram.com/theasterlens/", icon: <Camera size={12} className="text-brand-cyan" />, text: "@theasterlens" },
+                  { label: "Snapchat", href: "https://snapchat.com/t/wgcxkncY", icon: <SnapchatIcon size={12} className="text-yellow-400" />, text: "snapchat/ajinkya" }
+                ].map((link, idx) => (
+                  <a
+                    key={idx}
+                    href={link.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-center justify-between p-2 bg-slate-950/60 border border-white/5 hover:border-brand-amber/30 rounded-xl transition-all group/link text-[10px] text-slate-400 hover:text-white cursor-pointer"
+                  >
+                    <div className="flex items-center space-x-2.5">
+                      <div className="p-1.5 bg-slate-900 border border-white/5 rounded-lg group-hover/link:border-brand-amber/25 transition-colors">
+                        {link.icon}
+                      </div>
+                      <div className="flex flex-col text-left">
+                        <span className="text-[8px] text-slate-500 font-bold uppercase tracking-wider">{link.label}</span>
+                        <span className="text-slate-350 group-hover/link:text-white transition-colors mt-0.5">{link.text}</span>
+                      </div>
+                    </div>
+                    <ArrowUpRight size={10} className="text-slate-650 group-hover/link:text-brand-amber transition-colors mr-1" />
+                  </a>
+                ))}
               </div>
             </motion.div>
           </div>

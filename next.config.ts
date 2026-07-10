@@ -9,28 +9,23 @@ const nextConfig: NextConfig = {
         permanent: true,
       },
       {
-        source: "/creative-sector",
-        destination: "/asset-manifest",
-        permanent: true,
-      },
-      {
         source: "/contact",
         destination: "/transmission-tower",
         permanent: true,
       },
       {
         source: "/voxelique",
-        destination: "/asset-manifest",
+        destination: "/creative-sector",
         permanent: true,
       },
       {
         source: "/toolique",
-        destination: "/asset-manifest",
+        destination: "/creative-sector",
         permanent: true,
       },
       {
         source: "/photography",
-        destination: "/asset-manifest",
+        destination: "/creative-sector",
         permanent: true,
       },
     ];

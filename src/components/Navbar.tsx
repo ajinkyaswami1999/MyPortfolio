@@ -16,9 +16,9 @@ const navItems: NavItem[] = [
   { label: "Home", href: "/" },
   { label: "DNA Profile", href: "/#about", isAnchor: true },
   { label: "Evolution Log", href: "/#experience", isAnchor: true },
-  { label: "Research Projects", href: "/projects" },
+  { label: "Research Projects", href: "/asset-manifest" },
   { label: "Creative Sector", href: "/creative-sector" },
-  { label: "Transmission Center", href: "/contact" },
+  { label: "Transmission Center", href: "/transmission-tower" },
 ];
 
 export default function Navbar() {

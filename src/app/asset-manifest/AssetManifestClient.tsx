@@ -22,36 +22,7 @@ interface SpecimenAsset {
 }
 
 const specimensData: SpecimenAsset[] = [
-  {
-    id: "voxelique",
-    title: "VOXELIQUE 3D LAB",
-    classification: "ASSET TYPE: MANUFACTURING / TYPE-01 (3D PRINT REPLICATION)",
-    category: "manufacturing",
-    status: "STABLE CALIBRATION",
-    metrics: [
-      "Print Tolerance: 0.12mm",
-      "Extruder Calibration: Stable",
-      "Material Tolerance: PETG / PLA / ABS"
-    ],
-    description: "Designed and engineered high-precision 3D physical modeling replicator platforms using automated asset generation pipelines.",
-    link: "https://voxelique.com",
-    external: true
-  },
-  {
-    id: "toolique",
-    title: "TOOLIQUE UTILITIES",
-    classification: "ASSET TYPE: UTILITY INFRASTRUCTURE",
-    category: "infrastructure",
-    status: "SYSTEMS NOMINAL",
-    metrics: [
-      "Process Mode: Multithreaded",
-      "Validations: Regex Array Verification",
-      "Response Delay: < 8ms"
-    ],
-    description: "Deployed developer utilities platform offering client-side JSON filters, document manipulation engines, and QA calculators.",
-    link: "https://toolique.in",
-    external: true
-  },
+
   {
     id: "paddock-qa-frameworks",
     title: "PERIMETER MONITORING AUTOMATION",
@@ -148,7 +119,7 @@ export default function AssetManifestClient() {
 
             {/* Filter Buttons */}
             <div className="flex flex-wrap gap-2">
-              {["all", "manufacturing", "infrastructure", "automation"].map((cat) => (
+              {["all", "automation", "infrastructure"].map((cat) => (
                 <button
                   key={cat}
                   onClick={() => setActiveFilter(cat)}

@@ -323,7 +323,7 @@ export default function CreativeSectorClient() {
               }`}
             >
               <span className={`w-1.5 h-1.5 rounded-full ${activeTab === "documentation" ? "bg-brand-cyan animate-pulse" : "bg-slate-800"}`} />
-              <span>03 // Field Documentation</span>
+              <span>03 // Photography & Socials</span>
             </button>
           </div>
 

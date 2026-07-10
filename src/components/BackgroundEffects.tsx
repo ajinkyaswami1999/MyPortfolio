@@ -197,7 +197,13 @@ export default function BackgroundEffects() {
   ];
 
   return (
-    <div className="fixed inset-0 w-full h-full pointer-events-none z-0 overflow-hidden bg-[#03030d]">
+    <div className="fixed inset-0 w-full h-full pointer-events-none z-0 overflow-hidden bg-[#080A0D]">
+      {/* Immersive Prehistoric Research Facility Fullscreen Backdrop */}
+      <div 
+        className="absolute inset-0 bg-cover bg-center bg-no-repeat opacity-[0.22] mix-blend-lighten pointer-events-none"
+        style={{ backgroundImage: 'url("/ingen_facility.png")' }}
+      />
+
       {/* 1. Moving CSS grid pattern */}
       <div 
         className="absolute inset-0 opacity-[0.03] bg-[linear-gradient(to_right,#00f2fe_1px,transparent_1px),linear-gradient(to_bottom,#00f2fe_1px,transparent_1px)] bg-[size:5rem_5rem]" 

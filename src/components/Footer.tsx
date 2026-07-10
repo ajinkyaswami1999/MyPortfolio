@@ -24,7 +24,7 @@ export default function Footer() {
         {/* Center Social Links */}
         <div className="flex items-center justify-center space-x-5">
           <a
-            href="https://www.linkedin.com/in/ajinkya-swami-82751b191/"
+            href="https://www.linkedin.com/in/ajinkya-swami/"
             target="_blank"
             rel="noopener noreferrer"
             className="p-2.5 bg-slate-950 border border-white/5 rounded-xl text-slate-400 hover:text-brand-amber hover:border-brand-amber/35 transition-all duration-300"
@@ -42,7 +42,7 @@ export default function Footer() {
             <GithubIcon size={18} />
           </a>
           <a
-            href="https://www.instagram.com/2ajinkya6/"
+            href="https://www.instagram.com/ajinkyaswami.in/"
             target="_blank"
             rel="noopener noreferrer"
             className="p-2.5 bg-slate-950 border border-white/5 rounded-xl text-slate-400 hover:text-brand-amber hover:border-brand-amber/35 transition-all duration-300"

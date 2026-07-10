@@ -207,12 +207,12 @@ export default function AboutMe() {
 
               <div className="space-y-2.5">
                 {[
-                  { label: "LinkedIn", href: "https://www.linkedin.com/in/ajinkya-swami-82751b191/", icon: <LinkedinIcon size={12} className="text-brand-cyan" />, text: "in/ajinkya-swami-82751b191" },
+                  { label: "LinkedIn", href: "https://www.linkedin.com/in/ajinkya-swami/", icon: <LinkedinIcon size={12} className="text-brand-cyan" />, text: "in/ajinkya-swami" },
                   { label: "GitHub", href: "https://github.com/ajinkyaswami1999", icon: <GithubIcon size={12} className="text-brand-blue" />, text: "github/ajinkyaswami1999" },
                   { label: "Voxelique Store", href: "https://voxelique.com", icon: <Printer size={12} className="text-brand-purple" />, text: "voxelique.com" },
                   { label: "Instagram (Voxelique)", href: "https://www.instagram.com/voxelique/", icon: <InstagramIcon size={12} className="text-brand-purple" />, text: "@voxelique" },
                   { label: "Toolique Web", href: "https://toolique.in", icon: <Wrench size={12} className="text-brand-amber" />, text: "toolique.in" },
-                  { label: "Instagram (Pers.)", href: "https://www.instagram.com/2ajinkya6/", icon: <InstagramIcon size={12} className="text-brand-orange" />, text: "@2ajinkya6" },
+                  { label: "Instagram (Pers.)", href: "https://www.instagram.com/ajinkyaswami.in/", icon: <InstagramIcon size={12} className="text-brand-orange" />, text: "@ajinkyaswami.in" },
                   { label: "Instagram (Photo)", href: "https://www.instagram.com/theasterlens/", icon: <Camera size={12} className="text-brand-cyan" />, text: "@theasterlens" },
                   { label: "Snapchat", href: "https://snapchat.com/t/wgcxkncY", icon: <SnapchatIcon size={12} className="text-yellow-400" />, text: "snapchat/ajinkya" }
                 ].map((link, idx) => (

@@ -166,7 +166,7 @@ export default function Navbar() {
               <GithubIcon size={13} />
             </a>
             <a
-              href="https://www.linkedin.com/in/ajinkya-swami-82751b191/"
+              href="https://www.linkedin.com/in/ajinkya-swami/"
               target="_blank"
               rel="noopener noreferrer"
               className="text-slate-400 hover:text-white transition-colors p-2.5 bg-slate-950 border border-white/5 rounded-lg hover:border-brand-amber/30"
@@ -261,7 +261,7 @@ export default function Navbar() {
               <GithubIcon size={16} />
             </a>
             <a
-              href="https://www.linkedin.com/in/ajinkya-swami-82751b191/"
+              href="https://www.linkedin.com/in/ajinkya-swami/"
               target="_blank"
               rel="noopener noreferrer"
               className="text-slate-400 hover:text-white transition-colors p-2.5 bg-slate-950 border border-white/5 rounded-lg w-full flex justify-center"
@@ -270,7 +270,7 @@ export default function Navbar() {
               <LinkedinIcon size={16} />
             </a>
             <a
-              href="https://www.instagram.com/2ajinkya6/"
+              href="https://www.instagram.com/ajinkyaswami.in/"
               target="_blank"
               rel="noopener noreferrer"
               className="text-slate-400 hover:text-white transition-colors p-2.5 bg-slate-950 border border-white/5 rounded-lg w-full flex justify-center"

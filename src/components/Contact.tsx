@@ -135,7 +135,7 @@ export default function Contact() {
                   <GithubIcon size={16} />
                 </a>
                 <a
-                  href="https://www.linkedin.com/in/ajinkya-swami-82751b191/"
+                  href="https://www.linkedin.com/in/ajinkya-swami/"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="p-3 bg-slate-950 border border-white/5 rounded-xl text-slate-400 hover:text-white transition-colors"
@@ -144,7 +144,7 @@ export default function Contact() {
                   <LinkedinIcon size={16} />
                 </a>
                 <a
-                  href="https://www.instagram.com/2ajinkya6/"
+                  href="https://www.instagram.com/ajinkyaswami.in/"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="p-3 bg-slate-950 border border-white/5 rounded-xl text-slate-400 hover:text-white transition-colors"

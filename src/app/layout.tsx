@@ -77,7 +77,7 @@ export default function RootLayout({
     "url": "https://ajinkyaswami.in",
     "sameAs": [
       "https://github.com/ajinkyaswami1999",
-      "https://www.linkedin.com/in/ajinkya-swami-82751b191/"
+      "https://www.linkedin.com/in/ajinkya-swami/"
     ],
     "address": {
       "@type": "PostalAddress",

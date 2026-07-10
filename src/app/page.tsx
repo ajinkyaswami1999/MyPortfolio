@@ -1,11 +1,16 @@
 import React from "react";
 import Link from "next/link";
 import Navbar from "@/components/Navbar";
+import Hero from "@/components/Hero";
+import AboutMe from "@/components/AboutMe";
+import Experience from "@/components/Experience";
+import Projects from "@/components/Projects";
+import Skills from "@/components/Skills";
+import Contact from "@/components/Contact";
 import Footer from "@/components/Footer";
 import PageWrapper from "@/components/PageWrapper";
 import CornerCrosshairs from "@/components/CornerCrosshairs";
 import DecodeText from "@/components/DecodeText";
-import AboutMe from "@/components/AboutMe";
 import { Terminal, Shield, Cpu, RefreshCw, Radio } from "lucide-react";
 
 export const metadata = {
@@ -15,34 +20,37 @@ export const metadata = {
 
 export default function Home() {
   return (
-    <div className="flex flex-col min-h-screen bg-[#080A0D] text-slate-200 selection:bg-brand-orange/20 selection:text-brand-orange overflow-hidden font-mono">
+    <div className="flex flex-col min-h-screen bg-[#07090D] text-slate-200 selection:bg-brand-orange/20 selection:text-brand-orange overflow-hidden font-mono">
       <Navbar />
 
       <PageWrapper>
-        <main className="flex-1 container mx-auto px-4 md:px-8 pt-32 pb-24 relative z-10">
+        {/* Section 1 & 2: Arrival & Security Checkpoint */}
+        <Hero />
+
+        <main className="flex-1 container mx-auto px-4 md:px-8 pb-24 relative z-10">
           
-          {/* Main InGen Console Header */}
-          <div className="border border-brand-cyan/20 bg-[#0c1017]/80 p-5 rounded-2xl mb-8 relative">
+          {/* Main InGen Telemetry Dashboard Banner */}
+          <div className="border border-brand-cyan/20 bg-[#0c1017]/85 p-5 rounded-3xl mb-12 relative">
             <CornerCrosshairs />
             <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
               <div className="text-left">
-                <span className="text-[10px] tracking-widest text-brand-orange font-bold uppercase block mb-1">
-                  SYSTEM STATUS: MONITORING ACTIVE
+                <span className="text-[9px] tracking-widest text-brand-orange font-bold uppercase block mb-1">
+                  SYSTEM OVERRIDE CLEARED // ACTIVE TELEMETRY
                 </span>
-                <h1 className="text-xl md:text-2xl font-black text-white flex items-center gap-2">
-                  <Terminal className="text-brand-cyan shrink-0 animate-pulse" size={20} />
-                  <DecodeText text="INGEN SECURITY OVERVIEW: CENTRAL FACILITY TERMINAL" />
-                </h1>
+                <h2 className="text-lg font-black text-white flex items-center gap-2">
+                  <Terminal className="text-brand-cyan shrink-0 animate-pulse" size={16} />
+                  <DecodeText text="INGEN OVERWATCH CORE: FACILITY STATUS MONITOR" />
+                </h2>
               </div>
-              <div className="flex items-center gap-2 px-3.5 py-1.5 bg-brand-cyan/10 border border-brand-cyan/25 rounded-lg text-brand-cyan text-[11px] font-bold">
-                <span className="w-2 h-2 bg-brand-cyan rounded-full animate-ping" />
+              <div className="flex items-center gap-2 px-3 py-1 bg-brand-cyan/10 border border-brand-cyan/25 rounded-lg text-brand-cyan text-[10px] font-bold">
+                <span className="w-1.5 h-1.5 bg-brand-cyan rounded-full animate-ping" />
                 <span>ISLA NUBLAR NODE CO-04</span>
               </div>
             </div>
           </div>
 
           {/* Telemetry Status Grid */}
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-16">
             {[
               {
                 title: "PADDOCK ENCLOSURES",
@@ -66,39 +74,59 @@ export default function Home() {
                 borderClass: "border-brand-cyan/30 bg-brand-cyan/5"
               }
             ].map((node, idx) => (
-              <div key={idx} className={`border p-5 rounded-2xl relative text-left ${node.borderClass}`}>
+              <div key={idx} className={`border p-5 rounded-3xl relative text-left ${node.borderClass}`}>
                 <CornerCrosshairs />
                 <div className="flex items-center gap-3 mb-2.5">
                   <div className="p-2 bg-slate-950 border border-white/5 rounded-lg">
                     {node.icon}
                   </div>
-                  <span className="text-[10px] text-slate-500 uppercase tracking-widest font-bold">
+                  <span className="text-[9px] text-slate-500 uppercase tracking-widest font-bold">
                     {node.title}
                   </span>
                 </div>
-                <h3 className="text-base font-extrabold text-white mb-1">{node.status}</h3>
-                <p className="text-[11px] text-slate-450 leading-relaxed">{node.desc}</p>
+                <h3 className="text-sm font-extrabold text-white mb-1">{node.status}</h3>
+                <p className="text-[10px] text-slate-450 leading-relaxed">{node.desc}</p>
               </div>
             ))}
           </div>
 
-          {/* Personnel Diagnostic Section */}
-          <div className="mb-12">
+          {/* Section 3: DNA Profile (About Me) */}
+          <div className="mb-16">
             <AboutMe />
           </div>
 
-          {/* Sector Overrides Clearance Access Buttons */}
-          <div className="max-w-4xl mx-auto border border-brand-orange/25 bg-[#0e121a]/85 p-6 md:p-8 rounded-3xl relative overflow-hidden text-center mb-12">
+          {/* Section 4: Evolution Log (Experience Timeline) */}
+          <div className="mb-16">
+            <Experience />
+          </div>
+
+          {/* Section 5: Research Projects (Portfolio Grid) */}
+          <div className="mb-16">
+            <Projects />
+          </div>
+
+          {/* Section 6: Genetic Enhancements (Technical Skills) */}
+          <div className="mb-16">
+            <Skills />
+          </div>
+
+          {/* Section 7: Transmission Center (Secure Contact Deck) */}
+          <div className="mb-16">
+            <Contact />
+          </div>
+
+          {/* Sector Overrides Clearance Access Navigation Buttons */}
+          <div className="max-w-4xl mx-auto border border-brand-orange/25 bg-[#0e121a]/85 p-6 md:p-8 rounded-3xl relative overflow-hidden text-center">
             <CornerCrosshairs />
             <div className="absolute top-0 right-0 px-3 py-1 bg-brand-orange/10 border-b border-l border-brand-orange/20 rounded-bl-xl text-[8px] uppercase tracking-widest text-brand-orange font-bold">
               PERIMETER OVERRIDE CLEARANCE
             </div>
             
-            <h2 className="text-sm tracking-widest text-brand-orange uppercase font-bold mb-3 flex items-center justify-center gap-2">
-              <Radio size={16} className="animate-pulse" />
+            <h2 className="text-xs tracking-widest text-brand-orange uppercase font-bold mb-3 flex items-center justify-center gap-2">
+              <Radio size={14} className="animate-pulse" />
               SYSTEM OVERRIDE CLEARANCE ACCESS
             </h2>
-            <p className="text-[11px] text-slate-400 max-w-xl mx-auto mb-8 leading-relaxed">
+            <p className="text-[10px] text-slate-450 max-w-xl mx-auto mb-8 leading-relaxed">
               Diagnostic terminal clearances detected. Override local routing tables to inspect classified manufacturing assets, chronological personnel records, and communications channels.
             </p>
 
@@ -113,8 +141,8 @@ export default function Home() {
                   href={btn.href}
                   className="bevel-clip border border-brand-orange hover:bg-brand-orange text-brand-orange hover:text-slate-950 font-bold p-4 block transition-colors duration-300 select-none cursor-pointer"
                 >
-                  <span className="text-sm block tracking-widest">{btn.label}</span>
-                  <span className="text-[9px] block text-slate-450 font-normal uppercase mt-1 group-hover:text-slate-950">
+                  <span className="text-xs block tracking-widest">{btn.label}</span>
+                  <span className="text-[8px] block text-slate-450 font-normal uppercase mt-1 group-hover:text-slate-950">
                     {btn.desc}
                   </span>
                 </Link>

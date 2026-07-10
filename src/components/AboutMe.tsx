@@ -165,24 +165,28 @@ export default function AboutMe() {
                 {/* HUD Tech Stats */}
                 <div className="w-full mt-8 space-y-2.5 font-mono text-[9px] text-slate-450 border-t border-white/5 pt-6 text-left">
                   <div className="flex justify-between">
-                    <span>SPECIMEN STATUS:</span>
-                    <span className="text-jungle-green font-bold">STABLE [OK]</span>
+                    <span>DNA INTEGRITY:</span>
+                    <span className="text-jungle-green font-bold">99.8% STABLE</span>
                   </div>
                   <div className="flex justify-between">
-                    <span>GENETIC CODE:</span>
-                    <span className="text-slate-200">QA • D2C • MOTOR</span>
+                    <span>EXPERIENCE PHASE:</span>
+                    <span className="text-slate-200">3+ YEARS ACTIVE</span>
                   </div>
                   <div className="flex justify-between">
-                    <span>PRINT TOLERANCE:</span>
-                    <span className="text-brand-cyan font-bold font-mono">0.12mm</span>
+                    <span>CORE MUTATIONS:</span>
+                    <span className="text-brand-cyan font-bold font-mono">QA / AUTOMATION / DEV</span>
                   </div>
                   <div className="flex justify-between">
-                    <span>BIKE SPECS:</span>
-                    <span className="text-brand-orange font-bold font-mono">397cc ENGINE</span>
+                    <span>MISSION STATUS:</span>
+                    <span className="text-brand-orange font-bold font-mono">ACTIVE / OPEN FOR CONTRACTS</span>
                   </div>
                   <div className="flex justify-between">
-                    <span>CAMERA SENSOR:</span>
-                    <span className="text-slate-200">NIKON Z 30 DX</span>
+                    <span>SYSTEM ANALYSIS:</span>
+                    <span className="text-slate-200">OPTIMAL TELEMETRY</span>
+                  </div>
+                  <div className="flex justify-between">
+                    <span>CAREER EVOLUTION:</span>
+                    <span className="text-brand-orange font-bold">LEVEL 07 CLEARANCE</span>
                   </div>
                 </div>
               </div>

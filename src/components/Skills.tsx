@@ -2,6 +2,7 @@
 
 import React from "react";
 import { motion } from "framer-motion";
+import CornerCrosshairs from "./CornerCrosshairs";
 import { Check, ClipboardList, Send, Activity, Database, Settings, Terminal, Cloud, ShieldAlert } from "lucide-react";
 
 interface SkillCategory {
@@ -81,18 +82,23 @@ export default function Skills() {
   };
 
   return (
-    <section id="skills" className="py-24 relative bg-[#03030d] overflow-hidden">
-      {/* Aurora glow */}
-      <div className="absolute bottom-0 right-0 w-96 h-96 rounded-full aurora-circle-2 filter blur-[120px] opacity-15" />
+    <section id="skills" className="py-24 relative bg-[#07090D] overflow-hidden border-t border-white/5">
+      {/* Glow spotlight */}
+      <div className="absolute bottom-0 right-0 w-96 h-96 rounded-full bg-brand-cyan/5 filter blur-[120px] pointer-events-none" />
 
       <div className="container mx-auto px-4 md:px-8">
         {/* Section Header */}
         <div className="flex flex-col mb-16 text-left max-w-3xl">
-          <span className="text-xs font-mono tracking-widest text-brand-cyan uppercase mb-2">My Skillset</span>
+          <span className="text-xs font-mono tracking-widest text-brand-orange uppercase mb-2 block">
+            CLASSIFIED TELEMETRY
+          </span>
           <h2 className="text-3xl md:text-4xl font-extrabold font-display text-white">
-            Technical Skills
+            GENETIC ENHANCEMENTS
           </h2>
-          <div className="h-1 w-20 bg-gradient-to-r from-brand-cyan to-brand-blue mt-4" />
+          <p className="text-slate-400 mt-4 text-xs md:text-sm leading-relaxed">
+            A comprehensive mapping of biological node mutations cataloging core testing engines, scripting frameworks, and database validation tools.
+          </p>
+          <div className="h-1 w-20 bg-gradient-to-r from-brand-orange via-brand-cyan to-jungle-green mt-4" />
         </div>
 
         {/* Skills Cards Grid */}
@@ -107,27 +113,28 @@ export default function Skills() {
             <motion.div
               key={category.title}
               variants={cardVariants}
-              className="glass-panel glow-card p-6 rounded-2xl border border-slate-900 flex flex-col justify-between"
+              className="glass-panel p-6 rounded-3xl border border-white/5 flex flex-col justify-between hover:border-brand-orange/40 transition-all duration-300 relative group"
             >
+              <CornerCrosshairs />
               <div>
                 {/* Category Header */}
-                <div className="flex items-center space-x-3 mb-6">
-                  <div className="p-2.5 bg-slate-900/80 border border-slate-800 rounded-xl">
+                <div className="flex items-center space-x-3 mb-6 text-left">
+                  <div className="p-2.5 bg-slate-950 border border-white/5 rounded-xl group-hover:border-brand-orange/20 transition-colors">
                     {category.icon}
                   </div>
-                  <h3 className="text-base md:text-lg font-bold font-display text-white">
+                  <h3 className="text-sm font-bold font-display text-white">
                     {category.title}
                   </h3>
                 </div>
 
                 {/* Badges list */}
-                <div className="flex flex-wrap gap-2">
+                <div className="flex flex-wrap gap-2 text-left">
                   {category.skills.map((skill) => (
                     <span
                       key={skill}
-                      className="text-xs px-2.5 py-1.5 bg-slate-950/80 border border-slate-900/80 text-slate-300 rounded-lg hover:border-brand-cyan/25 hover:text-white transition-all cursor-default flex items-center space-x-1.5"
+                      className="text-[10px] px-2.5 py-1.5 bg-slate-950/80 border border-white/5 text-slate-300 rounded-lg hover:border-brand-cyan/25 hover:text-white transition-all cursor-default flex items-center space-x-1.5"
                     >
-                      <Check size={10} className="text-brand-cyan shrink-0" />
+                      <Check size={8} className="text-brand-cyan shrink-0" />
                       <span>{skill}</span>
                     </span>
                   ))}
@@ -135,7 +142,7 @@ export default function Skills() {
               </div>
 
               {/* Decorative accent footer gradient inside card */}
-              <div className={`h-1.5 w-full bg-gradient-to-r ${category.colorClass} opacity-40 rounded-full mt-6`} />
+              <div className={`h-1.5 w-full bg-gradient-to-r ${category.colorClass} opacity-20 rounded-full mt-6`} />
             </motion.div>
           ))}
         </motion.div>

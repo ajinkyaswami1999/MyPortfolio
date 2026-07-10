@@ -47,12 +47,12 @@ if (fs.existsSync(robotsPath)) {
 // 3. Scan pages for SEO Metadata & Schema Integrations
 const corePages = [
   { name: 'Home Page', path: 'src/app/page.tsx' },
-  { name: 'Projects List', path: 'src/app/projects/page.tsx' },
-  { name: 'Project Detail Dynamic Route', path: 'src/app/projects/[id]/page.tsx' },
+  { name: 'Asset Manifest Page', path: 'src/app/asset-manifest/page.tsx' },
+  { name: 'Personnel File Page', path: 'src/app/personnel-file/page.tsx' },
+  { name: 'Transmission Tower Page', path: 'src/app/transmission-tower/page.tsx' },
   { name: 'Blog List', path: 'src/app/blog/page.tsx' },
   { name: 'Blog Detail Dynamic Route', path: 'src/app/blog/[id]/page.tsx' },
-  { name: 'Creative Sector', path: 'src/app/creative-sector/page.tsx' },
-  { name: 'Contact Page', path: 'src/app/contact/page.tsx' }
+  { name: 'Project Detail Dynamic Route', path: 'src/app/projects/[id]/page.tsx' }
 ];
 
 console.log("\n🔍 Checking Static/Dynamic Page Configurations:");

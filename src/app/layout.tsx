@@ -124,7 +124,8 @@ export default function RootLayout({
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
       </head>
-      <body className="min-h-full flex flex-col bg-[#0A0A0A] text-slate-100 font-sans relative">
+      <body className="min-h-full flex flex-col bg-[#080A0D] text-slate-100 font-sans relative">
+        <div className="crt-scanlines crt-flicker" />
         <BackgroundEffects />
         <CustomCursor />
         <ScrollSpine />

@@ -2,6 +2,7 @@
 
 import React from "react";
 import { motion } from "framer-motion";
+import Image from "next/image";
 import { 
   ShieldCheck, 
   Printer, 
@@ -146,10 +147,16 @@ export default function AboutMe() {
 
               {/* Tech outline representing DNA Spiral */}
               <div className="flex-1 flex flex-col items-center justify-center relative z-10 py-10">
-                <div className="w-24 h-24 rounded-full border border-brand-amber/20 bg-slate-950 flex items-center justify-center relative mb-6 shadow-xl shadow-black/85 group-hover:border-brand-amber/40 transition-colors duration-300">
-                  <User size={40} className="text-slate-400 group-hover:text-brand-amber transition-colors duration-300" />
+                <div className="w-24 h-24 rounded-full border border-brand-amber/20 bg-slate-950 flex items-center justify-center relative mb-6 shadow-xl shadow-black/85 group-hover:border-brand-amber/40 transition-colors duration-300 overflow-hidden">
+                  <Image
+                    src="/profile.jpg"
+                    alt="Ajinkya Swami"
+                    fill
+                    className="object-cover transition-transform duration-500 group-hover:scale-105"
+                    priority
+                  />
                   {/* Double Helix border rotating */}
-                  <div className="absolute inset-0 border border-dashed border-brand-amber/30 rounded-full animate-[spin_12s_linear_infinite]" />
+                  <div className="absolute inset-0 border border-dashed border-brand-amber/30 rounded-full animate-[spin_12s_linear_infinite] pointer-events-none" />
                 </div>
 
                 <h4 className="text-lg font-bold font-display text-white">AJINKYA SWAMI</h4>

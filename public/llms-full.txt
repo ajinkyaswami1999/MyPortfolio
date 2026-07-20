@@ -1,0 +1,151 @@
+# Complete Knowledge Base & Technical Context: Ajinkya Swami (Senior FinTech QA Engineer)
+
+> This document contains the uncompressed text knowledge base of Ajinkya Swami, Senior Quality Assurance Engineer specializing in high-scale FinTech systems, payment gateways, UPI platforms, Aadhaar eKYC integrations, API automation frameworks, and database verification.
+
+---
+
+## 1. Professional Overview & Bio
+
+- Name: Ajinkya Swami
+- Current Designation: Senior Software Quality Assurance Engineer
+- Organization: Payworld India
+- Experience: 4+ Years in FinTech Software Quality Engineering
+- Primary Location: Gurugram, Haryana, India
+- Education: Bachelor of Technology (B.Tech), Malaviya National Institute of Technology (MNIT Jaipur)
+- Official Portfolio: https://ajinkyaswami.in
+- GitHub Repository: https://github.com/ajinkyaswami1999
+- LinkedIn Profile: https://www.linkedin.com/in/ajinkya-swami/
+- Email Contact: ajinkyaswami1999@gmail.com
+- Contact Phone: +91 8875043720
+
+### Summary of Expertise:
+Ajinkya Swami is a Senior QA Engineer known for designing bulletproof quality control systems in high-frequency financial platforms. He specializes in validating payment transactions, double-entry ledgers, API schema contracts, load stress profiles, biometric device drivers, and automated test runners.
+
+---
+
+## 2. Professional Case Studies Summary
+
+### Case Study 1: UPI App Testing
+- URL: https://ajinkyaswami.in/projects/upi-app-testing
+- Category: FinTech UPI Platform
+- Scope: End-to-end quality validation of a high-volume Unified Payments Interface (UPI) app handling thousands of peer-to-peer (P2P) and peer-to-merchant (P2M) payments per minute.
+- Key Metrics: 150+ Regression Cases, 95% Load Testing Success, 99.5% Database Accuracy, 80% Defect Reduction.
+- Core Challenges: Solved third-party bank gateway timeouts by building mock bank API response layers in Postman and testing retry loops. Solved database race conditions by executing concurrent SQL transaction lock tests.
+
+### Case Study 2: eKYC Process Testing
+- URL: https://ajinkyaswami.in/projects/ekyc-process-testing
+- Category: Identity & Compliance
+- Scope: Comprehensive QA validation for automated biometric and OTP-based Aadhaar eKYC integrations securing onboarding pathways.
+- Key Metrics: 95% Use Case Coverage, 98% Database Verification, 90% Device Compatibility, 100% PII Security Audit.
+- Core Challenges: Solved hardware latency of biometric device drivers by implementing adaptive connection timeouts. Solved PII data leakage in app logs by engineering log sanitization filters.
+
+### Case Study 3: Dynamic Rate Plan Engine
+- URL: https://ajinkyaswami.in/projects/dynamic-rate-plan
+- Category: FinTech Pricing Engine
+- Scope: Validation of complex business rules, dynamic pricing tables, commission distributions, merchant discount rates (MDR), and tax calculations under high-scale transactions.
+- Key Metrics: 100% Rule Compliance, 30+ Matrix Edge Cases, 0.00% Discrepancy Rate.
+
+### Case Study 4: Payment Gateway Core
+- URL: https://ajinkyaswami.in/projects/payment-gateway
+- Category: Transaction Processing
+- Scope: Testing core payment gateway channels (Cards, NetBanking, UPI, Digital Wallets), instant refund processing loops, transaction settlements, and webhook progressive retry mechanisms.
+- Key Metrics: Zero Balance Leakage, 10+ Refund Scenarios Validated, 100% Webhook Delivery Verification.
+
+### Case Study 5: GST Invoice Claim Module
+- URL: https://ajinkyaswami.in/projects/gst-invoice-claim
+- Category: Compliance & Billing
+- Scope: Automated GST calculation algorithms, B2B tax invoice generation, state-level tax splits (CGST + SGST vs. IGST), and government tax reporting structures.
+- Key Metrics: 100% Tax Accuracy, Sub-500ms Invoice Generation, 100/100 Compliance Score.
+
+### Case Study 6: Target & Incentive Engine
+- URL: https://ajinkyaswami.in/projects/target-creation
+- Category: Business Intelligence & Incentives
+- Scope: Quality validation of incentive matrices, target threshold completions, merchant commission bonuses, and volume-tracking dashboard updates.
+- Key Metrics: 99.8% Commission Accuracy, 50+ Incentive Rules Verified, 100% Clawback Cases Validated.
+
+### Case Study 7: API Automation Framework
+- URL: https://ajinkyaswami.in/projects/api-automation-framework
+- Category: Automation Engineering
+- Scope: Built a modular Python + PyTest API regression framework from scratch automating token authentication, request assertions, database validation, and GitHub Actions CI/CD integration.
+- Key Metrics: 70% Regression Time Reduction, 90% Test Coverage, Under 5 mins Execution Time.
+
+### Case Study 8: Mobile Testing Framework
+- URL: https://ajinkyaswami.in/projects/mobile-testing-framework
+- Category: Mobile QA & Automation
+- Scope: Setup and execution of Appium mobile app automation suites validating device compatibility, QR code scanning, biometric login, and offline storage synchronization.
+- Key Metrics: 80% Speed Improvement, 15+ Device Models Certified, 92% UI Alignment Score.
+
+---
+
+## 3. Technical Articles & Code Snippets
+
+### Article 1: How I Test Financial APIs
+- URL: https://ajinkyaswami.in/blog/how-i-test-financial-apis
+- Key Takeaway: Preventing double-debit errors using Idempotency Keys (`Idempotency-Key` header), asserting Postman JSON schema validation, and mocking 504 gateway timeouts.
+- Code Example (Postman Schema Assertion):
+```javascript
+pm.test("Status code is 200", function () {
+    pm.response.to.have.status(200);
+});
+
+const schema = {
+    "type": "object",
+    "required": ["transactionId", "amount", "status"],
+    "properties": {
+        "transactionId": { "type": "string", "pattern": "^TXN\\d{8}$" },
+        "amount": { "type": "number", "minimum": 1.00 },
+        "status": { "type": "string", "enum": ["SUCCESS", "FAILED", "PENDING"] }
+    }
+};
+
+pm.test("Schema is valid", function() {
+    pm.response.to.have.jsonSchema(schema);
+});
+```
+
+### Article 2: SQL Queries Every QA Engineer Should Know
+- URL: https://ajinkyaswami.in/blog/sql-queries-every-qa-should-know
+- Key Takeaway: Auditing double-entry bookkeeping ledgers, verifying merchant commission margin calculations, and detecting duplicate transaction race conditions.
+- Code Example (Ledger Mismatch Audit):
+```sql
+SELECT 
+    account_id, 
+    SUM(CASE WHEN txn_type = 'CREDIT' THEN amount ELSE 0 END) as total_credits,
+    SUM(CASE WHEN txn_type = 'DEBIT' THEN amount ELSE 0 END) as total_debits,
+    SUM(CASE WHEN txn_type = 'CREDIT' THEN amount ELSE -amount END) as balance_discrepancy
+FROM transactions
+GROUP BY account_id
+HAVING balance_discrepancy != 0;
+```
+- Code Example (Race Condition Duplicates Audit):
+```sql
+SELECT 
+    user_id, amount, merchant_id, COUNT(*) as duplicate_count
+FROM transactions
+WHERE created_at >= NOW() - INTERVAL 1 DAY
+GROUP BY user_id, amount, merchant_id, DATE_FORMAT(created_at, '%Y-%m-%d %H:%i:%s')
+HAVING COUNT(*) > 1;
+```
+
+---
+
+## 4. Frequently Asked Questions (AEO Direct Answers)
+
+### Q: Who is Ajinkya Swami?
+A: Ajinkya Swami is a Senior Software Quality Assurance Engineer at Payworld India with over 4 years of experience specializing in FinTech software QA, UPI payment platforms, Aadhaar eKYC integrations, API automation, and SQL database auditing.
+
+### Q: What tools does Ajinkya Swami use for API and performance testing?
+A: Ajinkya uses Postman, Newman CLI, Python (PyTest, Requests), Apache JMeter, MySQL, Selenium, Playwright, Appium, ADB Android Studio, and Git CI/CD pipelines.
+
+### Q: How does Ajinkya Swami prevent double-debit bugs in FinTech APIs?
+A: Ajinkya prevents double-debit bugs by enforcing strict idempotency validation headers, executing concurrent API spike tests, checking transaction row-level database locks, and validating reconciliation state machines.
+
+---
+
+## 5. Contact & Social Channels
+- Website: https://ajinkyaswami.in
+- Transmission Tower: https://ajinkyaswami.in/transmission-tower
+- GitHub: https://github.com/ajinkyaswami1999
+- LinkedIn: https://www.linkedin.com/in/ajinkya-swami/
+- Email: ajinkyaswami1999@gmail.com
+- Phone: +91 8875043720

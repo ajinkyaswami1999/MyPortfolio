@@ -13,14 +13,56 @@ import CornerCrosshairs from "@/components/CornerCrosshairs";
 import DecodeText from "@/components/DecodeText";
 import { Terminal, Shield, Cpu, RefreshCw, Radio } from "lucide-react";
 
-export const metadata = {
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
   title: "InGen Control Center | Ajinkya Swami",
-  description: "Central Tracking Dashboard - Isla Nublar facilities. Automated QA telemetry, paddock monitoring arrays, and personnel profiles.",
+  description: "Central Tracking Dashboard - Isla Nublar facilities. Automated QA telemetry, paddock monitoring arrays, and personnel profiles by Ajinkya Swami.",
+  alternates: {
+    canonical: "https://ajinkyaswami.in/",
+  },
+  openGraph: {
+    title: "InGen Control Center | Ajinkya Swami",
+    description: "Central Tracking Dashboard - Automated QA telemetry, paddock monitoring arrays, and personnel profiles by Ajinkya Swami.",
+    url: "https://ajinkyaswami.in/",
+    type: "website",
+  },
 };
 
 export default function Home() {
+  const homeJsonLd = {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "WebSite",
+        "@id": "https://ajinkyaswami.in/#website",
+        "url": "https://ajinkyaswami.in/",
+        "name": "Ajinkya Swami Portfolio",
+        "description": "Senior Software Quality Assurance Engineer specializing in high-scale UPI platforms, eKYC compliance, API automation, and database testing.",
+        "publisher": {
+          "@type": "Person",
+          "name": "Ajinkya Swami",
+          "url": "https://ajinkyaswami.in"
+        }
+      },
+      {
+        "@type": "WebPage",
+        "@id": "https://ajinkyaswami.in/#webpage",
+        "url": "https://ajinkyaswami.in/",
+        "name": "InGen Control Center | Ajinkya Swami",
+        "isPartOf": {
+          "@id": "https://ajinkyaswami.in/#website"
+        }
+      }
+    ]
+  };
+
   return (
     <div className="flex flex-col min-h-screen bg-[#07090D] text-slate-200 selection:bg-brand-orange/20 selection:text-brand-orange overflow-hidden font-mono">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(homeJsonLd) }}
+      />
       <Navbar />
 
       <PageWrapper>

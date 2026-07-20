@@ -156,11 +156,40 @@ export default async function ProjectDetailPage({ params }: PageProps) {
     }))
   } : null;
 
+  const breadcrumbJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Home",
+        "item": "https://ajinkyaswami.in"
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "Asset Manifest",
+        "item": "https://ajinkyaswami.in/asset-manifest"
+      },
+      {
+        "@type": "ListItem",
+        "position": 3,
+        "name": project.title,
+        "item": `https://ajinkyaswami.in/projects/${project.id}`
+      }
+    ]
+  };
+
   return (
     <div className="flex flex-col min-h-screen bg-[#03030d] text-slate-100 selection:bg-brand-cyan/20 selection:text-brand-cyan overflow-hidden">
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }}
       />
       {faqJsonLd && (
         <script

@@ -1,0 +1,53 @@
+# Ajinkya Swami - Senior FinTech Software QA Engineer
+
+> Senior Software Quality Assurance Engineer with 4+ years of experience ensuring reliability across high-scale UPI payment platforms, Aadhaar eKYC compliance systems, API automation frameworks, and transactional database ledgers.
+
+## Core Profile
+- Name: Ajinkya Swami
+- Role: Senior Software Quality Assurance Engineer
+- Current Organization: Payworld India
+- Location: Gurugram, Haryana, India
+- Education: B.Tech, Malaviya National Institute of Technology (MNIT Jaipur)
+- Website: https://ajinkyaswami.in
+- GitHub: https://github.com/ajinkyaswami1999
+- LinkedIn: https://www.linkedin.com/in/ajinkya-swami/
+- Email: ajinkyaswami1999@gmail.com
+- Contact Phone: +91 8875043720
+
+## Core Technical Competencies
+- FinTech & Payments: UPI App Testing, Peer-to-Peer (P2P) & Peer-to-Merchant (P2M) transfers, Bank SDK timeouts, Double-debit idempotency validation, Merchant settlement audits.
+- Identity & Compliance: Aadhaar eKYC integration, Biometric SDK drivers, OTP retry mechanics, PII AES-256 data security.
+- API Testing & Automation: Postman collection suites, Newman CLI integration, PyTest framework architecture, Rest API contract validation.
+- Database Quality Assurance: MySQL ledger reconciliation, double-entry bookkeeping queries, row-level transaction locking, index performance audits.
+- Performance & Mobile QA: Apache JMeter stress testing, latency mocking, Appium mobile automation, Android ADB testing.
+
+## Key Portfolio Sections
+- [Home / Control Center](https://ajinkyaswami.in/): Isla Nublar facility style QA telemetry dashboard.
+- [Asset Manifest](https://ajinkyaswami.in/asset-manifest): Complete catalog of software QA case studies and 3D printing nodes.
+- [Personnel File](https://ajinkyaswami.in/personnel-file): Professional career security log, timeline, and education details.
+- [Transmission Tower](https://ajinkyaswami.in/transmission-tower): Direct contact channels, satellite telemetry, and social links.
+- [Creative Sector](https://ajinkyaswami.in/creative-sector): Voxelique 3D fabrication lab, Toolique utilities, and photography archives.
+- [QA Blog](https://ajinkyaswami.in/blog): In-depth technical quality assurance guides.
+
+## Case Studies
+- [UPI App Testing](https://ajinkyaswami.in/projects/upi-app-testing): Validated merchant credits, bank routing callbacks, and ledger matching under high-tps stress.
+- [eKYC Process Testing](https://ajinkyaswami.in/projects/ekyc-process-testing): Automated biometric & Aadhaar OTP integration compliance checks.
+- [Dynamic Rate Plan Engine](https://ajinkyaswami.in/projects/dynamic-rate-plan): Business rules and commission calculation grid validation.
+- [Payment Gateway Core](https://ajinkyaswami.in/projects/payment-gateway): Multi-channel payment gateway, refund loops, and webhook retries testing.
+- [GST Invoice Claim Module](https://ajinkyaswami.in/projects/gst-invoice-claim): Automated GST calculation rules and B2B invoice pipeline QA.
+- [Target & Incentive Engine](https://ajinkyaswami.in/projects/target-creation): Volume threshold triggers and cashback bonus payout validation.
+- [API Automation Framework](https://ajinkyaswami.in/projects/api-automation-framework): Modular Python/PyTest automated API regression suite.
+- [Mobile Testing Framework](https://ajinkyaswami.in/projects/mobile-testing-framework): Appium-based mobile app compatibility testing on Android & iOS.
+
+## Technical Guides & Articles
+- [How I Test Financial APIs](https://ajinkyaswami.in/blog/how-i-test-financial-apis): Deep dive into idempotency, schema contract assertions, and timeout mocking.
+- [SQL Queries Every QA Should Know](https://ajinkyaswami.in/blog/sql-queries-every-qa-should-know): SQL templates for double-entry bookkeeping, commission audits, and race condition detection.
+- [UPI App Testing Checklist](https://ajinkyaswami.in/blog/upi-app-testing-checklist): Robust checklist for device binding, QR codes, and settlement verification.
+- [eKYC Testing Scenarios](https://ajinkyaswami.in/blog/ekyc-testing-scenarios): Test scenarios for Aadhaar biometric handshakes, OTP retry loops, and PII encryption.
+- [Manual Testing vs Automation](https://ajinkyaswami.in/blog/manual-testing-vs-automation): Finding the optimal balance between manual exploratory QA and automated API suites.
+- [Postman API Testing Best Practices](https://ajinkyaswami.in/blog/postman-api-testing-best-practices): Collection structuring, dynamic JS assertions, and Newman CI/CD execution.
+- [JMeter Load Testing Guide](https://ajinkyaswami.in/blog/jmeter-load-testing-guide): Simulating concurrent UPI loads, ramp-up schedules, and identifying backend bottlenecks.
+- [Database Testing in FinTech Projects](https://ajinkyaswami.in/blog/database-testing-in-fintech-projects): Verifying data mapping, row locks, indexing audits, and ledger balance consistency.
+
+## Extended Documentation
+- [LLMs Full Reference](https://ajinkyaswami.in/llms-full.txt): Complete uncompressed markdown reference document for full LLM context ingestion.

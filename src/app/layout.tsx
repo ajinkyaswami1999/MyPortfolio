@@ -64,17 +64,24 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  // JSON-LD structured data for SEO
+  // JSON-LD structured data for SEO, AEO & GEO Knowledge Graphs
   const jsonLd = {
     "@context": "https://schema.org",
     "@type": "Person",
+    "@id": "https://ajinkyaswami.in/#person",
     "name": "Ajinkya Swami",
-    "jobTitle": "Software Quality Assurance Engineer",
+    "alternateName": "Ajinkya",
+    "jobTitle": "Senior Software Quality Assurance Engineer",
+    "description": "Senior Software Quality Assurance Engineer with 4+ years of experience validating high-scale UPI payment systems, eKYC compliance integrations, API automation frameworks, and database ledgers.",
+    "image": "https://ajinkyaswami.in/profile.jpg",
     "worksFor": {
       "@type": "Organization",
-      "name": "Payworld India"
+      "name": "Payworld India",
+      "url": "https://www.payworldindia.com/"
     },
     "url": "https://ajinkyaswami.in",
+    "email": "ajinkyaswami1999@gmail.com",
+    "telephone": "+918875043720",
     "sameAs": [
       "https://github.com/ajinkyaswami1999",
       "https://www.linkedin.com/in/ajinkya-swami/"
@@ -87,16 +94,19 @@ export default function RootLayout({
     },
     "alumniOf": {
       "@type": "EducationalOrganization",
-      "name": "Malaviya National Institute of Technology (MNIT Jaipur)"
+      "name": "Malaviya National Institute of Technology (MNIT Jaipur)",
+      "url": "https://www.mnit.ac.in/"
     },
     "knowsAbout": [
-      "Manual Testing",
-      "API Testing",
-      "Database Validation",
-      "Automation Testing",
-      "Performance Testing",
-      "Mobile Testing",
-      "FinTech Software Quality Assurance"
+      "Software Quality Assurance",
+      "FinTech Testing",
+      "UPI Payment Platform Testing",
+      "eKYC System Compliance",
+      "API Testing (Postman, PyTest, Newman)",
+      "Database Validation & SQL Ledgers",
+      "Performance Testing (JMeter)",
+      "Mobile Testing (ADB, Appium)",
+      "Automation Engineering (Python, PyTest, Selenium, Playwright)"
     ]
   };
 

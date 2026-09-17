@@ -51,6 +51,14 @@ export const metadata: Metadata = {
   },
   alternates: {
     canonical: "https://ajinkyaswami.in/",
+  },
+  icons: {
+    icon: [
+      { url: "/icon.svg", type: "image/svg+xml" },
+      { url: "/favicon.svg", type: "image/svg+xml" }
+    ],
+    shortcut: "/icon.svg",
+    apple: "/icon.svg",
   }
 };
 

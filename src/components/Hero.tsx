@@ -13,6 +13,29 @@ export default function Hero() {
   const mouseX = useMotionValue(0);
   const mouseY = useMotionValue(0);
 
+  // Interactive Scouter Power Scanner State
+  const [scouterActive, setScouterActive] = useState(false);
+  const [scouterReading, setScouterReading] = useState("OVER 9000!!");
+  const [isScanning, setIsScanning] = useState(false);
+
+  const triggerScouterScan = () => {
+    if (isScanning) return;
+    setIsScanning(true);
+    setScouterActive(true);
+    
+    let current = 1000;
+    const interval = setInterval(() => {
+      current += Math.floor(Math.random() * 950) + 450;
+      if (current >= 9000) {
+        clearInterval(interval);
+        setScouterReading("OVER 9000!!");
+        setIsScanning(false);
+      } else {
+        setScouterReading(current.toString().padStart(4, "0"));
+      }
+    }, 120);
+  };
+
   useEffect(() => {
     const handleMouseMove = (e: MouseEvent) => {
       const { clientX, clientY } = e;
@@ -74,32 +97,33 @@ export default function Hero() {
     <section
       ref={containerRef}
       id="home"
-      className="relative min-h-screen flex items-center justify-center pt-32 pb-16 overflow-hidden bg-[#07090D] font-mono text-slate-200"
+      className="relative min-h-screen flex items-center justify-center pt-32 pb-16 overflow-hidden bg-[#FAF9F6] font-mono text-slate-800"
     >
-      {/* Background Matrix/Grid & Lights */}
-      <div className="absolute inset-0 bg-[linear-gradient(to_right,#0f131a_1px,transparent_1px),linear-gradient(to_bottom,#0f131a_1px,transparent_1px)] bg-[size:3.5rem_3.5rem] pointer-events-none opacity-25" />
+      {/* Background Matrix/Grid & Pastel Ki Glows */}
+      <div className="absolute inset-0 bg-[linear-gradient(to_right,#0284C712_1px,transparent_1px),linear-gradient(to_bottom,#0284C712_1px,transparent_1px)] bg-[size:3.5rem_3.5rem] pointer-events-none opacity-50" />
       
-      {/* Volumetric ambient background glows */}
-      <div className="absolute top-1/4 left-1/4 w-[500px] h-[500px] rounded-full bg-brand-cyan/5 filter blur-[120px] pointer-events-none z-0" />
-      <div className="absolute bottom-1/4 right-1/4 w-[500px] h-[500px] rounded-full bg-brand-orange/5 filter blur-[120px] pointer-events-none z-0 animate-pulse-slow" />
+      {/* Volumetric ambient pastel background glows */}
+      <div className="absolute top-1/4 left-1/4 w-[500px] h-[500px] rounded-full bg-amber-200/35 filter blur-[140px] pointer-events-none z-0" />
+      <div className="absolute bottom-1/4 right-1/4 w-[500px] h-[500px] rounded-full bg-rose-200/30 filter blur-[140px] pointer-events-none z-0" />
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] rounded-full bg-sky-200/30 filter blur-[160px] pointer-events-none z-0" />
 
-      {/* Futuristic gates blueprint overlay in the background */}
+      {/* Scouter HUD blueprint overlay in the background */}
       <motion.div
         style={{ x: gateX, y: gateY }}
-        className="absolute inset-0 flex items-center justify-center pointer-events-none z-0 opacity-[0.03] select-none"
+        className="absolute inset-0 flex items-center justify-center pointer-events-none z-0 opacity-[0.08] select-none"
       >
-        <svg aria-hidden="true" viewBox="0 0 1000 700" className="w-full max-w-[900px] stroke-brand-cyan stroke-[1.5] fill-none">
-          <circle cx="500" cy="350" r="300" strokeDasharray="5,5" />
-          <circle cx="500" cy="350" r="150" />
-          <line x1="500" y1="50" x2="500" y2="650" />
-          <line x1="150" y1="350" x2="850" y2="350" />
-          {/* Laser-sweep simulation paths */}
-          <path d="M 200,150 H 800 V 550 H 200 Z" />
+        <svg aria-hidden="true" viewBox="0 0 1000 700" className="w-full max-w-[900px] stroke-amber-500 stroke-[1.5] fill-none">
+          <circle cx="500" cy="350" r="320" strokeDasharray="6,6" />
+          <circle cx="500" cy="350" r="180" />
+          <circle cx="500" cy="350" r="60" strokeDasharray="3,3" />
+          <line x1="500" y1="30" x2="500" y2="670" />
+          <line x1="130" y1="350" x2="870" y2="350" />
+          <polygon points="500,200 630,425 370,425" strokeDasharray="4,4" />
         </svg>
       </motion.div>
 
-      {/* Laser-scanner sweep animation line */}
-      <div className="absolute top-0 left-0 w-full h-[1px] bg-gradient-to-r from-transparent via-brand-cyan/20 to-transparent z-20 pointer-events-none animate-[scannerSweep_8s_linear_infinite]" />
+      {/* Laser-scanner sweep animation line (Golden Ki frequency) */}
+      <div className="absolute top-0 left-0 w-full h-[1.5px] bg-gradient-to-r from-transparent via-amber-400/40 to-transparent z-20 pointer-events-none animate-[scannerSweep_7s_linear_infinite]" />
       <style jsx>{`
         @keyframes scannerSweep {
           0% { top: 0%; }
@@ -111,78 +135,161 @@ export default function Hero() {
       {/* Grid container layout */}
       <div className="container mx-auto px-4 md:px-8 relative z-10 grid grid-cols-1 xl:grid-cols-12 gap-8 items-stretch min-h-[calc(100vh-12rem)]">
         
-        {/* Left Side Panel - Facility Info (3 cols) */}
+        {/* Left Side Panel - One Punch Man: HERO ASSOCIATION S-CLASS LICENSE (3 cols) */}
         <motion.div
-          className="hidden xl:flex xl:col-span-3 border border-white/5 bg-[#0b0e14]/65 p-6 rounded-3xl flex-col justify-between relative text-left"
+          className="hidden xl:flex xl:col-span-3 border-2 border-amber-300/80 bg-white/90 backdrop-blur-xl p-6 rounded-3xl flex-col justify-between relative text-left shadow-xl shadow-amber-500/10 overflow-hidden"
           initial={{ opacity: 0, x: -30 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.6, delay: 0.1 }}
         >
-          <CornerCrosshairs />
+          <CornerCrosshairs colorClass="text-amber-500/70" />
           
-          <div className="space-y-6">
-            <div className="border-b border-white/5 pb-4">
-              <span className="text-[10px] tracking-widest text-slate-500 font-bold uppercase block mb-1">FACILITY TARGET</span>
-              <h3 className="text-sm font-black text-white">AJINKYA SWAMI</h3>
+          {/* Subtle manga halftone pattern overlay */}
+          <div className="absolute inset-0 bg-[radial-gradient(#F59E0B15_1px,transparent_1px)] bg-[size:12px_12px] pointer-events-none" />
+
+          {/* Red Hero Association Seal Stamp Watermark in Background */}
+          <div className="absolute -right-6 -bottom-6 w-32 h-32 rounded-full border-4 border-rose-500/15 flex items-center justify-center rotate-12 pointer-events-none select-none">
+            <span className="font-black text-rose-500/20 text-xs font-mono tracking-widest text-center leading-tight">
+              HERO ASSOC.<br />公認<br />CLASS S
+            </span>
+          </div>
+          
+          <div className="space-y-5 relative z-10">
+            {/* Official Card Header */}
+            <div className="border-b border-amber-200/80 pb-4">
+              <div className="flex items-center justify-between mb-2">
+                <div className="flex items-center gap-1.5 text-[8.5px] font-mono tracking-widest text-amber-900 font-bold uppercase">
+                  <span className="w-1.5 h-1.5 rounded-full bg-amber-500" />
+                  <span>HERO ASSOCIATION // ヒーロー協会</span>
+                </div>
+                <span className="text-[8px] font-mono px-2 py-0.5 rounded-full bg-rose-500 text-white font-black shadow-xs">
+                  S-CLASS #1
+                </span>
+              </div>
+              <h3 className="text-lg font-black text-slate-900 tracking-tight">AJINKYA SWAMI</h3>
+              <p className="text-[10px] text-amber-800 font-mono font-bold">HERO NAME: LIMITLESS QA // 無限品質保証</p>
             </div>
             
-            <div className="space-y-4">
+            {/* Hero Association Card Specs */}
+            <div className="space-y-3 font-mono">
               {[
-                { label: "Role Classification", val: "Senior QA Engineer" },
-                { label: "Clearance Clearance", val: "LEVEL 07 ACCESS" },
-                { label: "Operational Mission", val: "Building reliable software systems." }
+                { label: "Hero Registry ID", val: "HA-9901-QA // OFFICIAL", color: "text-slate-900 font-black" },
+                { label: "Disaster Threat Neutralized", val: "LEVEL: DRAGON & GOD (竜・神)", color: "text-rose-600 font-black" },
+                { label: "Combat Special Move", val: "SERIOUS PUNCH QA // 必殺マジシリーズ", color: "text-amber-800 font-bold" },
+                { label: "Battle Record", val: "10,000+ EXECUTIONS // 0 DEVIATION", color: "text-emerald-700 font-bold" },
+                { label: "Capsule Tech Rig", val: "WEST CITY 100G GRAVITY RIG", color: "text-sky-700 font-bold" },
               ].map((item, idx) => (
                 <div key={idx} className="text-xs">
-                  <span className="text-[9px] text-slate-500 uppercase tracking-wider block mb-0.5">{item.label}</span>
-                  <span className="text-slate-200 font-bold block">{item.val}</span>
+                  <span className="text-[8.5px] text-slate-500 uppercase tracking-widest block mb-0.5 font-bold">{item.label}</span>
+                  <span className={`block text-[11px] leading-tight ${item.color}`}>{item.val}</span>
                 </div>
               ))}
             </div>
           </div>
 
-          <div className="pt-4 border-t border-white/5 flex items-center justify-between text-[10px]">
-            <span className="text-slate-500">FACILITY STATUS:</span>
-            <span className="text-jungle-green font-bold flex items-center gap-1">
-              <span className="w-1.5 h-1.5 rounded-full bg-jungle-green animate-ping" /> ONLINE
+          <div className="pt-4 border-t border-amber-200/80 flex items-center justify-between text-[10px] relative z-10 font-mono">
+            <span className="text-slate-500 font-bold">REGISTRATION:</span>
+            <span className="text-emerald-700 font-bold flex items-center gap-1.5">
+              <span className="w-2 h-2 rounded-full bg-emerald-500 animate-ping" /> CERTIFIED // 現役出動中
             </span>
           </div>
         </motion.div>
 
-        {/* Center Column - Cinematic Headline & CTAs (6 cols) */}
+        {/* Center Column - Cinematic Anime Headline & Interactive Scouter (6 cols) */}
         <motion.div
           style={{ x: textX, y: textY }}
-          className="col-span-12 xl:col-span-6 flex flex-col items-center justify-center text-center px-4"
+          className="col-span-12 xl:col-span-6 flex flex-col items-center justify-center text-center px-2 sm:px-4 relative"
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
         >
-          {/* Top facility online status */}
-          <div className="inline-flex items-center space-x-2 px-3 py-1 bg-brand-orange/10 border border-brand-orange/20 rounded-md text-[9px] font-bold tracking-widest uppercase mb-6 text-brand-orange animate-pulse">
-            <span>●</span>
-            <DecodeText text="RESEARCH FACILITY ONLINE" />
+          {/* Floating Manga Sound Effect Badges */}
+          <div className="hidden sm:flex absolute -top-4 -left-6 px-2.5 py-1 bg-amber-100 border border-amber-300 rounded-lg text-[10px] font-black font-display text-amber-900 rotate-[-8deg] shadow-xs select-none pointer-events-none">
+            ゴゴゴ... (GOGOGO / KI RUMBLE)
+          </div>
+          <div className="hidden sm:flex absolute -top-4 -right-6 px-2.5 py-1 bg-rose-100 border border-rose-300 rounded-lg text-[10px] font-black font-display text-rose-900 rotate-[8deg] shadow-xs select-none pointer-events-none">
+            ドカーン！ (DOKAAN / SERIOUS HIT)
           </div>
 
-          {/* Large cinematic title */}
-          <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-black font-display leading-[0.9] tracking-tighter text-white mb-6 uppercase flex flex-col items-center">
-            <span className="text-glow-amber">EVOLUTION</span>
-            <span className="text-glow-orange text-brand-orange">NEVER</span>
-            <span className="text-glow-amber">STOPS.</span>
+          {/* Interactive Dragon Ball Scouter HUD Viewfinder Module */}
+          <div className="w-full max-w-md mb-6 p-4 rounded-2xl border-2 border-emerald-400/80 bg-emerald-50/70 backdrop-blur-md shadow-md text-left relative overflow-hidden">
+            {/* Scouter Green Grid Texture */}
+            <div className="absolute inset-0 bg-[linear-gradient(to_right,#05966915_1px,transparent_1px),linear-gradient(to_bottom,#05966915_1px,transparent_1px)] bg-[size:1.2rem_1.2rem] pointer-events-none" />
+            
+            {/* Scouter Corner Bracket Accents */}
+            <div className="absolute top-1.5 left-1.5 w-3 h-3 border-t-2 border-l-2 border-emerald-600" />
+            <div className="absolute top-1.5 right-1.5 w-3 h-3 border-t-2 border-r-2 border-emerald-600" />
+            <div className="absolute bottom-1.5 left-1.5 w-3 h-3 border-b-2 border-l-2 border-emerald-600" />
+            <div className="absolute bottom-1.5 right-1.5 w-3 h-3 border-b-2 border-r-2 border-emerald-600" />
+
+            <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-2 relative z-10 mb-2">
+              <div className="flex items-center gap-2">
+                <span className="w-2.5 h-2.5 rounded-full bg-emerald-500 animate-pulse shadow-[0_0_8px_rgba(16,185,129,0.8)]" />
+                <span className="text-[10px] font-mono font-black tracking-widest text-emerald-950 uppercase">
+                  SCOUTER HUD: TARGET LOCKED // スカウター
+                </span>
+              </div>
+              
+              <button
+                onClick={triggerScouterScan}
+                disabled={isScanning}
+                className="px-3 py-1 bg-emerald-600 hover:bg-emerald-700 text-white rounded-lg text-[9px] font-mono font-bold tracking-wider uppercase transition-all active:scale-95 shadow-xs cursor-pointer select-none"
+              >
+                {isScanning ? "ピピピ... SCANNING" : "SCAN POWER // 測定"}
+              </button>
+            </div>
+
+            <div className="flex items-baseline justify-between relative z-10 font-mono">
+              <span className="text-[11px] font-bold text-emerald-900">
+                戦闘力 // POWER LEVEL:
+              </span>
+              <span className="text-xl sm:text-2xl font-black text-emerald-950 tracking-wider">
+                {scouterReading}
+              </span>
+            </div>
+
+            {scouterActive && (
+              <div className="mt-2 pt-2 border-t border-emerald-300/80 flex items-center justify-between text-[9.5px] font-mono text-emerald-800 relative z-10">
+                <span>「9000以上だ…！故障か？！」</span>
+                <span className="font-bold text-rose-700">⚡ OVER 9000 CONFIRMED</span>
+              </div>
+            )}
+          </div>
+
+          {/* Large cinematic anime title (DBZ & OPM inspired) */}
+          <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-black font-display leading-[0.92] tracking-tighter text-slate-900 mb-6 uppercase flex flex-col items-center">
+            <span className="text-slate-900 drop-shadow-[0_4px_16px_rgba(245,158,11,0.2)]">
+              LIMITLESS
+            </span>
+            <span className="text-rose-600 drop-shadow-[0_4px_20px_rgba(244,63,94,0.25)]">
+              POWER
+            </span>
+            <span className="text-slate-950">
+              ZERO DEFECTS.
+            </span>
           </h1>
 
+          {/* Japanese Micro-Subtitle with Serious Series Badges */}
+          <div className="inline-flex items-center space-x-2 text-[10px] md:text-[11px] font-mono text-amber-900 tracking-[0.2em] uppercase mb-4 font-black bg-amber-100/80 px-3 py-1 rounded-full border border-amber-300/80 shadow-xs">
+            <span>限界突破</span>
+            <span>•</span>
+            <span>必殺マジシリーズ // SERIOUS TESTING SERIES</span>
+          </div>
+
           {/* Core Declarations */}
-          <div className="flex flex-wrap items-center justify-center gap-x-4 gap-y-1 text-[10px] md:text-xs font-mono font-bold text-slate-300 uppercase tracking-widest mb-6">
-            <span>I BUILD</span>
-            <span className="text-brand-orange">•</span>
-            <span>I TEST</span>
-            <span className="text-brand-orange">•</span>
-            <span>I AUTOMATE</span>
-            <span className="text-brand-orange">•</span>
-            <span>I CREATE</span>
+          <div className="flex flex-wrap items-center justify-center gap-x-4 gap-y-1 text-[10px] md:text-xs font-mono font-bold text-slate-700 uppercase tracking-widest mb-6">
+            <span className="hover:text-amber-700 transition-colors">I BUILD</span>
+            <span className="text-rose-500">•</span>
+            <span className="hover:text-amber-700 transition-colors">I TEST</span>
+            <span className="text-rose-500">•</span>
+            <span className="hover:text-amber-700 transition-colors">I AUTOMATE</span>
+            <span className="text-rose-500">•</span>
+            <span className="hover:text-amber-700 transition-colors">I BREAK LIMITS</span>
           </div>
 
           {/* Subtitle */}
-          <p className="text-slate-400 text-xs max-w-md leading-relaxed mb-8">
-            Software QA Engineer • Automation Engineer • Founder of Toolique • Creator • Problem Solver
+          <p className="text-slate-600 text-xs sm:text-sm max-w-md leading-relaxed mb-8 font-sans font-medium">
+            Senior QA Engineer • Automation Architect • Founder of Toolique & Voxelique • 10k+ TPS UPI Systems • S-Class Reliability
           </p>
 
           {/* CTA Buttons */}
@@ -190,59 +297,64 @@ export default function Hero() {
             <a
               href="#about"
               onClick={handleEnterFacility}
-              className="bevel-clip border border-brand-orange hover:bg-brand-orange text-brand-orange hover:text-slate-950 font-bold py-3 px-6 text-xs tracking-wider uppercase text-center transition-colors duration-300 block select-none cursor-pointer"
+              className="chamfer-corner border border-amber-400 bg-gradient-to-r from-amber-400 to-orange-400 hover:from-amber-500 hover:to-orange-500 text-slate-950 font-black py-3.5 px-6 text-xs tracking-wider uppercase text-center transition-all duration-300 block select-none cursor-pointer shadow-md active:scale-95"
             >
-              <span>ENTER FACILITY</span>
+              <span>INITIALIZE HERO DOSSIER // 人物</span>
             </a>
             <a
               href="#projects"
               onClick={handleViewProjects}
-              className="bevel-clip border border-brand-cyan hover:bg-brand-cyan text-brand-cyan hover:text-slate-950 font-bold py-3 px-6 text-xs tracking-wider uppercase text-center transition-colors duration-300 block select-none cursor-pointer"
+              className="chamfer-corner border border-sky-300 hover:border-sky-400 bg-sky-50 hover:bg-sky-100 text-sky-950 font-bold py-3.5 px-6 text-xs tracking-wider uppercase text-center transition-all duration-300 block select-none cursor-pointer shadow-xs active:scale-95"
             >
-              <span>VIEW PROJECTS</span>
+              <span>ACCESS S-CLASS MISSIONS // 作戦</span>
             </a>
           </div>
         </motion.div>
 
-        {/* Right Side Panel - Command Diagnostic Terminal (3 cols) */}
+        {/* Right Side Panel - Genos Demon Cyborg & Capsule Corp Core Telemetry (3 cols) */}
         <motion.div
-          className="hidden lg:flex lg:col-span-4 xl:col-span-3 border border-white/5 bg-[#0b0e14]/65 p-5 rounded-3xl flex-col justify-between relative text-left"
+          className="hidden lg:flex lg:col-span-4 xl:col-span-3 border-2 border-sky-300/80 bg-white/90 backdrop-blur-xl p-5 rounded-3xl flex-col justify-between relative text-left shadow-xl shadow-sky-500/10 overflow-hidden"
           initial={{ opacity: 0, x: 30 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.6, delay: 0.15 }}
         >
-          <CornerCrosshairs />
+          <CornerCrosshairs colorClass="text-sky-500/70" />
           
-          <div className="flex justify-between items-center pb-3.5 border-b border-white/5">
-            <div className="flex items-center gap-1.5">
-              <span className="w-1.5 h-1.5 rounded-full bg-brand-orange animate-pulse" />
-              <span className="text-[10px] text-slate-500 font-mono">facility_gate_control.sh</span>
+          <div className="flex justify-between items-center pb-3.5 border-b border-sky-200">
+            <div className="flex items-center gap-2">
+              <span className="w-2 h-2 rounded-full bg-sky-500 animate-pulse" />
+              <span className="text-[10px] text-sky-950 font-mono font-black tracking-wider uppercase">
+                GENOS CYBORG CORE // 鬼サイボーグ
+              </span>
             </div>
-            <Maximize2 size={10} className="text-slate-600" />
+            <span className="text-[8px] font-mono px-1.5 py-0.5 rounded bg-sky-100 text-sky-900 border border-sky-300 font-bold">
+              CAPSULE NO. 01
+            </span>
           </div>
 
-          <div className="flex-1 font-mono text-[9px] py-4 space-y-2.5 text-slate-400 select-none overflow-hidden">
-            <div className="text-slate-500">// INITIALIZING INGEN TELEMETRY SCAN...</div>
+          <div className="flex-1 font-mono text-[9.5px] py-4 space-y-2.5 text-slate-700 select-none overflow-hidden">
+            <div className="text-amber-800 font-black">// EXECUTING SERIOUS TEST SUITE // 同期中...</div>
             
             {[
-              { label: "QA Engine", status: "100% Operational", color: "text-jungle-green" },
-              { label: "Automation", status: "Running", color: "text-brand-cyan" },
-              { label: "Testing", status: "Verified", color: "text-brand-orange" },
-              { label: "CI/CD Gate", status: "Connected", color: "text-jungle-green" },
-              { label: "Specimens", status: "Growing", color: "text-brand-cyan" },
-              { label: "Security", status: "Maximum", color: "text-brand-orange" },
-              { label: "Facility", status: "Unlocked", color: "text-jungle-green" }
+              { label: "Core Temperature", status: "320°C // NOMINAL", color: "text-amber-700 font-bold" },
+              { label: "Incinerator Output", status: "100% MAXIMUM", color: "text-rose-700 font-black" },
+              { label: "10k TPS UPI Gateway", status: "STABLE [0 ERROR]", color: "text-emerald-700 font-bold" },
+              { label: "Aadhaar Biometric OCR", status: "98% MATCH [OK]", color: "text-sky-800 font-bold" },
+              { label: "Ledger Double-Debit", status: "PREVENTED (100%)", color: "text-emerald-700 font-bold" },
+              { label: "CI/CD Newman Runner", status: "OPTIMIZED", color: "text-sky-700 font-bold" },
+              { label: "Defect Density", status: "0.00% [ONE PUNCH]", color: "text-rose-700 font-black" },
+              { label: "Power Level", status: "OVER 9000 // 正常", color: "text-amber-700 font-black" }
             ].map((node, idx) => (
-              <div key={idx} className="flex justify-between items-center border-b border-white/5 pb-1">
-                <span>{node.label}:</span>
-                <span className={`${node.color} font-bold`}>{node.status}</span>
+              <div key={idx} className="flex justify-between items-center border-b border-slate-100 pb-1">
+                <span className="text-slate-500 font-semibold">{node.label}:</span>
+                <span className={`${node.color}`}>{node.status}</span>
               </div>
             ))}
           </div>
 
-          <div className="pt-3 border-t border-white/5 flex items-center justify-between text-[10px]">
-            <span className="text-slate-500">INTEGRITY:</span>
-            <span className="text-brand-cyan font-bold">100% NOMINAL</span>
+          <div className="pt-3 border-t border-sky-200 flex items-center justify-between text-[10px] font-mono">
+            <span className="text-slate-500 font-bold">SYSTEM INTEGRITY:</span>
+            <span className="text-sky-900 font-black">100% NOMINAL</span>
           </div>
         </motion.div>
 

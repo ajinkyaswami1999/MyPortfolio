@@ -2,8 +2,8 @@ import React from "react";
 import PersonnelFileClient from "./PersonnelFileClient";
 
 export const metadata = {
-  title: "Personnel File | Security Log",
-  description: "Chronological security classification record of Ajinkya Swami, Software QA Lead. Interfacing, dynamic commissions, and transaction auditing protocols.",
+  title: "Personnel Dossier | Service Chronicles - Ajinkya Swami",
+  description: "Chronological service record and engineering dossier of Ajinkya Swami, Lead QA Engineer & Automation Architect.",
   alternates: {
     canonical: "https://ajinkyaswami.in/personnel-file",
   }
@@ -13,9 +13,16 @@ export default function PersonnelFilePage() {
   const jsonLd = {
     "@context": "https://schema.org",
     "@type": "ProfilePage",
-    "name": "Personnel File - Security Log",
-    "description": "Chronological security classification record of Ajinkya Swami, Lead QA Engineer.",
-    "url": "https://ajinkyaswami.in/personnel-file"
+    "@id": "https://ajinkyaswami.in/personnel-file#profilepage",
+    "name": "Personnel Dossier - Service Chronicles | Ajinkya Swami",
+    "description": "Chronological service record and engineering dossier of Ajinkya Swami, Lead QA Engineer & Automation Architect.",
+    "url": "https://ajinkyaswami.in/personnel-file",
+    "isPartOf": {
+      "@id": "https://ajinkyaswami.in/#website"
+    },
+    "mainEntity": {
+      "@id": "https://ajinkyaswami.in/#person"
+    }
   };
 
   return (

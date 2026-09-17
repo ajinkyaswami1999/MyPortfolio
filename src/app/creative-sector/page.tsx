@@ -4,13 +4,13 @@ import CreativeSectorClient from "./CreativeSectorClient";
 
 export const metadata: Metadata = {
   title: "Creative Sector | 3D Design, Web Tools, Photography",
-  description: "Explore the creative portfolio of Ajinkya Swami. Voxelique digital fabrication lab, Toolique developer calculators, and macro photography logs covering industrial and automotive expedition structures.",
+  description: "Explore the creative portfolio of Ajinkya Swami. Voxelique digital fabrication lab, Toolique featuring 250+ free online developer calculators and QA tools, and macro photography logs covering industrial and automotive expedition structures.",
   alternates: {
     canonical: "https://ajinkyaswami.in/creative-sector",
   },
   openGraph: {
     title: "Creative Sector | 3D Design, Web Tools, Photography",
-    description: "Explore the creative portfolio of Ajinkya Swami, featuring 3D design fabrication, online tools, and expedition photography.",
+    description: "Explore the creative portfolio of Ajinkya Swami, featuring 3D design fabrication, Toolique with 250+ free online tools, and expedition photography.",
     url: "https://ajinkyaswami.in/creative-sector",
     type: "website",
   }
@@ -21,12 +21,15 @@ export default function CreativeSectorPage() {
   const jsonLd = {
     "@context": "https://schema.org",
     "@type": "WebPage",
+    "@id": "https://ajinkyaswami.in/creative-sector#webpage",
     "name": "Creative Sector - 3D Design, Web Tools & Photography",
-    "description": "Central data hub hosting 3D printing calibrations, developer utilities, and high-resolution macro photography logs.",
+    "description": "Central data hub hosting 3D printing calibrations, Toolique platform with 250+ free online tools, and high-resolution macro photography logs.",
     "url": "https://ajinkyaswami.in/creative-sector",
+    "isPartOf": {
+      "@id": "https://ajinkyaswami.in/#website"
+    },
     "publisher": {
-      "@type": "Person",
-      "name": "Ajinkya Swami"
+      "@id": "https://ajinkyaswami.in/#person"
     },
     "mainEntity": [
       {
@@ -38,7 +41,7 @@ export default function CreativeSectorPage() {
       {
         "@type": "WebApplication",
         "name": "Toolique",
-        "description": "Developer formatters, QA calculators, and localized productivity web utilities.",
+        "description": "Platform with 250+ free online developer formatters, QA calculators, converters, and localized productivity web utilities.",
         "url": "https://www.toolique.in/"
       },
       {

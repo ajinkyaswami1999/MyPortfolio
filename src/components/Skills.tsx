@@ -7,6 +7,9 @@ import { Check, ClipboardList, Send, Activity, Database, Settings, Terminal, Clo
 
 interface SkillCategory {
   title: string;
+  techniqueName: string;
+  animeTag: string;
+  powerOutput: string;
   icon: React.ReactNode;
   skills: string[];
   colorClass: string;
@@ -15,51 +18,75 @@ interface SkillCategory {
 const skillCategories: SkillCategory[] = [
   {
     title: "Manual & QA Testing",
-    icon: <ClipboardList className="text-brand-cyan" size={24} />,
+    techniqueName: "SERIOUS PUNCH PROTOCOL // マジ殴り",
+    animeTag: "ONE PUNCH MAN // 必殺技",
+    powerOutput: "ZERO-DEFECT STRIKE",
+    icon: <ClipboardList className="text-rose-700" size={22} />,
     skills: ["Regression Testing", "Functional Testing", "Smoke Testing", "Sanity Testing", "User Acceptance Testing (UAT)"],
-    colorClass: "from-brand-cyan/20 to-brand-blue/5",
+    colorClass: "from-rose-300/40 via-amber-200/40 to-transparent",
   },
   {
     title: "API Verification",
-    icon: <Send className="text-brand-blue" size={24} />,
+    techniqueName: "INSTANT TRANSMISSION // 瞬間移動",
+    animeTag: "DRAGON BALL Z // 移動術",
+    powerOutput: "<50ms RESPONSE",
+    icon: <Send className="text-sky-700" size={22} />,
     skills: ["Postman", "REST APIs", "JSON Validation", "Endpoint Routing", "Header Authentication"],
-    colorClass: "from-brand-blue/20 to-brand-purple/5",
+    colorClass: "from-sky-300/40 via-cyan-200/40 to-transparent",
   },
   {
     title: "Performance Testing",
-    icon: <Activity className="text-brand-purple" size={24} />,
+    techniqueName: "KAMEHAMEHA STRESS WAVE // かめはめ波",
+    animeTag: "DRAGON BALL Z // 最大出力",
+    powerOutput: "10,000+ TPS STRESS",
+    icon: <Activity className="text-amber-700" size={22} />,
     skills: ["Apache JMeter", "Load Testing", "Stress Testing", "Throughput Metrics", "Latency Simulation"],
-    colorClass: "from-brand-purple/20 to-brand-cyan/5",
+    colorClass: "from-amber-300/40 via-orange-200/40 to-transparent",
   },
   {
     title: "Database Testing",
-    icon: <Database className="text-accent-sky" size={24} />,
+    techniqueName: "SPIRIT BOMB DATA AUDIT // 元気玉",
+    animeTag: "DRAGON BALL Z // 全集中",
+    powerOutput: "100% ACID INTEGRITY",
+    icon: <Database className="text-emerald-700" size={22} />,
     skills: ["MySQL", "SQL Queries", "Relational Mapping", "Transaction Logs", "Data Integrity Audits"],
-    colorClass: "from-accent-sky/20 to-brand-blue/5",
+    colorClass: "from-emerald-300/40 via-sky-200/40 to-transparent",
   },
   {
     title: "Automation Engine",
-    icon: <Settings className="text-brand-cyan" size={24} />,
+    techniqueName: "INCINERATION CANNON // 焼却砲",
+    animeTag: "ONE PUNCH MAN // GENOS",
+    powerOutput: "150+ SUITES RUN",
+    icon: <Settings className="text-purple-700" size={22} />,
     skills: ["Python Scripting", "Selenium WebDriver", "Playwright", "Appium (Mobile)", "Test Harness Architecture"],
-    colorClass: "from-brand-cyan/20 to-brand-purple/5",
+    colorClass: "from-purple-300/40 via-rose-200/40 to-transparent",
   },
   {
     title: "Development Stack",
-    icon: <Terminal className="text-brand-blue" size={24} />,
+    techniqueName: "CAPSULE CORP LAB FORGE // カプセル",
+    animeTag: "CAPSULE CORP // 技術部",
+    powerOutput: "REACT / NEXT HYPERSPEED",
+    icon: <Terminal className="text-sky-700" size={22} />,
     skills: ["JavaScript (ES6+)", "TypeScript", "React.js", "Next.js", "HTML5 & CSS3"],
-    colorClass: "from-brand-blue/20 to-accent-sky/5",
+    colorClass: "from-sky-300/40 via-amber-200/40 to-transparent",
   },
   {
-    title: "Cloud & Devops",
-    icon: <Cloud className="text-brand-purple" size={24} />,
+    title: "Cloud & DevOps",
+    techniqueName: "HYPERBOLIC TIME CI/CD // 精神と時",
+    animeTag: "DRAGON BALL Z // 時間短縮",
+    powerOutput: "1 YEAR IN 1 DAY",
+    icon: <Cloud className="text-amber-700" size={22} />,
     skills: ["AWS Basics", "GitHub Actions", "Git Version Control", "CI/CD Integration", "Environment Configs"],
-    colorClass: "from-brand-purple/20 to-brand-blue/5",
+    colorClass: "from-amber-300/40 via-emerald-200/40 to-transparent",
   },
   {
     title: "Enterprise Tools",
-    icon: <ShieldAlert className="text-accent-sky" size={24} />,
+    techniqueName: "SCOUTER TACTICAL HUD // スカウター",
+    animeTag: "SCOUTER HUD // 索敵",
+    powerOutput: "OVER 9000 TELEMETRY",
+    icon: <ShieldAlert className="text-rose-700" size={22} />,
     skills: ["Jira Software", "Postman App", "Android Studio (ADB)", "VS Code", "Chrome DevTools"],
-    colorClass: "from-accent-sky/20 to-brand-cyan/5",
+    colorClass: "from-rose-300/40 via-sky-200/40 to-transparent",
   },
 ];
 
@@ -82,23 +109,24 @@ export default function Skills() {
   };
 
   return (
-    <section id="skills" className="py-24 relative bg-[#07090D] overflow-hidden border-t border-white/5">
+    <section id="skills" className="py-24 relative bg-[#FAF9F6] overflow-hidden border-t border-amber-200/60">
       {/* Glow spotlight */}
-      <div className="absolute bottom-0 right-0 w-96 h-96 rounded-full bg-brand-cyan/5 filter blur-[120px] pointer-events-none" />
+      <div className="absolute bottom-0 right-0 w-96 h-96 rounded-full bg-amber-200/30 filter blur-[120px] pointer-events-none" />
 
       <div className="container mx-auto px-4 md:px-8">
         {/* Section Header */}
         <div className="flex flex-col mb-16 text-left max-w-3xl">
-          <span className="text-xs font-mono tracking-widest text-brand-orange uppercase mb-2 block">
-            CLASSIFIED TELEMETRY
-          </span>
-          <h2 className="text-3xl md:text-4xl font-extrabold font-display text-white">
-            GENETIC ENHANCEMENTS
+          <div className="inline-flex items-center space-x-2 text-xs font-mono tracking-widest text-amber-800 uppercase mb-2 font-bold">
+            <span className="w-1.5 h-1.5 rounded-full bg-amber-500 animate-pulse" />
+            <span>必殺技マトリクス // TECHNIQUES ARSENAL</span>
+          </div>
+          <h2 className="text-3xl md:text-5xl font-extrabold font-display text-slate-900 tracking-tight">
+            TECHNICAL ARSENAL
           </h2>
-          <p className="text-slate-400 mt-4 text-xs md:text-sm leading-relaxed">
-            A comprehensive mapping of biological node mutations cataloging core testing engines, scripting frameworks, and database validation tools.
+          <p className="text-slate-600 mt-4 text-xs md:text-sm leading-relaxed font-sans font-medium">
+            A battle-tested matrix cataloging automated test harnesses, performance testbeds, database auditing tools, and full-stack development technologies.
           </p>
-          <div className="h-1 w-20 bg-gradient-to-r from-brand-orange via-brand-cyan to-jungle-green mt-4" />
+          <div className="h-1 w-24 bg-gradient-to-r from-amber-400 via-rose-400 to-sky-400 mt-4" />
         </div>
 
         {/* Skills Cards Grid */}
@@ -113,36 +141,52 @@ export default function Skills() {
             <motion.div
               key={category.title}
               variants={cardVariants}
-              className="glass-panel p-6 rounded-3xl border border-white/5 flex flex-col justify-between hover:border-brand-orange/40 transition-all duration-300 relative group"
+              className="chamfer-corner p-6 border border-amber-200/80 bg-white/90 backdrop-blur-md flex flex-col justify-between hover:border-amber-400 hover:shadow-xl transition-all duration-300 relative group shadow-sm"
             >
-              <CornerCrosshairs />
+              <CornerCrosshairs colorClass="text-amber-500/60" />
               <div>
-                {/* Category Header */}
-                <div className="flex items-center space-x-3 mb-6 text-left">
-                  <div className="p-2.5 bg-slate-950 border border-white/5 rounded-xl group-hover:border-brand-orange/20 transition-colors">
+                {/* Anime Technique Header */}
+                <div className="flex items-start justify-between gap-3 mb-4 text-left">
+                  <div>
+                    <span className="text-[7.5px] font-mono tracking-widest text-slate-500 uppercase font-black block mb-0.5">
+                      {category.animeTag}
+                    </span>
+                    <h3 className="text-sm font-black font-display text-slate-900 leading-tight">
+                      {category.title}
+                    </h3>
+                    <p className="text-[8.5px] font-mono font-bold text-amber-800 tracking-tight mt-1">
+                      {category.techniqueName}
+                    </p>
+                  </div>
+                  <div className="p-2.5 bg-slate-50 border border-slate-200 rounded-xl group-hover:border-amber-300 group-hover:scale-110 transition-all shrink-0 shadow-xs">
                     {category.icon}
                   </div>
-                  <h3 className="text-sm font-bold font-display text-white">
-                    {category.title}
-                  </h3>
                 </div>
 
                 {/* Badges list */}
-                <div className="flex flex-wrap gap-2 text-left">
+                <div className="flex flex-wrap gap-1.5 text-left mb-4">
                   {category.skills.map((skill) => (
                     <span
                       key={skill}
-                      className="text-[10px] px-2.5 py-1.5 bg-slate-950/80 border border-white/5 text-slate-300 rounded-lg hover:border-brand-cyan/25 hover:text-white transition-all cursor-default flex items-center space-x-1.5"
+                      className="text-[9.5px] px-2.5 py-1 bg-slate-50 border border-slate-200 text-slate-700 rounded-lg hover:border-amber-300 hover:text-slate-950 hover:bg-amber-50 transition-all cursor-default flex items-center space-x-1.5 font-medium"
                     >
-                      <Check size={8} className="text-brand-cyan shrink-0" />
+                      <Check size={9} className="text-amber-600 shrink-0 font-bold" />
                       <span>{skill}</span>
                     </span>
                   ))}
                 </div>
               </div>
 
-              {/* Decorative accent footer gradient inside card */}
-              <div className={`h-1.5 w-full bg-gradient-to-r ${category.colorClass} opacity-20 rounded-full mt-6`} />
+              {/* Power Output Telemetry & Accent Footer */}
+              <div>
+                <div className="flex items-center justify-between text-[8px] font-mono mb-2 pt-3 border-t border-slate-100">
+                  <span className="text-slate-400 font-bold">OUTPUT:</span>
+                  <span className="text-amber-900 font-black px-1.5 py-0.5 bg-amber-50 rounded border border-amber-200">
+                    {category.powerOutput}
+                  </span>
+                </div>
+                <div className={`h-1.5 w-full bg-gradient-to-r ${category.colorClass} rounded-full`} />
+              </div>
             </motion.div>
           ))}
         </motion.div>

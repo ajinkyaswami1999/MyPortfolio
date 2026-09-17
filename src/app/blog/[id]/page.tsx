@@ -163,13 +163,10 @@ export default async function BlogDetailPage({ params }: PageProps) {
     "description": post.summary,
     "datePublished": new Date(post.date).toISOString().split('T')[0],
     "author": {
-      "@type": "Person",
-      "name": "Ajinkya Swami",
-      "url": "https://ajinkyaswami.in/"
+      "@id": "https://ajinkyaswami.in/#person"
     },
     "publisher": {
-      "@type": "Person",
-      "name": "Ajinkya Swami"
+      "@id": "https://ajinkyaswami.in/#person"
     },
     "mainEntityOfPage": {
       "@type": "WebPage",

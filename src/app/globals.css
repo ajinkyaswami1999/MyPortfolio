@@ -4,30 +4,49 @@
   --font-sans: var(--font-inter), system-ui, -apple-system, sans-serif;
   --font-display: var(--font-space-grotesk), system-ui, -apple-system, sans-serif;
   
-  --color-brand-cyan: #00F0FF; /* High-Alert Cyan */
-  --color-brand-blue: #00A3FF;
-  --color-brand-orange: #FF9F1C; /* InGen Amber */
-  --color-brand-amber: #FF9F1C; /* InGen Amber */
-  --color-brand-purple: #8B5CF6;
-  --color-bone-white: #E2E8F0;
-  --color-jungle-green: #00FF66; /* Secure green */
-  --color-volcanic-orange: #FF5E00;
-  --color-red-alert: #FF3B30; /* Containment Crimson */
+  /* Dragon Ball Z & One Punch Man Pastel Palette */
+  --color-ki-gold: #F59E0B; /* Super Saiyan Amber Core */
+  --color-ki-light: #FEF08A; /* Soft Butter Ki Aura */
+  --color-kame-orange: #FB923C; /* Goku Kame & Saitama Suit */
+  --color-kame-light: #FED7AA; /* Soft Coral Peach */
+  --color-capsule-cyan: #0284C7; /* Capsule Corp & Genos Cyber Blue */
+  --color-capsule-light: #BAE6FD; /* Pastel Ice Sky */
+  --color-punch-rose: #E11D48; /* Serious Punch Crimson */
+  --color-punch-light: #FECDD3; /* Soft Punch Pink */
+  --color-mint-ki: #059669; /* Shenron Emerald */
+  --color-mint-light: #A7F3D0; /* Pastel Jade Mint */
+  --color-ink-charcoal: #0F172A; /* Deep Manga Ink */
+  --color-ink-muted: #475569; /* Muted Comic Slate */
+  --color-canvas-bg: #FAF9F6; /* Luminous Warm Paper White */
+  
+  /* Compatibility Aliases */
+  --color-brand-cyan: #0284C7;
+  --color-brand-blue: #2563EB;
+  --color-brand-orange: #F59E0B;
+  --color-brand-amber: #F59E0B;
+  --color-brand-purple: #7C3AED;
+  --color-neon-crimson: #E11D48;
+  --color-neural-green: #059669;
+  --color-jungle-green: #059669;
+  --color-red-alert: #E11D48;
+  --color-bone-white: #FFFFFF;
   
   --animate-float: float 6s ease-in-out infinite;
   --animate-pulse-slow: pulseSlow 8s ease-in-out infinite;
   --animate-gradient-flow: gradientFlow 20s ease infinite;
   --animate-glow: glow 2s ease-in-out infinite alternate;
+  --animate-speedline: speedline 1.2s linear infinite;
+  --animate-ki-aura: kiPulse 3s ease-in-out infinite alternate;
 }
 
 @keyframes float {
   0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(-12px); }
+  50% { transform: translateY(-10px); }
 }
 
 @keyframes pulseSlow {
-  0%, 100% { opacity: 0.3; transform: scale(1); }
-  50% { opacity: 0.6; transform: scale(1.05); }
+  0%, 100% { opacity: 0.4; transform: scale(1); }
+  50% { opacity: 0.7; transform: scale(1.04); }
 }
 
 @keyframes gradientFlow {
@@ -37,43 +56,55 @@
 }
 
 @keyframes glow {
-  from { box-shadow: 0 0 10px rgba(197, 143, 44, 0.15), 0 0 20px rgba(56, 189, 248, 0.15); }
-  to { box-shadow: 0 0 20px rgba(197, 143, 44, 0.35), 0 0 40px rgba(56, 189, 248, 0.35); }
+  from { box-shadow: 0 0 15px rgba(254, 240, 138, 0.4), 0 0 30px rgba(186, 230, 253, 0.3); }
+  to { box-shadow: 0 0 30px rgba(254, 240, 138, 0.7), 0 0 60px rgba(254, 205, 211, 0.4); }
 }
 
-/* Base styles and custom scrollbar */
+@keyframes speedline {
+  0% { transform: translateY(-100%); opacity: 0; }
+  50% { opacity: 0.6; }
+  100% { transform: translateY(100%); opacity: 0; }
+}
+
+@keyframes kiPulse {
+  0% { filter: drop-shadow(0 0 10px rgba(245, 158, 11, 0.25)); }
+  100% { filter: drop-shadow(0 0 25px rgba(251, 146, 60, 0.45)); }
+}
+
+/* Base styles and custom scrollbar in luminous light mode */
 html {
   scroll-behavior: smooth;
-  background-color: #080A0D;
+  background-color: #FAF9F6;
 }
 
 body {
-  background-color: #080A0D;
-  color: #E2E8F0;
+  background-color: #FAF9F6;
+  color: #1E293B;
   overflow-x: hidden;
 }
 
 /* Custom scrollbar */
 ::-webkit-scrollbar {
-  width: 8px;
+  width: 7px;
 }
 ::-webkit-scrollbar-track {
-  background: #0A0A0A;
+  background: #FAF9F6;
 }
 ::-webkit-scrollbar-thumb {
-  background: #1C1C1C;
-  border-radius: 4px;
+  background: #CBD5E1;
+  border-radius: 9999px;
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: #C58F2C;
+  background: #F59E0B;
 }
 
-/* Glassmorphism Utilities */
+/* Luminous Pastel Glassmorphism & Manga Tech Panels */
 .glass-panel {
-  background: rgba(17, 17, 17, 0.75);
+  background: rgba(255, 255, 255, 0.88);
   backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
-  border: 1px solid rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(226, 232, 240, 0.9);
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.04);
 }
 
 .glass-panel-hover {
@@ -81,82 +112,79 @@ body {
 }
 
 .glass-panel-hover:hover {
-  background: rgba(22, 22, 22, 0.9);
-  border-color: rgba(197, 143, 44, 0.3);
-  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.8), 0 0 25px rgba(197, 143, 44, 0.15);
-  transform: translateY(-4px);
+  background: rgba(255, 255, 255, 0.98);
+  border-color: rgba(245, 158, 11, 0.5);
+  box-shadow: 0 14px 35px rgba(245, 158, 11, 0.12), 0 0 20px rgba(186, 230, 253, 0.2);
+  transform: translateY(-3px);
 }
 
-/* Glow card effects */
-.glow-card {
-  position: relative;
-  overflow: hidden;
+/* Manga Halftone Grid Pattern for Light Backgrounds */
+.manga-halftone {
+  background-image: radial-gradient(rgba(100, 116, 139, 0.14) 1.5px, transparent 0);
+  background-size: 18px 18px;
 }
 
-.glow-card::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  border-radius: inherit;
-  padding: 1.5px;
-  background: linear-gradient(135deg, rgba(197, 143, 44, 0.25), rgba(56, 189, 248, 0.05), rgba(249, 115, 22, 0.2));
-  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
-  -webkit-mask-composite: xor;
-  mask-composite: exclude;
-  pointer-events: none;
-  opacity: 0.8;
-  transition: opacity 0.3s ease;
+/* Capsule Corp Chamfer & Pill Panels */
+.chamfer-corner {
+  clip-path: polygon(10px 0%, 100% 0%, 100% calc(100% - 10px), calc(100% - 10px) 100%, 0% 100%, 0% 10px);
 }
 
-.glow-card:hover::after {
-  opacity: 1;
-  background: linear-gradient(135deg, #C58F2C, rgba(56, 189, 248, 0.3), #F97316);
+.capsule-pill {
+  border-radius: 9999px;
 }
 
-/* Text glow */
-.text-glow-cyan {
-  text-shadow: 0 0 12px rgba(56, 189, 248, 0.4);
+.bevel-clip {
+  clip-path: polygon(10px 0%, 100% 0%, 100% calc(100% - 10px), calc(100% - 10px) 100%, 0% 100%, 0% 10px);
 }
 
-.text-glow-orange {
-  text-shadow: 0 0 12px rgba(249, 115, 22, 0.4);
+/* Super Saiyan Ki Text Glow */
+.text-glow-ki {
+  text-shadow: 0 0 16px rgba(245, 158, 11, 0.4), 0 0 30px rgba(254, 240, 138, 0.6);
+}
+
+.text-glow-punch {
+  text-shadow: 0 0 16px rgba(225, 29, 72, 0.35), 0 0 30px rgba(254, 205, 211, 0.5);
+}
+
+.text-glow-capsule {
+  text-shadow: 0 0 16px rgba(2, 132, 199, 0.35), 0 0 30px rgba(186, 230, 253, 0.5);
 }
 
 .text-glow-amber {
-  text-shadow: 0 0 12px rgba(197, 143, 44, 0.4);
+  text-shadow: 0 0 16px rgba(245, 158, 11, 0.4);
 }
 
-.text-glow-green {
-  text-shadow: 0 0 12px rgba(34, 197, 94, 0.4);
+.text-glow-orange {
+  text-shadow: 0 0 16px rgba(251, 146, 60, 0.4);
 }
 
-.text-glow-red {
-  text-shadow: 0 0 12px rgba(239, 68, 68, 0.5);
+.text-glow-cyan {
+  text-shadow: 0 0 16px rgba(2, 132, 199, 0.4);
 }
 
-/* Aurora Circles */
-.aurora-circle-1 {
-  background: radial-gradient(circle, rgba(197, 143, 44, 0.08) 0%, transparent 70%);
+/* Ki Aurora Ambient Circles */
+.aurora-circle-ki {
+  background: radial-gradient(circle, rgba(254, 240, 138, 0.45) 0%, transparent 70%);
 }
 
-.aurora-circle-2 {
-  background: radial-gradient(circle, rgba(56, 189, 248, 0.08) 0%, transparent 70%);
+.aurora-circle-kame {
+  background: radial-gradient(circle, rgba(254, 215, 170, 0.4) 0%, transparent 70%);
 }
 
-.aurora-circle-3 {
-  background: radial-gradient(circle, rgba(249, 115, 22, 0.08) 0%, transparent 70%);
+.aurora-circle-capsule {
+  background: radial-gradient(circle, rgba(186, 230, 253, 0.4) 0%, transparent 70%);
 }
 
-.aurora-circle-jungle {
-  background: radial-gradient(circle, rgba(34, 197, 94, 0.06) 0%, transparent 75%);
+.aurora-circle-punch {
+  background: radial-gradient(circle, rgba(254, 205, 211, 0.35) 0%, transparent 70%);
 }
 
-/* Timeline vertical line */
+/* Timeline vertical Ki power rail */
 .timeline-line {
-  background: linear-gradient(to bottom, #C58F2C, #22C55E, transparent);
+  background: linear-gradient(to bottom, #F59E0B, #FB923C, #0284C7, transparent);
 }
 
-/* Hide scrollbars but keep functionality */
+/* Hide scrollbars */
 .no-scrollbar::-webkit-scrollbar {
   display: none;
 }
@@ -165,95 +193,32 @@ body {
   scrollbar-width: none;
 }
 
-/* Brushed Metal texture overlay helper */
-.metal-brushed {
-  background-image: 
-    linear-gradient(rgba(255, 255, 255, 0.02) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
-  background-size: 2px 2px;
-}
-
-/* Carbon Fiber micro texture */
-.carbon-fiber {
-  background: 
-    linear-gradient(45deg, #111111 25%, transparent 25%) -10px 0,
-    linear-gradient(-45deg, #111111 25%, transparent 25%) -10px 0,
-    linear-gradient(45deg, transparent 75%, #111111 75%),
-    linear-gradient(-45deg, transparent 75%, #111111 75%);
-  background-size: 20px 20px;
-  background-color: #0A0A0A;
-}
-
-/* Lightning strike effect */
-.lightning-flash {
-  position: fixed;
-  inset: 0;
-  background: white;
-  z-index: 100;
-  pointer-events: none;
-  opacity: 0;
-}
-
-/* Red alert warning screen flash */
-.lockdown-flash {
-  position: fixed;
-  inset: 0;
-  background: rgba(239, 68, 68, 0.05);
-  border: 4px solid rgba(239, 68, 68, 0.2);
-  z-index: 99;
-  pointer-events: none;
-  animation: pulseRed 2s infinite;
-}
-
-@keyframes pulseRed {
-  0%, 100% { opacity: 0.3; }
-  50% { opacity: 0.8; }
-}
-
-/* Screen rumble animation */
-@keyframes rumble {
-  0%, 100% { transform: translate(0, 0) rotate(0deg); }
-  20% { transform: translate(-2px, 2px) rotate(-0.5deg); }
-  40% { transform: translate(1px, -1px) rotate(0.5deg); }
-  60% { transform: translate(-1px, -2px) rotate(0deg); }
-  80% { transform: translate(2px, 1px) rotate(-0.5deg); }
-}
-
-.screen-rumble {
-  animation: rumble 0.25s linear infinite;
-}
-
+/* Soft Comic Print Raster overlay */
 .crt-scanlines {
   position: fixed;
   inset: 0;
   pointer-events: none;
   z-index: 9999;
   background: linear-gradient(
-    rgba(18, 24, 32, 0) 50%, 
-    rgba(0, 0, 0, 0.25) 50%
+    rgba(255, 255, 255, 0) 50%, 
+    rgba(148, 163, 184, 0.04) 50%
   );
   background-size: 100% 4px;
-  opacity: 0.45;
+  opacity: 0.6;
 }
 
-.crt-flicker {
-  animation: crtFlicker 0.15s infinite;
+/* Super Saiyan / Serious Mode Aura Overlay */
+.overdrive-flash {
+  position: fixed;
+  inset: 0;
+  background: radial-gradient(circle, rgba(254, 240, 138, 0.3) 0%, rgba(254, 215, 170, 0.2) 50%, transparent 80%);
+  border: 4px solid rgba(245, 158, 11, 0.5);
+  z-index: 99;
+  pointer-events: none;
+  animation: pulseKiOverdrive 1.2s infinite;
 }
 
-@keyframes crtFlicker {
-  0% { opacity: 0.98; }
-  50% { opacity: 1; }
-  100% { opacity: 0.99; }
-}
-
-.bevel-clip {
-  clip-path: polygon(8px 0%, 100% 0%, 100% calc(100% - 8px), calc(100% - 8px) 100%, 0% 100%, 0% 8px);
-}
-
-.bevel-clip-hover {
-  transition: all 0.2s ease-in-out;
-}
-
-.bevel-clip-hover:hover {
-  clip-path: polygon(12px 0%, 100% 0%, 100% calc(100% - 12px), calc(100% - 12px) 100%, 0% 100%, 0% 12px);
+@keyframes pulseKiOverdrive {
+  0%, 100% { opacity: 0.5; }
+  50% { opacity: 0.95; }
 }

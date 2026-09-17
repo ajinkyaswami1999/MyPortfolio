@@ -56,48 +56,52 @@ export default function Contact() {
   };
 
   return (
-    <section id="contact" className="py-24 relative bg-[#0A0A0A] overflow-hidden border-t border-white/5">
+    <section id="contact" className="py-24 relative bg-[#FAF9F6] overflow-hidden border-t border-amber-200/60">
       {/* Background aurora */}
-      <div className="absolute top-1/2 right-0 w-[400px] h-[400px] rounded-full bg-brand-amber/5 filter blur-[100px] pointer-events-none" />
+      <div className="absolute top-1/2 right-0 w-[400px] h-[400px] rounded-full bg-amber-200/30 filter blur-[140px] pointer-events-none" />
+      <div className="absolute bottom-0 left-0 w-[400px] h-[400px] rounded-full bg-rose-200/25 filter blur-[140px] pointer-events-none" />
 
       <div className="container mx-auto px-4 md:px-8">
         {/* Section Header */}
         <div className="flex flex-col mb-16 text-left max-w-3xl">
-          <span className="text-xs font-mono tracking-widest text-brand-amber uppercase mb-2">Satellite Link & Transmission</span>
-          <h2 className="text-3xl md:text-4xl font-extrabold font-display text-white">
-            Transmission Center
+          <div className="inline-flex items-center space-x-2 text-xs font-mono tracking-widest text-amber-800 uppercase mb-2 font-bold">
+            <span className="w-1.5 h-1.5 rounded-full bg-amber-500 animate-pulse" />
+            <span>通信リンク // HERO COMMS DISPATCH</span>
+          </div>
+          <h2 className="text-3xl md:text-5xl font-extrabold font-display text-slate-900 tracking-tight">
+            COMMS TRANSMITTER
           </h2>
-          <p className="text-slate-400 mt-3 text-xs md:text-sm leading-relaxed">
-            Establish satellite radio link with the main station command console. Packets are audited and logged for return contact.
+          <p className="text-slate-600 mt-3 text-xs md:text-sm leading-relaxed font-sans font-medium">
+            Establish a direct channel with my terminal. Inquiries, enterprise contracts, and QA consulting signals are logged for rapid return dispatch.
           </p>
-          <div className="h-1 w-20 bg-gradient-to-r from-brand-amber via-brand-orange to-jungle-green mt-4" />
+          <div className="h-1 w-24 bg-gradient-to-r from-amber-400 via-rose-400 to-sky-400 mt-4" />
         </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-stretch">
           {/* Left Block - Contact Cards */}
           <div className="lg:col-span-5 flex flex-col justify-between space-y-6">
             {/* Location card */}
-            <div className="glass-panel p-6 rounded-2xl border border-white/5 flex items-center space-x-4">
-              <div className="p-3 bg-brand-amber/10 border border-brand-amber/30 rounded-xl">
-                <MapPin className="text-brand-amber" size={18} />
+            <div className="chamfer-corner p-6 border border-slate-200/80 bg-white/85 backdrop-blur-md flex items-center space-x-4 shadow-sm">
+              <div className="p-3 bg-sky-50 border border-sky-200 rounded-xl text-sky-700">
+                <MapPin size={18} />
               </div>
-              <div>
-                <span className="text-xs text-slate-500 font-mono block">Station Coordinates</span>
-                <span className="text-xs md:text-sm font-semibold text-white">Gurugram, Haryana, India</span>
+              <div className="text-left">
+                <span className="text-xs text-slate-500 font-mono block font-bold">Station Coordinates</span>
+                <span className="text-xs md:text-sm font-bold text-slate-900">Gurugram, Haryana, India</span>
               </div>
             </div>
 
             {/* Email card */}
             <a
               href="mailto:ajinkyaswami1999@gmail.com"
-              className="glass-panel p-6 rounded-2xl border border-white/5 flex items-center space-x-4 hover:border-brand-amber/35 transition-all group"
+              className="chamfer-corner p-6 border border-slate-200/80 bg-white/85 backdrop-blur-md flex items-center space-x-4 hover:border-amber-400 transition-all group shadow-sm"
             >
-              <div className="p-3 bg-brand-cyan/10 border border-brand-cyan/30 rounded-xl">
-                <Mail className="text-brand-cyan" size={18} />
+              <div className="p-3 bg-amber-50 border border-amber-200 rounded-xl text-amber-700 group-hover:scale-110 transition-transform">
+                <Mail size={18} />
               </div>
-              <div>
-                <span className="text-xs text-slate-500 font-mono block">Email Link</span>
-                <span className="text-xs md:text-sm font-semibold text-white group-hover:text-brand-amber transition-colors">
+              <div className="text-left">
+                <span className="text-xs text-slate-500 font-mono block font-bold">Direct Email Link</span>
+                <span className="text-xs md:text-sm font-bold text-slate-900 group-hover:text-amber-800 transition-colors">
                   ajinkyaswami1999@gmail.com
                 </span>
               </div>
@@ -106,30 +110,30 @@ export default function Contact() {
             {/* Phone card */}
             <a
               href="tel:+918875043720"
-              className="glass-panel p-6 rounded-2xl border border-white/5 flex items-center space-x-4 hover:border-brand-orange/35 transition-all group"
+              className="chamfer-corner p-6 border border-slate-200/80 bg-white/85 backdrop-blur-md flex items-center space-x-4 hover:border-rose-400 transition-all group shadow-sm"
             >
-              <div className="p-3 bg-brand-orange/10 border border-brand-orange/30 rounded-xl">
-                <Phone className="text-brand-orange" size={18} />
+              <div className="p-3 bg-rose-50 border border-rose-200 rounded-xl text-rose-700 group-hover:scale-110 transition-transform">
+                <Phone size={18} />
               </div>
-              <div>
-                <span className="text-xs text-slate-500 font-mono block">Hotline Frequency</span>
-                <span className="text-xs md:text-sm font-semibold text-white group-hover:text-brand-amber transition-colors">
+              <div className="text-left">
+                <span className="text-xs text-slate-500 font-mono block font-bold">Hotline Frequency</span>
+                <span className="text-xs md:text-sm font-bold text-slate-900 group-hover:text-rose-800 transition-colors">
                   +91 8875043720
                 </span>
               </div>
             </a>
 
             {/* Connect & Download */}
-            <div className="glass-panel p-6 rounded-2xl border border-white/5 flex flex-col justify-center space-y-4">
-              <span className="text-xs font-mono text-slate-500 text-center uppercase tracking-widest block">
-                Connect Diagnostics
+            <div className="chamfer-corner p-6 border border-slate-200/80 bg-white/85 backdrop-blur-md flex flex-col justify-center space-y-4 shadow-sm">
+              <span className="text-xs font-mono text-amber-800 text-center uppercase tracking-widest block font-bold">
+                HERO FREQUENCIES // ネットワーク
               </span>
-              <div className="flex justify-center items-center space-x-4">
+              <div className="flex justify-center items-center space-x-3">
                 <a
                   href="https://github.com/ajinkyaswami1999"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="p-3 bg-slate-950 border border-white/5 rounded-xl text-slate-400 hover:text-white transition-colors"
+                  className="p-3 bg-slate-50 border border-slate-200 rounded-xl text-slate-600 hover:text-slate-950 hover:border-amber-300 hover:bg-amber-50/50 transition-colors"
                   aria-label="GitHub"
                 >
                   <GithubIcon size={16} />
@@ -138,7 +142,7 @@ export default function Contact() {
                   href="https://www.linkedin.com/in/ajinkya-swami/"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="p-3 bg-slate-950 border border-white/5 rounded-xl text-slate-400 hover:text-white transition-colors"
+                  className="p-3 bg-slate-50 border border-slate-200 rounded-xl text-slate-600 hover:text-slate-950 hover:border-amber-300 hover:bg-amber-50/50 transition-colors"
                   aria-label="LinkedIn"
                 >
                   <LinkedinIcon size={16} />
@@ -147,7 +151,7 @@ export default function Contact() {
                   href="https://www.instagram.com/ajinkyaswami.in/"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="p-3 bg-slate-950 border border-white/5 rounded-xl text-slate-400 hover:text-white transition-colors"
+                  className="p-3 bg-slate-50 border border-slate-200 rounded-xl text-slate-600 hover:text-slate-950 hover:border-amber-300 hover:bg-amber-50/50 transition-colors"
                   aria-label="Instagram"
                 >
                   <InstagramIcon size={16} />
@@ -156,7 +160,7 @@ export default function Contact() {
                   href="https://snapchat.com/t/wgcxkncY"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="p-3 bg-slate-950 border border-white/5 rounded-xl text-slate-400 hover:text-white transition-colors"
+                  className="p-3 bg-slate-50 border border-slate-200 rounded-xl text-slate-600 hover:text-slate-950 hover:border-amber-300 hover:bg-amber-50/50 transition-colors"
                   aria-label="Snapchat"
                 >
                   <SnapchatIcon size={16} />
@@ -164,10 +168,10 @@ export default function Contact() {
                 <a
                   href="/Ajinkya_swami_resume.pdf"
                   download="Ajinkya_Swami_Resume.pdf"
-                  className="flex items-center space-x-1.5 px-4 py-2.5 bg-slate-950 border border-brand-amber/30 hover:border-brand-amber text-slate-200 hover:text-white rounded-xl text-xs font-mono font-bold transition-all"
+                  className="flex items-center space-x-1.5 px-4 py-2.5 bg-amber-100/90 border border-amber-300 hover:bg-amber-200 text-amber-950 rounded-xl text-xs font-mono font-bold transition-all shadow-xs"
                   aria-label="Download Resume PDF"
                 >
-                  <Download size={13} className="text-brand-amber" />
+                  <Download size={13} className="text-amber-700" />
                   <span>Resume</span>
                 </a>
               </div>
@@ -175,11 +179,11 @@ export default function Contact() {
           </div>
 
           {/* Right Block - Contact Form */}
-          <div className="lg:col-span-7 glass-panel p-8 md:p-10 rounded-3xl border border-white/5 flex flex-col justify-center relative overflow-hidden bg-[#111111]/80">
-            {/* Top warning light */}
-            <div className="absolute top-2 right-4 flex items-center space-x-1.5 font-mono text-[8px] text-slate-500 select-none">
-              <Radio size={10} className="text-brand-amber animate-pulse" />
-              <span>FREQ: 144.800 MHz // LINK: SECURE</span>
+          <div className="lg:col-span-7 chamfer-corner p-8 md:p-10 border border-amber-200/80 flex flex-col justify-center relative overflow-hidden bg-white/85 backdrop-blur-xl shadow-lg">
+            {/* Top frequency light */}
+            <div className="absolute top-3 right-4 flex items-center space-x-1.5 font-mono text-[8px] text-slate-500 font-bold select-none">
+              <Radio size={10} className="text-amber-600 animate-pulse" />
+              <span>FREQ: 144.800 MHz // HERO ASSN DISPATCH</span>
             </div>
 
             {status === "success" ? (
@@ -188,27 +192,27 @@ export default function Contact() {
                 animate={{ opacity: 1, scale: 1 }}
                 className="text-center py-10 flex flex-col items-center justify-center space-y-4"
               >
-                <div className="p-4 bg-brand-amber/15 rounded-full border border-brand-amber/30 text-brand-amber animate-pulse">
+                <div className="p-4 bg-emerald-50 rounded-full border border-emerald-300 text-emerald-700 animate-pulse">
                   <CheckCircle2 size={40} />
                 </div>
-                <h3 className="text-lg md:text-xl font-bold font-display text-white">
-                  TRANSMISSION RECONCILED
+                <h3 className="text-lg md:text-xl font-bold font-display text-slate-900">
+                  TRANSMISSION TRANSMITTED // 送信完了
                 </h3>
-                <p className="text-slate-400 text-xs max-w-sm mx-auto leading-relaxed">
-                  Your signal has been integrated into the lab queue queue. Expect audit confirmation shortly.
+                <p className="text-slate-600 text-xs max-w-sm mx-auto leading-relaxed font-sans">
+                  Your signal has been delivered directly to the pilot terminal. Expect response dispatch shortly.
                 </p>
                 <button
                   onClick={() => setStatus("idle")}
-                  className="text-xs font-mono uppercase tracking-wider font-bold px-5 py-2.5 bg-slate-950 border border-white/5 hover:border-brand-amber text-slate-350 rounded-xl transition-all cursor-pointer"
+                  className="text-xs font-mono uppercase tracking-wider font-bold px-5 py-2.5 bg-amber-100 border border-amber-300 hover:bg-amber-200 text-amber-950 rounded-xl transition-all cursor-pointer"
                 >
-                  New Transmission
+                  New Transmission // 新規送信
                 </button>
               </motion.div>
             ) : (
               <form onSubmit={handleSubmit} className="space-y-5 text-left">
                 <div>
-                  <label htmlFor="name" className="block text-[9px] font-mono text-slate-450 uppercase tracking-widest mb-1.5">
-                    Packet Sender Name
+                  <label htmlFor="name" className="block text-[9px] font-mono text-slate-600 uppercase tracking-widest mb-1.5 font-bold">
+                    Packet Sender Name // 発信元
                   </label>
                   <input
                     type="text"
@@ -217,14 +221,14 @@ export default function Contact() {
                     value={formState.name}
                     onChange={handleChange}
                     required
-                    placeholder="E.g. Lead Recruiter"
-                    className="w-full px-4 py-3 bg-slate-950 border border-white/5 focus:border-brand-amber rounded-xl text-white outline-none transition-colors text-xs font-mono"
+                    placeholder="E.g. Technical Recruiter / Engineering Lead"
+                    className="w-full px-4 py-3 bg-slate-50/80 border border-slate-200 focus:border-amber-400 focus:bg-white rounded-xl text-slate-900 placeholder-slate-400 outline-none transition-all text-xs font-mono"
                   />
                 </div>
 
                 <div>
-                  <label htmlFor="email" className="block text-[9px] font-mono text-slate-450 uppercase tracking-widest mb-1.5">
-                    Sender Return Route (Email)
+                  <label htmlFor="email" className="block text-[9px] font-mono text-slate-600 uppercase tracking-widest mb-1.5 font-bold">
+                    Sender Return Route (Email) // 連絡先
                   </label>
                   <input
                     type="email"
@@ -234,13 +238,13 @@ export default function Contact() {
                     onChange={handleChange}
                     required
                     placeholder="name@company.com"
-                    className="w-full px-4 py-3 bg-slate-950 border border-white/5 focus:border-brand-amber rounded-xl text-white outline-none transition-colors text-xs font-mono"
+                    className="w-full px-4 py-3 bg-slate-50/80 border border-slate-200 focus:border-amber-400 focus:bg-white rounded-xl text-slate-900 placeholder-slate-400 outline-none transition-all text-xs font-mono"
                   />
                 </div>
 
                 <div>
-                  <label htmlFor="message" className="block text-[9px] font-mono text-slate-450 uppercase tracking-widest mb-1.5">
-                    Payload Message
+                  <label htmlFor="message" className="block text-[9px] font-mono text-slate-600 uppercase tracking-widest mb-1.5 font-bold">
+                    Payload Message // 本文
                   </label>
                   <textarea
                     id="message"
@@ -249,21 +253,21 @@ export default function Contact() {
                     onChange={handleChange}
                     required
                     rows={5}
-                    placeholder="Describe your project, role scope, or pipeline calibrations..."
-                    className="w-full px-4 py-3 bg-slate-950 border border-white/5 focus:border-brand-amber rounded-xl text-white outline-none transition-colors text-xs font-mono resize-none"
+                    placeholder="Describe project requirements, QA scope, or contract terms..."
+                    className="w-full px-4 py-3 bg-slate-50/80 border border-slate-200 focus:border-amber-400 focus:bg-white rounded-xl text-slate-900 placeholder-slate-400 outline-none transition-all text-xs font-mono resize-none"
                   />
                 </div>
 
                 {status === "error" && (
-                  <p className="text-[10px] text-rose-500 font-mono">
-                    [ERROR] Packet drop occurred. Re-check network link and resubmit.
+                  <p className="text-[10px] text-rose-600 font-mono font-bold">
+                    [ERROR] Transmission drop occurred. Re-check network link and resubmit.
                   </p>
                 )}
 
                 <button
                   type="submit"
                   disabled={status === "loading"}
-                  className="w-full flex items-center justify-center space-x-2 text-xs font-mono uppercase tracking-wider font-bold py-3.5 bg-gradient-to-r from-brand-amber to-brand-orange text-slate-950 rounded-xl transition-all cursor-pointer shadow-lg active:scale-95 disabled:opacity-50 disabled:cursor-not-allowed"
+                  className="chamfer-corner w-full flex items-center justify-center space-x-2 text-xs font-mono uppercase tracking-wider font-bold py-3.5 bg-gradient-to-r from-amber-400 via-rose-400 to-sky-400 text-slate-950 transition-all cursor-pointer shadow-md hover:shadow-lg active:scale-95 disabled:opacity-50 disabled:cursor-not-allowed"
                 >
                   {status === "loading" ? (
                     <span className="flex items-center space-x-2">
@@ -272,7 +276,7 @@ export default function Contact() {
                     </span>
                   ) : (
                     <>
-                      <span>Transmit Packet</span>
+                      <span>Broadcast Transmission // 送信</span>
                       <Send size={12} />
                     </>
                   )}

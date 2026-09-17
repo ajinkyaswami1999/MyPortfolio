@@ -22,12 +22,15 @@ export default function BlogPage() {
   const jsonLd = {
     "@context": "https://schema.org",
     "@type": "CollectionPage",
+    "@id": "https://ajinkyaswami.in/blog#collectionpage",
     "name": "QA Engineering Blog - Software Testing Guides",
     "description": "Technical QA blog posts covering API test scripts, SQL validations, UPI app performance benchmarks, and automated frameworks.",
     "url": "https://ajinkyaswami.in/blog",
+    "isPartOf": {
+      "@id": "https://ajinkyaswami.in/#website"
+    },
     "about": {
-      "@type": "Person",
-      "name": "Ajinkya Swami"
+      "@id": "https://ajinkyaswami.in/#person"
     },
     "hasPart": blogsData.map((post) => ({
       "@type": "Article",

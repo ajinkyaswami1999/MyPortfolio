@@ -8,11 +8,23 @@ console.log("=========================================");
 const sitemapPath = path.join(process.cwd(), 'public/sitemap.xml');
 const robotsPath = path.join(process.cwd(), 'public/robots.txt');
 
+const dynamicSitemapPath = path.join(process.cwd(), 'src/app/sitemap.ts');
+const dynamicRobotsPath = path.join(process.cwd(), 'src/app/robots.ts');
+
 let errors = 0;
 let warnings = 0;
 
 // 1. Audit Sitemap
-if (fs.existsSync(sitemapPath)) {
+if (fs.existsSync(dynamicSitemapPath)) {
+  console.log("✅ Found dynamic Next.js sitemap at src/app/sitemap.ts");
+  const sitemapContent = fs.readFileSync(dynamicSitemapPath, 'utf8');
+  if (sitemapContent.includes('https://ajinkyaswami.in') && !sitemapContent.includes('ajinkyaswami1999.github.io')) {
+    console.log(`   └─ ✅ Dynamic sitemap correctly targets https://ajinkyaswami.in custom domain.`);
+  } else {
+    console.log(`   └─ ❌ Error: Dynamic sitemap contains incorrect domain configuration.`);
+    errors++;
+  }
+} else if (fs.existsSync(sitemapPath)) {
   console.log("✅ Found public/sitemap.xml");
   const sitemapContent = fs.readFileSync(sitemapPath, 'utf8');
   const domainCount = (sitemapContent.match(/https:\/\/ajinkyaswami\.in/g) || []).length;
@@ -25,12 +37,21 @@ if (fs.existsSync(sitemapPath)) {
     errors++;
   }
 } else {
-  console.log("❌ Error: public/sitemap.xml is missing!");
+  console.log("❌ Error: sitemap (sitemap.ts or public/sitemap.xml) is missing!");
   errors++;
 }
 
 // 2. Audit robots.txt
-if (fs.existsSync(robotsPath)) {
+if (fs.existsSync(dynamicRobotsPath)) {
+  console.log("✅ Found dynamic Next.js robots at src/app/robots.ts");
+  const robotsContent = fs.readFileSync(dynamicRobotsPath, 'utf8');
+  if (robotsContent.includes('https://ajinkyaswami.in/sitemap.xml')) {
+    console.log("   └─ ✅ Dynamic robots config references correct custom sitemap.");
+  } else {
+    console.log("   └─ ❌ Error: Dynamic robots does not reference correct custom sitemap.");
+    errors++;
+  }
+} else if (fs.existsSync(robotsPath)) {
   console.log("✅ Found public/robots.txt");
   const robotsContent = fs.readFileSync(robotsPath, 'utf8');
   if (robotsContent.includes('Sitemap: https://ajinkyaswami.in/sitemap.xml')) {
@@ -40,7 +61,7 @@ if (fs.existsSync(robotsPath)) {
     errors++;
   }
 } else {
-  console.log("❌ Error: public/robots.txt is missing!");
+  console.log("❌ Error: robots (robots.ts or public/robots.txt) is missing!");
   errors++;
 }
 

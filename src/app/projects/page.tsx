@@ -22,12 +22,15 @@ export default function ProjectsPage() {
   const jsonLd = {
     "@context": "https://schema.org",
     "@type": "CollectionPage",
+    "@id": "https://ajinkyaswami.in/projects#collectionpage",
     "name": "Research Projects - Software QA Case Studies",
     "description": "Exhaustive quality engineering case studies covering payment gateways, UPI switches, Aadhaar integrations, and automation frameworks.",
     "url": "https://ajinkyaswami.in/projects",
+    "isPartOf": {
+      "@id": "https://ajinkyaswami.in/#website"
+    },
     "about": {
-      "@type": "Person",
-      "name": "Ajinkya Swami"
+      "@id": "https://ajinkyaswami.in/#person"
     },
     "hasPart": projectsData.map((project) => ({
       "@type": "CreativeWork",

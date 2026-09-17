@@ -63,14 +63,14 @@ const sideProjectsData: ProjectCardProps[] = [
   },
   {
     title: "Toolique",
-    subtitle: "Developer & Productivity Web Tools",
-    description: "A tools-based public web platform providing functional online calculators, developer formatters, QA utilities, and localized tools, optimized for extreme search engine visibility.",
+    subtitle: "Developer & Productivity Web Tools (250+ Tools)",
+    description: "A comprehensive public web platform providing 250+ functional online calculators, developer formatters, QA testing utilities, converters, and localized tools, optimized for extreme search engine visibility.",
     badge: "Side Project / SEO Venture",
-    tags: ["SEO Optimization", "Web Utilities", "Product Growth", "Developer Tools"],
+    tags: ["SEO Optimization", "250+ Web Utilities", "Product Growth", "Developer Tools"],
     metrics: [
+      { label: "Catalog Size", value: "250+ Free Tools" },
       { label: "Growth Strategy", value: "SEO Led" },
-      { label: "Availability", value: "100% Free" },
-      { label: "Audience Target", value: "Devs & Public" }
+      { label: "Availability", value: "100% Free" }
     ],
     primaryLink: { text: "Visit Website", href: "https://www.toolique.in/", isExternal: true },
     accentColor: "blue",

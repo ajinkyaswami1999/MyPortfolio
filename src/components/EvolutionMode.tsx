@@ -2,25 +2,33 @@
 
 import React, { useEffect, useState, useRef } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { ShieldAlert, AlertOctagon, Terminal } from "lucide-react";
+import { Zap, Sparkles, Shield, Cpu } from "lucide-react";
 
 export default function EvolutionMode() {
   const [isActive, setIsActive] = useState(false);
   const [showBadge, setShowBadge] = useState(false);
-  const [lightningIntensity, setLightningIntensity] = useState(0);
+  const [auraFlash, setAuraFlash] = useState(0);
   const typedBuffer = useRef("");
   const canvasRef = useRef<HTMLCanvasElement | null>(null);
 
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
       typedBuffer.current += e.key.toLowerCase();
-      
+
       if (typedBuffer.current.length > 20) {
         typedBuffer.current = typedBuffer.current.slice(-20);
       }
 
-      // Secret code triggers: raptor or evolve
-      if (typedBuffer.current.endsWith("raptor") || typedBuffer.current.endsWith("evolve")) {
+      // Secret code triggers: saiyan, saitama, overdrive, opm, dbz, kamehameha, bankai
+      if (
+        typedBuffer.current.endsWith("saiyan") ||
+        typedBuffer.current.endsWith("saitama") ||
+        typedBuffer.current.endsWith("overdrive") ||
+        typedBuffer.current.endsWith("opm") ||
+        typedBuffer.current.endsWith("dbz") ||
+        typedBuffer.current.endsWith("kamehameha") ||
+        typedBuffer.current.endsWith("bankai")
+      ) {
         setIsActive((prev) => !prev);
         setShowBadge(true);
         typedBuffer.current = "";
@@ -31,53 +39,30 @@ export default function EvolutionMode() {
     return () => window.removeEventListener("keydown", handleKeyDown);
   }, []);
 
-  // Lightning Flash Scheduler
+  // Anime Power Aura Surge Scheduler
   useEffect(() => {
     if (!isActive) return;
 
-    const triggerLightning = () => {
-      setLightningIntensity(0.9);
-      setTimeout(() => setLightningIntensity(0), 100);
+    const triggerSurge = () => {
+      setAuraFlash(0.75);
+      setTimeout(() => setAuraFlash(0), 120);
       setTimeout(() => {
-        setLightningIntensity(0.95);
-        setTimeout(() => setLightningIntensity(0), 120);
-      }, 200);
+        setAuraFlash(0.85);
+        setTimeout(() => setAuraFlash(0), 100);
+      }, 220);
     };
 
     const interval = setInterval(() => {
-      if (Math.random() > 0.45) {
-        triggerLightning();
+      if (Math.random() > 0.4) {
+        triggerSurge();
       }
-    }, 5500);
+    }, 4500);
 
-    triggerLightning();
+    triggerSurge();
     return () => clearInterval(interval);
   }, [isActive]);
 
-  // Seismic Footstep Rumbles
-  useEffect(() => {
-    if (!isActive) {
-      document.body.classList.remove("screen-rumble");
-      return;
-    }
-
-    const triggerFootstep = () => {
-      document.body.classList.add("screen-rumble");
-      setTimeout(() => {
-        document.body.classList.remove("screen-rumble");
-      }, 300);
-    };
-
-    const interval = setInterval(triggerFootstep, 4500);
-    triggerFootstep();
-
-    return () => {
-      clearInterval(interval);
-      document.body.classList.remove("screen-rumble");
-    };
-  }, [isActive]);
-
-  // Canvas Rain overlay
+  // Canvas Anime Speedlines & Electric Sparks overlay
   useEffect(() => {
     if (!isActive || !canvasRef.current) return;
     const canvas = canvasRef.current;
@@ -94,37 +79,62 @@ export default function EvolutionMode() {
     };
     window.addEventListener("resize", handleResize);
 
-    const rainCount = 140;
-    const rainDrops: { x: number; y: number; length: number; speed: number }[] = [];
+    // Speedlines emanating from outer boundary toward center
+    const lineCount = 50;
+    const lines: {
+      angle: number;
+      length: number;
+      dist: number;
+      speed: number;
+      opacity: number;
+      color: string;
+    }[] = [];
 
-    for (let i = 0; i < rainCount; i++) {
-      rainDrops.push({
-        x: Math.random() * width,
-        y: Math.random() * height - height,
-        length: Math.random() * 20 + 8,
-        speed: Math.random() * 14 + 10,
+    const colors = [
+      "rgba(245, 158, 11, ",   // Super Saiyan Butter Gold
+      "rgba(244, 63, 94, ",    // Serious Punch Rose
+      "rgba(2, 132, 199, ",    // Capsule Corp Cyan
+      "rgba(249, 115, 22, ",   // Kame Orange
+    ];
+
+    for (let i = 0; i < lineCount; i++) {
+      lines.push({
+        angle: Math.random() * Math.PI * 2,
+        dist: Math.random() * Math.max(width, height) * 0.5 + 200,
+        length: Math.random() * 80 + 40,
+        speed: Math.random() * 18 + 12,
+        opacity: Math.random() * 0.7 + 0.3,
+        color: colors[Math.floor(Math.random() * colors.length)],
       });
     }
 
+    const centerX = width / 2;
+    const centerY = height / 2;
+
     const draw = () => {
       ctx.clearRect(0, 0, width, height);
-      ctx.strokeStyle = "rgba(239, 68, 68, 0.15)"; // Red-tinted warning rain
-      ctx.lineWidth = 1.2;
-      ctx.lineCap = "round";
 
-      for (let i = 0; i < rainCount; i++) {
-        const drop = rainDrops[i];
+      for (let i = 0; i < lineCount; i++) {
+        const l = lines[i];
+
+        const x1 = centerX + Math.cos(l.angle) * l.dist;
+        const y1 = centerY + Math.sin(l.angle) * l.dist;
+        const x2 = centerX + Math.cos(l.angle) * (l.dist - l.length);
+        const y2 = centerY + Math.sin(l.angle) * (l.dist - l.length);
+
+        ctx.strokeStyle = `${l.color}${l.opacity})`;
+        ctx.lineWidth = Math.random() * 2 + 1.2;
+        ctx.lineCap = "round";
+
         ctx.beginPath();
-        ctx.moveTo(drop.x, drop.y);
-        ctx.lineTo(drop.x + 1.2, drop.y + drop.length);
+        ctx.moveTo(x1, y1);
+        ctx.lineTo(x2, y2);
         ctx.stroke();
 
-        drop.y += drop.speed;
-        drop.x += 0.8;
-
-        if (drop.y > height) {
-          drop.y = -drop.length;
-          drop.x = Math.random() * width;
+        l.dist -= l.speed;
+        if (l.dist < 80) {
+          l.dist = Math.max(width, height) * 0.55 + Math.random() * 100;
+          l.angle = Math.random() * Math.PI * 2;
         }
       }
 
@@ -141,83 +151,83 @@ export default function EvolutionMode() {
 
   return (
     <>
-      {/* Lightning Strike screen flash */}
-      <div 
-        className="lightning-flash" 
-        style={{ 
-          opacity: lightningIntensity,
-          transition: "opacity 0.04s ease-out" 
-        }} 
+      {/* Super Saiyan Ki Aura Flash */}
+      <div
+        className="fixed inset-0 pointer-events-none z-30 transition-opacity"
+        style={{
+          opacity: auraFlash,
+          background:
+            "radial-gradient(circle at center, rgba(254,240,138,0.3) 0%, rgba(254,205,211,0.2) 60%, transparent 100%)",
+          transitionDuration: "0.06s",
+        }}
       />
 
-      {/* Red Alert warning beacon border flash */}
-      {isActive && <div className="lockdown-flash" />}
+      {/* Super Saiyan Outer Perimeter Glow */}
+      {isActive && (
+        <div
+          className="fixed inset-0 pointer-events-none z-25 border-2 border-amber-400/50 shadow-[inset_0_0_80px_rgba(245,158,11,0.18)] animate-pulse"
+        />
+      )}
 
       <AnimatePresence>
         {isActive && (
           <>
-            {/* Rain canvas */}
+            {/* Speedlines canvas */}
             <canvas
               ref={canvasRef}
-              className="fixed inset-0 z-20 pointer-events-none mix-blend-screen"
+              className="fixed inset-0 z-20 pointer-events-none"
             />
 
-            {/* Emergency UI banners */}
+            {/* Overdrive Status Banner */}
             <motion.div
-              initial={{ y: -50, opacity: 0 }}
-              animate={{ y: 0, opacity: 1 }}
-              exit={{ y: -30, opacity: 0 }}
-              className="fixed top-24 left-1/2 -translate-x-1/2 z-40 bg-red-alert/90 border border-red-alert text-slate-950 font-mono text-[9px] font-bold px-4 py-2 rounded-xl flex items-center space-x-2.5 shadow-2xl shadow-red-alert/15"
+              initial={{ y: -50, opacity: 0, scale: 0.95 }}
+              animate={{ y: 0, opacity: 1, scale: 1 }}
+              exit={{ y: -30, opacity: 0, scale: 0.95 }}
+              className="fixed top-24 left-1/2 -translate-x-1/2 z-40 bg-white/95 border border-amber-300 text-amber-950 font-mono text-[10px] font-bold px-5 py-2.5 rounded-full flex items-center space-x-3 shadow-xl shadow-amber-500/15 backdrop-blur-md"
             >
-              <AlertOctagon size={12} className="animate-spin" />
-              <span>WARNING: SECURITY PROTOCOL DEVIATION // FACILITY LOCKDOWN ACTIVE</span>
-            </motion.div>
-
-            {/* Prehistoric raptor shadow stalking across the screen */}
-            <motion.div
-              initial={{ x: "110%", opacity: 0 }}
-              animate={{ 
-                x: "-110%", 
-                opacity: [0, 0.3, 0.3, 0],
-              }}
-              exit={{ opacity: 0 }}
-              transition={{ 
-                duration: 8, 
-                ease: "linear",
-                repeat: Infinity,
-                repeatDelay: 10
-              }}
-              className="fixed bottom-4 left-0 w-[420px] h-[280px] pointer-events-none z-5 select-none opacity-20 filter blur-[4.5px]"
-            >
-              <svg viewBox="0 0 512 512" className="w-full h-full fill-red-alert">
-                <path d="M496 160c-25 0-54 10-69 22-8-36-39-62-75-62h-40v-24h-16v24h-32c-35 0-64 29-64 64v16h-48c-18 0-32 14-32 32v16h-16v16h-16v32h-16v32h-16v64h16c18 0 32-14 32-32v-16h16v-16h16v-16h48v32h16c35 0 64-29 64-64v-16h40c36 0 67-26 75-62 15 12 44 22 69 22h16v-16h-16zM240 240c0-13 11-24 24-24s24 11 24 24-11 24-24 24-24-11-24-24z" />
-              </svg>
+              <Zap size={14} className="text-amber-500 animate-bounce" />
+              <span className="tracking-widest">
+                SUPER SAIYAN QA OVERDRIVE // 限界突破 [POWER LEVEL: OVER 9000]
+              </span>
+              <span className="w-2 h-2 rounded-full bg-rose-500 animate-ping" />
             </motion.div>
           </>
         )}
       </AnimatePresence>
 
-      {/* Explorer Achievement Badge */}
+      {/* Hero Association Achievement Badge Card */}
       <AnimatePresence>
         {showBadge && (
           <motion.div
             initial={{ opacity: 0, y: 50, scale: 0.9 }}
             animate={{ opacity: 1, y: 0, scale: 1 }}
             exit={{ opacity: 0, y: 20 }}
-            className="fixed bottom-6 left-6 z-50 glass-panel p-4.5 rounded-2xl border border-red-alert/30 max-w-sm flex items-start space-x-3.5 shadow-2xl shadow-red-alert/5 cursor-pointer"
+            className="fixed bottom-6 left-6 z-50 bg-white/95 p-5 rounded-2xl border border-amber-300/80 max-w-sm flex items-start space-x-3.5 shadow-2xl shadow-amber-500/15 cursor-pointer backdrop-blur-xl group hover:border-amber-400"
             onClick={() => setShowBadge(false)}
           >
-            <div className="p-2.5 bg-red-alert/10 border border-red-alert/20 rounded-xl text-red-alert">
-              <ShieldAlert size={16} />
+            <div className="p-3 bg-amber-100/80 border border-amber-300 rounded-xl text-amber-700 group-hover:scale-110 transition-transform">
+              <Sparkles size={18} className="text-amber-600" />
             </div>
             <div className="text-left">
-              <span className="text-[9px] font-mono tracking-widest text-slate-500 uppercase block">Achievement Unlocked</span>
-              <h4 className="text-xs font-bold font-display text-white mt-0.5">EXPLORER BADGE</h4>
-              <p className="text-[10px] text-slate-400 mt-1 leading-normal font-mono">
-                {isActive 
-                  ? "Raptor Protocol decrypted. Facility alarm systems, emergency rain controls, and distant heavy footsteps are online."
-                  : "Facility systems returned to standby mode. Type 'raptor' again to initiate override."}
+              <div className="flex items-center space-x-2">
+                <span className="text-[9px] font-mono tracking-widest text-amber-800 uppercase block font-bold">
+                  HERO ASSOCIATION // ヒーロー協会公認
+                </span>
+                <span className="text-[8px] font-mono px-1.5 py-0.5 rounded bg-rose-100 text-rose-800 border border-rose-300 font-bold">
+                  S-CLASS #1
+                </span>
+              </div>
+              <h4 className="text-xs font-bold font-display text-slate-900 mt-1 tracking-wider">
+                LIMIT BREAK: SUPER SAIYAN S-CLASS QA
+              </h4>
+              <p className="text-[10px] text-slate-600 mt-1 leading-relaxed font-mono">
+                {isActive
+                  ? "Power level exceeded 9000! Super Saiyan Ki aura and Serious Punch testbed speedlines are online."
+                  : "Core telemetry returned to cruising frequency. Type 'saiyan' or 'saitama' anytime to awaken."}
               </p>
+              <div className="mt-2 text-[9px] font-mono text-slate-400">
+                Click anywhere on this card to dismiss
+              </div>
             </div>
           </motion.div>
         )}

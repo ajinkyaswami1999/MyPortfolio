@@ -13,17 +13,19 @@ import CornerCrosshairs from "@/components/CornerCrosshairs";
 import DecodeText from "@/components/DecodeText";
 import { Terminal, Shield, Cpu, RefreshCw, Radio } from "lucide-react";
 
+import DragonBallsBar from "@/components/Metrics";
+
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "InGen Control Center | Ajinkya Swami",
-  description: "Central Tracking Dashboard - Isla Nublar facilities. Automated QA telemetry, paddock monitoring arrays, and personnel profiles by Ajinkya Swami.",
+  title: "Ajinkya Swami | Senior QA Engineer & Automation Architect",
+  description: "Personal portfolio of Ajinkya Swami - Senior QA Engineer & Automation Architect specializing in high-concurrency UPI payment gateways, eKYC validation, and web utilities.",
   alternates: {
     canonical: "https://ajinkyaswami.in/",
   },
   openGraph: {
-    title: "InGen Control Center | Ajinkya Swami",
-    description: "Central Tracking Dashboard - Automated QA telemetry, paddock monitoring arrays, and personnel profiles by Ajinkya Swami.",
+    title: "Ajinkya Swami | Senior QA Engineer & Automation Architect",
+    description: "Senior QA Engineer & Automation Architect specializing in high-concurrency UPI payment gateways, eKYC validation, and web utilities.",
     url: "https://ajinkyaswami.in/",
     type: "website",
   },
@@ -40,25 +42,26 @@ export default function Home() {
         "name": "Ajinkya Swami Portfolio",
         "description": "Senior Software Quality Assurance Engineer specializing in high-scale UPI platforms, eKYC compliance, API automation, and database testing.",
         "publisher": {
-          "@type": "Person",
-          "name": "Ajinkya Swami",
-          "url": "https://ajinkyaswami.in"
+          "@id": "https://ajinkyaswami.in/#person"
         }
       },
       {
-        "@type": "WebPage",
-        "@id": "https://ajinkyaswami.in/#webpage",
+        "@type": "ProfilePage",
+        "@id": "https://ajinkyaswami.in/#profilepage",
         "url": "https://ajinkyaswami.in/",
-        "name": "InGen Control Center | Ajinkya Swami",
+        "name": "Ajinkya Swami",
         "isPartOf": {
           "@id": "https://ajinkyaswami.in/#website"
+        },
+        "mainEntity": {
+          "@id": "https://ajinkyaswami.in/#person"
         }
       }
     ]
   };
 
   return (
-    <div className="flex flex-col min-h-screen bg-[#07090D] text-slate-200 selection:bg-brand-orange/20 selection:text-brand-orange overflow-hidden font-mono">
+    <div className="flex flex-col min-h-screen bg-[#FAF9F6] text-slate-800 selection:bg-amber-200 selection:text-amber-950 overflow-hidden font-mono">
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(homeJsonLd) }}
@@ -66,125 +69,136 @@ export default function Home() {
       <Navbar />
 
       <PageWrapper>
-        {/* Section 1 & 2: Arrival & Security Checkpoint */}
+        {/* Section 1 & 2: Hero Section */}
         <Hero />
+
+        {/* Section 2.5: The 7 Dragon Balls QA Artifact Bar */}
+        <DragonBallsBar />
 
         <main className="flex-1 container mx-auto px-4 md:px-8 pb-24 relative z-10">
           
-          {/* Main InGen Telemetry Dashboard Banner */}
-          <div className="border border-brand-cyan/20 bg-[#0c1017]/85 p-5 rounded-3xl mb-12 relative">
-            <CornerCrosshairs />
+          {/* Main Cyber Telemetry Dashboard Banner (Capsule Corp QA Lab) */}
+          <div className="border border-amber-200/80 bg-white/85 backdrop-blur-xl p-5 rounded-3xl mb-12 relative shadow-md">
+            <CornerCrosshairs colorClass="text-amber-500/60" />
             <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
               <div className="text-left">
-                <span className="text-[9px] tracking-widest text-brand-orange font-bold uppercase block mb-1">
-                  SYSTEM OVERRIDE CLEARED // ACTIVE TELEMETRY
+                <span className="text-[9px] tracking-widest text-amber-800 font-black uppercase block mb-1">
+                  CAPSULE CORP. LAB NO. 01 // WEST CITY QA ARCHIVE
                 </span>
-                <h2 className="text-lg font-black text-white flex items-center gap-2">
-                  <Terminal className="text-brand-cyan shrink-0 animate-pulse" size={16} />
-                  <DecodeText text="INGEN OVERWATCH CORE: FACILITY STATUS MONITOR" />
+                <h2 className="text-base sm:text-lg font-black text-slate-900 flex items-center gap-2">
+                  <Terminal className="text-amber-600 shrink-0 animate-pulse" size={16} />
+                  <DecodeText text="SCOUTER TELEMETRY: HIGH-CONCURRENCY QA RADAR" />
                 </h2>
               </div>
-              <div className="flex items-center gap-2 px-3 py-1 bg-brand-cyan/10 border border-brand-cyan/25 rounded-lg text-brand-cyan text-[10px] font-bold">
-                <span className="w-1.5 h-1.5 bg-brand-cyan rounded-full animate-ping" />
-                <span>ISLA NUBLAR NODE CO-04</span>
+              <div className="flex items-center gap-2 px-3.5 py-1.5 bg-amber-50 border border-amber-300 rounded-xl text-amber-950 text-[10px] font-bold font-mono shadow-xs">
+                <span className="w-1.5 h-1.5 bg-amber-500 rounded-full animate-ping" />
+                <span>GRAVITY STATUS: 100G STABLE</span>
               </div>
             </div>
           </div>
 
-          {/* Telemetry Status Grid */}
+          {/* Telemetry Status Grid: DBZ & OPM Training Installations */}
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-16">
             {[
               {
-                title: "PADDOCK ENCLOSURES",
-                status: "ACTIVE (10,000V)",
-                desc: "Bio-perimeter defense field calibration stable.",
-                icon: <Shield size={18} className="text-brand-orange" />,
-                borderClass: "border-brand-orange/30 bg-brand-orange/5"
+                title: "100x GRAVITY RIG // 100倍重力室",
+                status: "10,000+ TPS PEAK LOAD",
+                desc: "Capsule Corp high-stress training simulation. Payment endpoints & bank gateway switches audited under extreme traffic.",
+                icon: <Cpu size={18} className="text-amber-600" />,
+                borderClass: "border-amber-200/90 bg-amber-50/70 shadow-xs",
+                badge: "CAPSULE TRAINING 100G"
               },
               {
-                title: "AUTOMATED LEDGER SYNC",
-                status: "100% SECURE",
-                desc: "Transactional ledger states locked and synchronized.",
-                icon: <RefreshCw size={18} className="text-jungle-green animate-spin-slow" />,
-                borderClass: "border-jungle-green/30 bg-[#0d1511]"
+                title: "HYPERBOLIC TIME CHAMBER // 精神と時の部屋",
+                status: "150+ AUTOMATED SUITES",
+                desc: "1 Year of exhaustive regression paths compressed into 1 Day of CI/CD builds via Postman, Newman & JMeter.",
+                icon: <RefreshCw size={18} className="text-emerald-700 animate-spin-slow" />,
+                borderClass: "border-emerald-200/90 bg-emerald-50/70 shadow-xs",
+                badge: "TIME COMPRESSION MATRIX"
               },
               {
-                title: "CAPACITY / AVAILABILITY",
-                status: "ALL SYSTEMS OPERATIONAL",
-                desc: "Open for professional contracts and QA consultation.",
-                icon: <Cpu size={18} className="text-brand-cyan" />,
-                borderClass: "border-brand-cyan/30 bg-brand-cyan/5"
+                title: "SERIOUS PUNCH QA // 必殺マジシリーズ",
+                status: "0.00% DEFECT ESCAPE",
+                desc: "One Punch QA Protocol: Eliminating critical vulnerabilities in a single strike with boundary value analysis.",
+                icon: <Shield size={18} className="text-rose-600" />,
+                borderClass: "border-rose-200/90 bg-rose-50/70 shadow-xs",
+                badge: "ONE PUNCH PROTOCOL"
               }
             ].map((node, idx) => (
-              <div key={idx} className={`border p-5 rounded-3xl relative text-left ${node.borderClass}`}>
-                <CornerCrosshairs />
-                <div className="flex items-center gap-3 mb-2.5">
-                  <div className="p-2 bg-slate-950 border border-white/5 rounded-lg">
-                    {node.icon}
+              <div key={idx} className={`chamfer-corner border p-5 relative text-left backdrop-blur-md transition-all hover:shadow-md ${node.borderClass}`}>
+                <CornerCrosshairs colorClass="text-amber-500/60" />
+                <div className="flex items-center justify-between gap-3 mb-2.5">
+                  <div className="flex items-center gap-2.5">
+                    <div className="p-2 bg-white border border-slate-200 rounded-lg shadow-xs">
+                      {node.icon}
+                    </div>
+                    <span className="text-[9px] text-slate-500 uppercase tracking-widest font-black font-mono">
+                      {node.title}
+                    </span>
                   </div>
-                  <span className="text-[9px] text-slate-500 uppercase tracking-widest font-bold">
-                    {node.title}
+                  <span className="text-[7.5px] px-1.5 py-0.5 bg-white/80 rounded border border-slate-200 font-mono text-slate-600 font-bold hidden sm:block">
+                    {node.badge}
                   </span>
                 </div>
-                <h3 className="text-sm font-extrabold text-white mb-1">{node.status}</h3>
-                <p className="text-[10px] text-slate-450 leading-relaxed">{node.desc}</p>
+                <h3 className="text-sm font-black text-slate-900 mb-1 font-mono">{node.status}</h3>
+                <p className="text-[11px] text-slate-600 leading-relaxed font-sans font-medium">{node.desc}</p>
               </div>
             ))}
           </div>
 
-          {/* Section 3: DNA Profile (About Me) */}
+          {/* Section 3: Hero Profile (About Me) */}
           <div className="mb-16">
             <AboutMe />
           </div>
 
-          {/* Section 4: Evolution Log (Experience Timeline) */}
+          {/* Section 4: Career Sagas (Experience Timeline) */}
           <div className="mb-16">
             <Experience />
           </div>
 
-          {/* Section 5: Research Projects (Portfolio Grid) */}
+          {/* Section 5: Production Missions (Portfolio Grid) */}
           <div className="mb-16">
             <Projects />
           </div>
 
-          {/* Section 6: Genetic Enhancements (Technical Skills) */}
+          {/* Section 6: Technical Arsenal (Technical Skills) */}
           <div className="mb-16">
             <Skills />
           </div>
 
-          {/* Section 7: Transmission Center (Secure Contact Deck) */}
+          {/* Section 7: Comms Channel (Secure Contact Deck) */}
           <div className="mb-16">
             <Contact />
           </div>
 
           {/* Sector Overrides Clearance Access Navigation Buttons */}
-          <div className="max-w-4xl mx-auto border border-brand-orange/25 bg-[#0e121a]/85 p-6 md:p-8 rounded-3xl relative overflow-hidden text-center">
-            <CornerCrosshairs />
-            <div className="absolute top-0 right-0 px-3 py-1 bg-brand-orange/10 border-b border-l border-brand-orange/20 rounded-bl-xl text-[8px] uppercase tracking-widest text-brand-orange font-bold">
-              PERIMETER OVERRIDE CLEARANCE
+          <div className="max-w-4xl mx-auto border border-amber-200/80 bg-white/85 backdrop-blur-xl p-6 md:p-8 rounded-3xl relative overflow-hidden text-center shadow-lg">
+            <CornerCrosshairs colorClass="text-amber-500/60" />
+            <div className="absolute top-0 right-0 px-3 py-1 bg-amber-100 border-b border-l border-amber-300 rounded-bl-xl text-[8px] uppercase tracking-widest text-amber-950 font-bold font-mono">
+              DIRECT CLEARANCE // 認証済
             </div>
             
-            <h2 className="text-xs tracking-widest text-brand-orange uppercase font-bold mb-3 flex items-center justify-center gap-2">
-              <Radio size={14} className="animate-pulse" />
-              SYSTEM OVERRIDE CLEARANCE ACCESS
+            <h2 className="text-xs tracking-widest text-amber-800 uppercase font-bold mb-3 flex items-center justify-center gap-2 font-mono">
+              <Radio size={14} className="animate-pulse text-amber-600" />
+              COMMAND NETWORK DIRECT ACCESS // 接続
             </h2>
-            <p className="text-[10px] text-slate-450 max-w-xl mx-auto mb-8 leading-relaxed">
-              Diagnostic terminal clearances detected. Override local routing tables to inspect classified manufacturing assets, chronological personnel records, and communications channels.
+            <p className="text-[10px] text-slate-600 max-w-xl mx-auto mb-8 leading-relaxed font-mono">
+              Telemetry clearance verified. Access production mission briefs, battle-tested service chronicles, and encrypted communication channels.
             </p>
 
             <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
               {[
-                { label: "ASSET_MANIFEST", href: "/asset-manifest", desc: "Inspect Specimens (Projects)" },
-                { label: "PERSONNEL_FILE", href: "/personnel-file", desc: "Service Chronicles (Experience)" },
-                { label: "TRANSMISSION_TOWER", href: "/transmission-tower", desc: "Establish Frequencies (Contact)" }
+                { label: "MISSION_ARCHIVE", href: "/asset-manifest", desc: "Production Missions & Case Studies" },
+                { label: "PERSONNEL_DOSSIER", href: "/personnel-file", desc: "Service Sagas & Career Log" },
+                { label: "COMMS_CHANNEL", href: "/transmission-tower", desc: "Hero Dispatch Frequencies (Contact)" }
               ].map((btn, idx) => (
                 <Link
                   key={idx}
                   href={btn.href}
-                  className="bevel-clip border border-brand-orange hover:bg-brand-orange text-brand-orange hover:text-slate-950 font-bold p-4 block transition-colors duration-300 select-none cursor-pointer"
+                  className="chamfer-corner border border-amber-300 bg-amber-50/80 hover:bg-amber-400 text-amber-950 hover:text-slate-950 font-bold p-4 block transition-all duration-300 select-none cursor-pointer hover:shadow-md shadow-xs group"
                 >
-                  <span className="text-xs block tracking-widest">{btn.label}</span>
-                  <span className="text-[8px] block text-slate-450 font-normal uppercase mt-1 group-hover:text-slate-950">
+                  <span className="text-xs block tracking-widest font-mono">{btn.label}</span>
+                  <span className="text-[8px] block text-slate-500 font-normal uppercase mt-1 group-hover:text-slate-900 font-mono">
                     {btn.desc}
                   </span>
                 </Link>

@@ -27,11 +27,7 @@ export default function ContactPage() {
     "description": "Establish a secure satellite communication link with Ajinkya Swami, Senior FinTech Software QA Engineer.",
     "url": "https://ajinkyaswami.in/contact",
     "mainEntity": {
-      "@type": "Person",
-      "name": "Ajinkya Swami",
-      "jobTitle": "Software Quality Assurance Engineer",
-      "email": "ajinkyaswami1999@gmail.com",
-      "telephone": "+918875043720"
+      "@id": "https://ajinkyaswami.in/#person"
     }
   };
 

@@ -2,8 +2,8 @@ import React from "react";
 import AssetManifestClient from "./AssetManifestClient";
 
 export const metadata = {
-  title: "Asset Manifest | InGen Specimen Profiles",
-  description: "Classified engineering specimens, 3D printing manufacturing nodes, and paddock automation frameworks validation registry.",
+  title: "Mission Archive | Production Case Studies",
+  description: "Classified engineering case studies, automated test frameworks, and high-concurrency QA validation registry by Ajinkya Swami.",
   alternates: {
     canonical: "https://ajinkyaswami.in/asset-manifest",
   }
@@ -13,9 +13,16 @@ export default function AssetManifestPage() {
   const jsonLd = {
     "@context": "https://schema.org",
     "@type": "CollectionPage",
-    "name": "InGen Asset Manifest - Specimen Profiles",
-    "description": "Classified engineering specimens database tracking manufacturing, utility infrastructure, and QA paddock automation frameworks.",
-    "url": "https://ajinkyaswami.in/asset-manifest"
+    "@id": "https://ajinkyaswami.in/asset-manifest#collectionpage",
+    "name": "Mission Archive - Production Case Studies | Ajinkya Swami",
+    "description": "Technical mission archive tracking production QA test suites, fintech gateway integrations, and biometric identity frameworks.",
+    "url": "https://ajinkyaswami.in/asset-manifest",
+    "isPartOf": {
+      "@id": "https://ajinkyaswami.in/#website"
+    },
+    "author": {
+      "@id": "https://ajinkyaswami.in/#person"
+    }
   };
 
   return (

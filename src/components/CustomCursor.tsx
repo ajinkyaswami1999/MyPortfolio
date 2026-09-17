@@ -8,6 +8,8 @@ interface Particle {
   x: number;
   y: number;
   alpha: number;
+  size: number;
+  color: string;
 }
 
 export default function CustomCursor() {
@@ -19,7 +21,7 @@ export default function CustomCursor() {
   const cursorX = useMotionValue(-100);
   const cursorY = useMotionValue(-100);
 
-  const springConfig = { damping: 25, stiffness: 220, mass: 0.5 };
+  const springConfig = { damping: 28, stiffness: 260, mass: 0.4 };
   const cursorXSpring = useSpring(cursorX, springConfig);
   const cursorYSpring = useSpring(cursorY, springConfig);
 
@@ -27,20 +29,24 @@ export default function CustomCursor() {
     const mediaQuery = window.matchMedia("(any-hover: none)");
     if (mediaQuery.matches) return;
 
+    const colors = ["#F59E0B", "#F43F5E", "#0284C7", "#FB923C"];
+
     const moveCursor = (e: MouseEvent) => {
       cursorX.set(e.clientX);
       cursorY.set(e.clientY);
       if (!visible) setVisible(true);
 
-      // Add a trail particle every mouse move (throttled slightly by event loop)
-      if (Math.random() > 0.4) {
+      // Add energy spark trail
+      if (Math.random() > 0.35) {
         setParticles((prev) => [
-          ...prev.slice(-12), // Keep last 12 particles
+          ...prev.slice(-14), // Keep last 14 particles
           {
             id: particleIdRef.current++,
             x: e.clientX,
             y: e.clientY,
-            alpha: 0.6,
+            alpha: 0.75,
+            size: Math.random() * 3 + 1.5,
+            color: colors[Math.floor(Math.random() * colors.length)],
           },
         ]);
       }
@@ -50,7 +56,7 @@ export default function CustomCursor() {
     const handleMouseEnter = () => setVisible(true);
 
     const addHoverListeners = () => {
-      const targets = document.querySelectorAll("a, button, [role='button'], .cursor-pointer");
+      const targets = document.querySelectorAll("a, button, [role='button'], .cursor-pointer, input, textarea");
       targets.forEach((target) => {
         target.addEventListener("mouseenter", () => setIsHovered(true));
         target.addEventListener("mouseleave", () => setIsHovered(false));
@@ -79,10 +85,10 @@ export default function CustomCursor() {
     const interval = setInterval(() => {
       setParticles((prev) =>
         prev
-          .map((p) => ({ ...p, alpha: p.alpha - 0.08 }))
+          .map((p) => ({ ...p, alpha: p.alpha - 0.09 }))
           .filter((p) => p.alpha > 0)
       );
-    }, 60);
+    }, 50);
 
     return () => clearInterval(interval);
   }, [particles]);
@@ -91,47 +97,60 @@ export default function CustomCursor() {
 
   return (
     <>
-      {/* DNA Nucleotide Trail Particles */}
+      {/* Anime Ki Spark Trail (Pastel Gold & Cyan) */}
       {particles.map((p) => (
         <div
           key={p.id}
-          className="fixed top-0 left-0 w-1 h-1 rounded-full bg-brand-amber/80 pointer-events-none z-100 mix-blend-screen shadow-[0_0_6px_#C58F2C]"
+          className="fixed top-0 left-0 rounded-full pointer-events-none z-100"
           style={{
             transform: `translate(${p.x}px, ${p.y}px) translate(-50%, -50%)`,
+            width: `${p.size}px`,
+            height: `${p.size}px`,
+            backgroundColor: p.color,
+            boxShadow: `0 0 6px ${p.color}`,
             opacity: p.alpha,
           }}
         />
       ))}
 
-      {/* Rotating DNA Double Helix Core */}
+      {/* Scouter HUD / Targeting Crosshair Core */}
       <motion.div
-        className="fixed top-0 left-0 w-7 h-7 pointer-events-none z-100 mix-blend-screen flex items-center justify-center"
+        className="fixed top-0 left-0 w-8 h-8 pointer-events-none z-100 flex items-center justify-center"
         style={{
           x: cursorXSpring,
           y: cursorYSpring,
           translateX: "-50%",
           translateY: "-50%",
-          scale: isHovered ? 1.6 : 1,
+          scale: isHovered ? 1.5 : 1,
         }}
       >
         <motion.svg
           viewBox="0 0 100 100"
-          className="w-full h-full text-brand-amber stroke-brand-amber stroke-[6]"
-          animate={{ rotate: 360 }}
-          transition={{ duration: 4, repeat: Infinity, ease: "linear" }}
+          className="w-full h-full drop-shadow-[0_2px_6px_rgba(245,158,11,0.35)]"
+          animate={{ rotate: isHovered ? 180 : 0 }}
+          transition={{ duration: 0.4, ease: "easeOut" }}
         >
-          {/* Double Helix Coils */}
-          <path d="M 25,50 C 40,25 60,75 75,50" fill="none" />
-          <path d="M 25,50 C 40,75 60,25 75,50" fill="none" opacity="0.5" stroke="#38BDF8" />
-          
-          {/* Connecting Base Pairs */}
-          <line x1="38" y1="40" x2="38" y2="60" strokeWidth="4" />
-          <line x1="50" y1="50" x2="50" y2="50" strokeWidth="4" />
-          <line x1="62" y1="60" x2="62" y2="40" strokeWidth="4" />
-          
-          {/* Nucleotide Dots */}
-          <circle cx="25" cy="50" r="5" fill="#C58F2C" />
-          <circle cx="75" cy="50" r="5" fill="#38BDF8" />
+          {/* Outer Segmented Reticle (Capsule Ice Cyan) */}
+          <circle
+            cx="50"
+            cy="50"
+            r="40"
+            fill="none"
+            stroke="#0284C7"
+            strokeWidth="3"
+            strokeDasharray="18, 14"
+            opacity={isHovered ? "0.95" : "0.75"}
+          />
+
+          {/* Crosshair Notches (Super Saiyan Gold) */}
+          <line x1="50" y1="2" x2="50" y2="16" stroke="#F59E0B" strokeWidth="3.5" strokeLinecap="round" />
+          <line x1="50" y1="84" x2="50" y2="98" stroke="#F59E0B" strokeWidth="3.5" strokeLinecap="round" />
+          <line x1="2" y1="50" x2="16" y2="50" stroke="#0284C7" strokeWidth="3.5" strokeLinecap="round" />
+          <line x1="84" y1="50" x2="98" y2="50" stroke="#0284C7" strokeWidth="3.5" strokeLinecap="round" />
+
+          {/* Central Targeting Dot */}
+          <circle cx="50" cy="50" r="4.5" fill="#F59E0B" />
+          <circle cx="50" cy="50" r="2" fill="#0F172A" />
         </motion.svg>
       </motion.div>
     </>

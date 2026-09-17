@@ -65,29 +65,31 @@ if (fs.existsSync(dynamicRobotsPath)) {
   errors++;
 }
 
-// 3. Scan pages for SEO Metadata & Schema Integrations
+// 3. Scan pages for SEO Metadata, Schema Integrations & Canonical Tags
 const corePages = [
-  { name: 'Home Page', path: 'src/app/page.tsx' },
-  { name: 'Asset Manifest Page', path: 'src/app/asset-manifest/page.tsx' },
-  { name: 'Personnel File Page', path: 'src/app/personnel-file/page.tsx' },
-  { name: 'Transmission Tower Page', path: 'src/app/transmission-tower/page.tsx' },
-  { name: 'Blog List', path: 'src/app/blog/page.tsx' },
-  { name: 'Blog Detail Dynamic Route', path: 'src/app/blog/[id]/page.tsx' },
-  { name: 'Project Detail Dynamic Route', path: 'src/app/projects/[id]/page.tsx' }
+  { name: 'Home Page', path: 'src/app/page.tsx', expectedCanonical: 'https://ajinkyaswami.in/' },
+  { name: 'Asset Manifest Page', path: 'src/app/asset-manifest/page.tsx', expectedCanonical: 'https://ajinkyaswami.in/asset-manifest' },
+  { name: 'Personnel File Page', path: 'src/app/personnel-file/page.tsx', expectedCanonical: 'https://ajinkyaswami.in/personnel-file' },
+  { name: 'Transmission Tower Page', path: 'src/app/transmission-tower/page.tsx', expectedCanonical: 'https://ajinkyaswami.in/transmission-tower' },
+  { name: 'Creative Sector Page', path: 'src/app/creative-sector/page.tsx', expectedCanonical: 'https://ajinkyaswami.in/creative-sector' },
+  { name: 'Blog List', path: 'src/app/blog/page.tsx', expectedCanonical: 'https://ajinkyaswami.in/blog' },
+  { name: 'Blog Detail Dynamic Route', path: 'src/app/blog/[id]/page.tsx', expectedCanonical: 'https://ajinkyaswami.in/blog/${post.id}' },
+  { name: 'Project Detail Dynamic Route', path: 'src/app/projects/[id]/page.tsx', expectedCanonical: 'https://ajinkyaswami.in/projects/${project.id}' }
 ];
 
-console.log("\n🔍 Checking Static/Dynamic Page Configurations:");
+console.log("\n🔍 Checking Static/Dynamic Page Configurations & Canonical Tags:");
 corePages.forEach(page => {
   const fullPath = path.join(process.cwd(), page.path);
   if (fs.existsSync(fullPath)) {
     const content = fs.readFileSync(fullPath, 'utf8');
     const hasMetadata = content.includes('export const metadata') || content.includes('generateMetadata');
     const hasSchema = content.includes('ld+json') || content.includes('jsonLd');
+    const hasCanonical = content.includes('canonical:') && content.includes(page.expectedCanonical);
 
-    if (hasMetadata && hasSchema) {
-      console.log(`   └─ ✅ ${page.name} (${page.path}): exports Metadata & feeds JSON-LD Schema.`);
+    if (hasMetadata && hasSchema && hasCanonical) {
+      console.log(`   └─ ✅ ${page.name} (${page.path}): exports Metadata, feeds JSON-LD Schema & sets self-referencing canonical (${page.expectedCanonical}).`);
     } else {
-      console.log(`   └─ ⚠️ ${page.name} (${page.path}): missing metadata or schema elements.`);
+      console.log(`   └─ ⚠️ ${page.name} (${page.path}): missing metadata, schema or matching canonical (${page.expectedCanonical}).`);
       warnings++;
     }
   } else {

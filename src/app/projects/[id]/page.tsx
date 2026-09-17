@@ -200,7 +200,7 @@ export default async function ProjectDetailPage({ params }: PageProps) {
         <main className="flex-1 container mx-auto px-4 md:px-8 pt-32 pb-24 relative z-10">
           {/* Back Button */}
           <Link
-            href="/projects"
+            href="/asset-manifest"
             className="inline-flex items-center space-x-2 text-xs font-mono text-slate-600 hover:text-amber-700 transition-colors mb-10 group font-bold"
           >
             <ChevronLeft size={14} className="group-hover:-translate-x-0.5 transition-transform text-amber-600" />

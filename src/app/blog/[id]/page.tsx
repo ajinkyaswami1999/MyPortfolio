@@ -356,7 +356,7 @@ export default async function BlogDetailPage({ params }: PageProps) {
                   </div>
                 </div>
                 <Link
-                  href="/contact"
+                  href="/transmission-tower"
                   className="text-xs font-bold px-4 py-2.5 bg-gradient-to-r from-brand-cyan to-brand-blue text-slate-950 rounded-xl transition-all active:scale-95 shrink-0"
                 >
                   Schedule an Interview

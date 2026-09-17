@@ -16,6 +16,7 @@ const spaceGrotesk = Space_Grotesk({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://ajinkyaswami.in"),
   title: "Ajinkya Swami | FinTech Software QA Engineer",
   description: "Senior Software Quality Assurance Engineer with 4+ years of experience ensuring reliability across high-scale UPI platforms, eKYC systems, API integrations, and database architectures.",
   keywords: [
@@ -49,8 +50,16 @@ export const metadata: Metadata = {
     title: "Ajinkya Swami | FinTech Software QA Engineer",
     description: "Senior Software Quality Assurance Engineer with 4+ years of experience ensuring reliability across high-scale UPI platforms, eKYC systems, API integrations, and database architectures.",
   },
-  alternates: {
-    canonical: "https://ajinkyaswami.in/",
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-video-preview": -1,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+    },
   },
   icons: {
     icon: [

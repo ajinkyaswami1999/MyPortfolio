@@ -263,7 +263,7 @@ export default function BentoGrid() {
             </div>
 
             <Link
-              href="/voxelique"
+              href="/creative-sector"
               className="mt-6 inline-flex items-center space-x-1.5 text-xs font-bold text-brand-cyan hover:underline group"
             >
               <span>Read Business Story</span>
